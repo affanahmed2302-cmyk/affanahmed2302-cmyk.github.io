@@ -3,220 +3,209 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>AFFAN — THE SERIES</title>
-<meta name="description" content="Affan Ahmed Shariff — Founder & CEO of Primora Solutions."/>
+<title>Affan Ahmed Shariff — Portfolio</title>
+<meta name="description" content="Affan Ahmed Shariff — Founder & CEO of Primora Solutions. AI Agents, Automation, Web Development, Digital Marketing. Bangalore."/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--ink:#050508;--ink2:#0c0c12;--bone:#f4f1ea;--mist:#b8b4ab;--smoke:#6e6a64;--crimson:#e5132b;--glow:rgba(229,19,43,.4)}
+:root{--ink:#030308;--surface:#0b0b12;--bone:#f5f2eb;--mist:#a8a49c;--smoke:#5c5854;--accent:#e5132b;--accent2:#ff4d6a;--glow:rgba(229,19,43,.45);--border:rgba(255,255,255,.08)}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;background:var(--ink);color:var(--bone);overflow-x:hidden;line-height:1.55}
-a{color:inherit;text-decoration:none}.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-#opening{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .85s ease,visibility .85s}
+body{font-family:Inter,system-ui,sans-serif;background:var(--ink);color:var(--bone);overflow-x:hidden;line-height:1.55;cursor:none}
+a,button{cursor:none}a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.cur{position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:difference}
+.cur.big{width:48px;height:48px;background:rgba(255,255,255,.15);mix-blend-mode:normal;border:1px solid rgba(255,255,255,.3)}
+.cur-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.25);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s}
+.cur-ring.big{width:64px;height:64px;border-color:var(--accent)}
+#progress{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:100;box-shadow:0 0 12px var(--glow)}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,transparent 20%,rgba(3,3,8,.7) 100%)}
+#opening{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .9s ease,visibility .9s}
 #opening.done{opacity:0;visibility:hidden;pointer-events:none}
-.op-studio{font-size:.65rem;letter-spacing:.42em;color:var(--crimson);font-weight:700;opacity:0;animation:rise .7s .2s forwards}
-.op-name{font-family:Space Grotesk,sans-serif;font-size:clamp(3rem,11vw,5.8rem);font-weight:700;letter-spacing:-.04em;margin-top:16px;opacity:0;animation:rise .85s .8s forwards}
-.op-series{font-size:clamp(.9rem,2.4vw,1.2rem);letter-spacing:.48em;color:var(--mist);margin-top:10px;opacity:0;animation:rise .7s 1.4s forwards}
-.op-role{color:var(--smoke);font-size:.88rem;margin-top:16px;opacity:0;animation:rise .6s 1.95s forwards}
-.op-play{margin-top:36px;padding:14px 42px;background:var(--crimson);border:0;color:#fff;font-weight:700;font-size:.95rem;border-radius:4px;cursor:pointer;opacity:0;animation:rise .5s 2.4s forwards;box-shadow:0 0 48px var(--glow);transition:transform .2s,filter .2s}
-.op-play:hover{transform:scale(1.04);filter:brightness(1.1)}
-@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
-nav.on{background:rgba(5,5,8,.88);backdrop-filter:blur(16px);border-bottom-color:rgba(255,255,255,.06)}
-.logo{font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.05rem}.logo b{color:var(--crimson)}
-.nav-l{display:flex;gap:22px;font-size:.82rem;color:var(--mist)}.nav-l a{transition:color .25s}.nav-l a:hover{color:var(--bone)}
-.wa{background:var(--crimson);color:#fff;padding:9px 16px;border-radius:4px;font-size:.78rem;font-weight:600;transition:transform .2s,box-shadow .2s}.wa:hover{transform:translateY(-1px);box-shadow:0 8px 24px var(--glow)}
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
-.hero{min-height:100vh;max-width:1120px;margin:0 auto;padding:120px 24px 70px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative}
-.hero::before{content:'';position:absolute;right:-15%;top:10%;width:55vw;height:70vh;background:radial-gradient(closest-side,rgba(229,19,43,.28),transparent 72%);pointer-events:none;z-index:-1}
-.pill{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:16px}
-.pill i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.45}}
-h1{font-family:Space Grotesk,sans-serif;font-size:clamp(2.4rem,5.2vw,3.7rem);font-weight:700;line-height:1.05;letter-spacing:-.04em;margin-bottom:10px}
-.role{color:var(--crimson);font-size:1.05rem;font-weight:500;margin-bottom:14px}
-.intro{color:var(--mist);max-width:460px;font-size:1.05rem;margin-bottom:28px}
-.row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px}
-.btn{display:inline-flex;align-items:center;padding:13px 22px;border-radius:4px;font-weight:600;font-size:.9rem;transition:transform .25s,box-shadow .25s,background .25s}
-.btn-w{background:var(--bone);color:var(--ink)}.btn-w:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.35)}
-.btn-g{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:var(--bone)}.btn-g:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
-.stats{display:flex;gap:28px;flex-wrap:wrap}.stats strong{display:block;font-family:Space Grotesk,sans-serif;font-size:1.2rem}.stats span{font-size:.75rem;color:var(--smoke)}
-.pic{display:flex;justify-content:center}
-.pic img{width:min(290px,70vw);aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:12px;box-shadow:0 28px 80px rgba(0,0,0,.55),0 0 60px var(--glow);border:1px solid rgba(255,255,255,.1);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
-.pic img:hover{transform:scale(1.03);box-shadow:0 32px 90px rgba(0,0,0,.6),0 0 80px var(--glow)}
-section{padding:90px 0}
-.k{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--crimson);font-weight:600;margin-bottom:8px}
-.t{font-family:Space Grotesk,sans-serif;font-size:clamp(1.55rem,3vw,1.9rem);font-weight:700;margin-bottom:8px;letter-spacing:-.02em}
-.s{color:var(--smoke);margin-bottom:36px;font-size:.95rem;max-width:480px}
-.media-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:14px}
-.media-grid img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.08);display:block;min-height:200px;background:#111;transition:transform .6s cubic-bezier(.16,1,.3,1),box-shadow .6s}
-.media-grid .big img{min-height:440px}
-.media-grid img:hover{transform:scale(1.02);box-shadow:0 20px 50px rgba(0,0,0,.45)}
-.rail{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 20px;scroll-snap-type:x mandatory}
-.rail::-webkit-scrollbar{height:4px}.rail::-webkit-scrollbar-thumb{background:#2a2a32;border-radius:4px}
-.card{flex:0 0 280px;scroll-snap-align:start;background:linear-gradient(160deg,#14141c,#0a0a10);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s,box-shadow .4s}
-.card:hover{transform:translateY(-8px);border-color:rgba(229,19,43,.4);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-.card .ep{font-size:.65rem;color:var(--crimson);font-weight:700;letter-spacing:.14em;margin-bottom:10px}
-.card h3{font-family:Space Grotesk,sans-serif;font-size:1.08rem;margin-bottom:8px}.card p{font-size:.84rem;color:var(--mist);line-height:1.55}
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
-.proj{background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px;position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s,box-shadow .4s}
-.proj::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--crimson),transparent);opacity:.75;transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.16,1,.3,1)}
-.proj:hover{transform:translateY(-6px);border-color:rgba(229,19,43,.35);box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.proj:hover::before{transform:scaleX(1)}
-.proj .genre{font-size:.7rem;color:var(--crimson);font-weight:600;margin-bottom:8px}
-.proj h3{font-family:Space Grotesk,sans-serif;font-size:1.2rem;margin-bottom:8px}
-.proj .log{color:var(--mist);font-size:.9rem;margin-bottom:10px}.proj .build{font-size:.82rem;color:var(--smoke)}
-.skill-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.scat{background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px;transition:transform .4s,border-color .4s,box-shadow .4s}
-.scat:hover{transform:translateY(-5px);border-color:rgba(229,19,43,.3);box-shadow:0 14px 32px rgba(0,0,0,.3)}
-.scat h3{font-family:Space Grotesk,sans-serif;font-size:1.02rem;color:var(--crimson);margin-bottom:4px}
-.scat .sub{font-size:.75rem;color:var(--smoke);margin-bottom:14px}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chips span{font-size:.74rem;padding:6px 11px;border-radius:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06)}
-.ach{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.ach .item{background:var(--ink2);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:24px 18px;text-align:center;transition:transform .4s,border-color .4s}
-.ach .item:hover{transform:translateY(-5px);border-color:rgba(229,19,43,.3)}
-.ach .laurel{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson);font-weight:700;margin-bottom:8px}
-.ach h3{font-size:.98rem;margin-bottom:4px}.ach p{font-size:.78rem;color:var(--mist)}
-.cta{text-align:center;padding:64px 32px;background:linear-gradient(180deg,transparent,rgba(229,19,43,.12));border:1px solid rgba(255,255,255,.08);border-radius:20px}
-.cta h2{font-family:Space Grotesk,sans-serif;font-size:1.9rem;margin-bottom:10px}.cta>p{color:var(--mist);margin-bottom:28px}
-.links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.links a{padding:12px 18px;border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:.88rem;font-weight:500;transition:border-color .25s,color .25s,transform .25s,background .25s}
-.links a:hover{border-color:var(--crimson);color:var(--crimson);transform:translateY(-2px);background:rgba(229,19,43,.08)}
-.num{margin-top:20px;color:var(--smoke);font-size:.95rem}
-footer{text-align:center;padding:36px 24px;color:var(--smoke);font-size:.78rem;border-top:1px solid rgba(255,255,255,.05)}
-@media(max-width:860px){.hero{grid-template-columns:1fr;text-align:center;padding-top:110px}.pic{order:-1}.pic img{width:200px}.intro{margin-inline:auto}.row,.stats{justify-content:center}.nav-l{display:none}.media-grid{grid-template-columns:1fr}.media-grid .big img{min-height:280px}}
+.op-line{width:0;height:1px;background:var(--accent);margin-bottom:28px;animation:lineGrow 1s .3s forwards}
+@keyframes lineGrow{to{width:80px}}
+.op-studio{font-size:.65rem;letter-spacing:.45em;color:var(--accent);font-weight:700;opacity:0;animation:up .6s .5s forwards}
+.op-name{font-family:Space Grotesk,sans-serif;font-size:clamp(3.2rem,12vw,6rem);font-weight:700;letter-spacing:-.045em;margin-top:14px;opacity:0;animation:up .8s 1s forwards}
+.op-series{font-size:clamp(.85rem,2.2vw,1.1rem);letter-spacing:.5em;color:var(--mist);margin-top:8px;opacity:0;animation:up .6s 1.5s forwards}
+.op-play{margin-top:40px;padding:14px 44px;background:var(--accent);border:0;color:#fff;font-weight:700;font-size:.95rem;border-radius:4px;opacity:0;animation:up .5s 2.1s forwards;box-shadow:0 0 50px var(--glow);transition:transform .2s,filter .2s}
+.op-play:hover{transform:scale(1.05);filter:brightness(1.12)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:80;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.on{background:rgba(3,3,8,.85);backdrop-filter:blur(18px);border-bottom-color:var(--border)}
+.logo{font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.05rem}.logo span{color:var(--accent)}
+.nav-l{display:flex;gap:26px;font-size:.82rem;color:var(--mist)}.nav-l a{position:relative;transition:color .25s}.nav-l a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--accent);transition:width .3s}.nav-l a:hover{color:var(--bone)}.nav-l a:hover::after{width:100%}
+.wa{background:var(--accent);color:#fff;padding:9px 16px;border-radius:4px;font-size:.78rem;font-weight:600;transition:transform .2s,box-shadow .2s}.wa:hover{transform:translateY(-2px);box-shadow:0 10px 28px var(--glow)}
+.rv{opacity:0;transform:translateY(48px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}.rv.in{opacity:1;transform:translateY(0)}.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px 80px;max-width:1100px;margin:0 auto;position:relative}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
+.hero-tag i{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.4}}
+h1{font-family:Space Grotesk,sans-serif;font-size:clamp(2.8rem,7vw,5rem);font-weight:700;line-height:1.02;letter-spacing:-.045em;margin-bottom:12px}
+h1 em{font-style:normal;color:var(--accent)}
+.hero-role{font-size:1.15rem;color:var(--mist);margin-bottom:28px;max-width:520px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:5px;font-weight:600;font-size:.92rem;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-p{background:var(--accent);color:#fff;box-shadow:0 4px 28px var(--glow)}.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 36px var(--glow)}
+.btn-g{border:1px solid var(--border);background:rgba(255,255,255,.03)}.btn-g:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.metrics{display:flex;gap:40px;flex-wrap:wrap}.metric strong{display:block;font-family:Space Grotesk,sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700;background:linear-gradient(135deg,var(--bone),var(--mist));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.metric span{font-size:.78rem;color:var(--smoke);margin-top:2px;display:block}
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;background:rgba(11,11,18,.6)}
+.marquee{display:flex;width:max-content;animation:scroll 32s linear infinite}
+.marquee span{font-family:Space Grotesk,sans-serif;font-size:.95rem;font-weight:600;letter-spacing:.04em;padding:0 28px;color:var(--mist);white-space:nowrap}.marquee span b{color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+section{padding:100px 0}.k{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px}
+.t{font-family:Space Grotesk,sans-serif;font-size:clamp(1.7rem,3.5vw,2.2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
+.sub{color:var(--smoke);max-width:480px;margin-bottom:40px;font-size:.95rem}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.proj{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .4s,box-shadow .4s}
+.proj::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(229,19,43,.08),transparent 50%);opacity:0;transition:opacity .4s}
+.proj:hover{transform:translateY(-8px);border-color:rgba(229,19,43,.4);box-shadow:0 24px 48px rgba(0,0,0,.4)}.proj:hover::before{opacity:1}
+.proj .num{font-family:Space Grotesk,sans-serif;font-size:.75rem;color:var(--accent);font-weight:700;letter-spacing:.1em;margin-bottom:14px}
+.proj h3{font-family:Space Grotesk,sans-serif;font-size:1.25rem;margin-bottom:8px;position:relative}.proj p{color:var(--mist);font-size:.9rem;position:relative;margin-bottom:16px}
+.proj .tags{display:flex;flex-wrap:wrap;gap:6px;position:relative}.proj .tags span{font-size:.68rem;padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--smoke)}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.bento .cell{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;transition:transform .4s,border-color .4s,box-shadow .4s}
+.bento .cell:hover{transform:translateY(-5px);border-color:rgba(229,19,43,.35);box-shadow:0 16px 36px rgba(0,0,0,.3)}
+.bento .wide{grid-column:span 2}.bento h3{font-family:Space Grotesk,sans-serif;font-size:1.05rem;color:var(--accent);margin-bottom:6px}.bento p{font-size:.82rem;color:var(--mist);margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips span{font-size:.72rem;padding:5px 10px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid var(--border)}
+.impact-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.impact{text-align:center;padding:32px 16px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:transform .4s,border-color .4s}
+.impact:hover{transform:translateY(-5px);border-color:rgba(229,19,43,.35)}
+.impact .big{font-family:Space Grotesk,sans-serif;font-size:2.2rem;font-weight:700;color:var(--accent);margin-bottom:6px}.impact p{font-size:.82rem;color:var(--mist)}
+.cta{text-align:center;padding:72px 32px;background:linear-gradient(180deg,transparent,rgba(229,19,43,.1));border:1px solid var(--border);border-radius:24px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:60%;height:60%;background:radial-gradient(circle,rgba(229,19,43,.15),transparent 70%);pointer-events:none}
+.cta h2{font-family:Space Grotesk,sans-serif;font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:12px;position:relative}.cta>p{color:var(--mist);margin-bottom:32px;position:relative}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;position:relative}
+.links a{padding:13px 20px;border:1px solid var(--border);border-radius:6px;font-size:.88rem;font-weight:500;transition:border-color .25s,color .25s,transform .25s,background .25s,box-shadow .25s}
+.links a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);background:rgba(229,19,43,.08);box-shadow:0 8px 24px rgba(229,19,43,.15)}
+.num{margin-top:22px;color:var(--smoke);position:relative}
+footer{text-align:center;padding:40px 24px;color:var(--smoke);font-size:.78rem;border-top:1px solid var(--border)}
+@media(max-width:900px){.bento{grid-template-columns:1fr 1fr}.bento .wide{grid-column:span 2}.impact-row{grid-template-columns:1fr 1fr}.nav-l{display:none}body{cursor:auto}a,button{cursor:pointer}.cur,.cur-ring{display:none}}
+@media(max-width:560px){.bento{grid-template-columns:1fr}.bento .wide{grid-column:span 1}.impact-row{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<div id="progress"></div>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
 <div id="opening">
-  <div class="op-studio">A PRIMORA ORIGINAL</div>
+  <div class="op-line"></div>
+  <div class="op-studio">PRIMORA SOLUTIONS</div>
   <div class="op-name">AFFAN</div>
-  <div class="op-series">THE SERIES</div>
-  <div class="op-role">Founder &amp; CEO · Primora Solutions</div>
-  <button class="op-play" type="button" id="playBtn">▶ PLAY</button>
+  <div class="op-series">PORTFOLIO</div>
+  <button class="op-play" type="button" id="playBtn" data-cursor="big">▶ ENTER</button>
 </div>
 <nav id="nav">
-  <div class="logo">Affan<b>.</b>Series</div>
-  <div class="nav-l">
-    <a href="#frames">Frames</a>
-    <a href="#originals">Originals</a>
-    <a href="#skills">Skills</a>
-    <a href="#moments">Moments</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a class="wa" href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a>
+  <div class="logo">Affan<span>.</span></div>
+  <div class="nav-l"><a href="#work">Work</a><a href="#skills">Skills</a><a href="#impact">Impact</a><a href="#contact">Contact</a></div>
+  <a class="wa" href="https://wa.me/919480751817" target="_blank" rel="noopener" data-cursor="big">WhatsApp</a>
 </nav>
 <main>
 <section class="hero">
-  <div>
-    <div class="pill reveal"><i></i> Now streaming · Open to collaborations</div>
-    <h1 class="reveal reveal-d1">Affan Ahmed Shariff</h1>
-    <p class="role reveal reveal-d2">Founder &amp; CEO · Primora Solutions · Bangalore</p>
-    <p class="intro reveal reveal-d2">Engineering student and founder building AI agents, automation systems, full-stack websites and growth strategies. Real work — shipped.</p>
-    <div class="row reveal reveal-d3">
-      <a class="btn btn-w" href="#originals">▶ View Originals</a>
-      <a class="btn btn-g" href="#frames">See the Frames</a>
-    </div>
-    <div class="stats reveal reveal-d4">
-      <div><strong>6</strong><span>Originals</span></div>
-      <div><strong>AI</strong><span>Agents &amp; Automation</span></div>
-      <div><strong>Web</strong><span>Development</span></div>
-      <div><strong>Growth</strong><span>Marketing &amp; Social</span></div>
-    </div>
+  <div class="hero-tag rv"><i></i> Available for collaborations</div>
+  <h1 class="rv d1">I build systems<br/>that <em>work</em>.</h1>
+  <p class="hero-role rv d2">Affan Ahmed Shariff — Founder &amp; CEO of Primora Solutions. AI agents, automation, web products and growth from Bangalore.</p>
+  <div class="hero-cta rv d3">
+    <a class="btn btn-p" href="#work" data-cursor="big">View work</a>
+    <a class="btn btn-g" href="#contact" data-cursor="big">Get in touch</a>
   </div>
-  <div class="pic reveal reveal-d2"><img src="photo.jpg" alt="Affan Ahmed Shariff"/></div>
-</section>
-<section id="frames">
-  <div class="wrap">
-    <div class="k reveal">Frames</div>
-    <h2 class="t reveal reveal-d1">Beyond the résumé</h2>
-    <p class="s reveal reveal-d1">Photos and moments — so the scroll isn’t only text</p>
-    <div class="media-grid">
-      <div class="big reveal reveal-d2"><img src="casual1.jpg" alt="Affan outdoor"/></div>
-      <div class="reveal reveal-d3"><img src="casual2.jpg" alt="Affan city light"/></div>
-    </div>
+  <div class="metrics rv d4">
+    <div class="metric"><strong data-count="6">0</strong><span>Projects shipped</span></div>
+    <div class="metric"><strong>AI</strong><span>Agents &amp; automation</span></div>
+    <div class="metric"><strong>Web</strong><span>Full-stack builds</span></div>
+    <div class="metric"><strong>Growth</strong><span>Marketing systems</span></div>
   </div>
 </section>
-<section id="continue">
-  <div class="wrap">
-    <div class="k reveal">Continue Watching</div>
-    <h2 class="t reveal reveal-d1">Pick up where you left off</h2>
-    <div class="rail">
-      <div class="card reveal reveal-d1"><div class="ep">TOP PICK</div><h3>Primora Solutions</h3><p>Founded Primora — AI, automation and digital products from Bangalore.</p></div>
-      <div class="card reveal reveal-d2"><div class="ep">AI ORIGINAL</div><h3>AI Receptionist</h3><p>Agent for inquiries, support and scheduling.</p></div>
-      <div class="card reveal reveal-d3"><div class="ep">E-COMMERCE</div><h3>Polka</h3><p>Retail e-commerce for Commercial Street.</p></div>
-      <div class="card reveal reveal-d4"><div class="ep">AUTOMATION</div><h3>AI Workflows</h3><p>Pipelines connecting tools, data and agents.</p></div>
-    </div>
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>AI Agents <b>·</b></span><span>Automation <b>·</b></span><span>Web Development <b>·</b></span>
+    <span>Digital Marketing <b>·</b></span><span>Influencer <b>·</b></span><span>Primora Solutions <b>·</b></span>
+    <span>Data Analytics <b>·</b></span><span>E-commerce <b>·</b></span>
+    <span>AI Agents <b>·</b></span><span>Automation <b>·</b></span><span>Web Development <b>·</b></span>
+    <span>Digital Marketing <b>·</b></span><span>Influencer <b>·</b></span><span>Primora Solutions <b>·</b></span>
+    <span>Data Analytics <b>·</b></span><span>E-commerce <b>·</b></span>
   </div>
-</section>
-<section id="originals">
+</div>
+<section id="work">
   <div class="wrap">
-    <div class="k reveal">Originals</div>
-    <h2 class="t reveal reveal-d1">My Projects</h2>
-    <p class="s reveal reveal-d1">6 Originals · Built and shipped</p>
+    <div class="k rv">Selected work</div>
+    <h2 class="t rv d1">Projects that shipped</h2>
+    <p class="sub rv d1">Real builds — not mockups.</p>
     <div class="proj-grid">
-      <article class="proj reveal"><div class="genre">E-commerce</div><h3>Polka — Commercial Street</h3><p class="log">E-commerce for a retail brand.</p><p class="build">Catalog, clean UI, conversion focus.</p></article>
-      <article class="proj reveal reveal-d1"><div class="genre">AI · Agents</div><h3>AI Receptionist</h3><p class="log">Intelligent front-desk agent.</p><p class="build">Inquiries, support and scheduling.</p></article>
-      <article class="proj reveal reveal-d2"><div class="genre">Data</div><h3>Data Analytics System</h3><p class="log">Performance and insights.</p><p class="build">Dashboards for clear next steps.</p></article>
-      <article class="proj reveal"><div class="genre">Automation</div><h3>AI Workflow Pipelines</h3><p class="log">Tools, data and agents connected.</p><p class="build">Multi-step pipelines that cut manual work.</p></article>
-      <article class="proj reveal reveal-d1"><div class="genre">Web</div><h3>Client Websites</h3><p class="log">Sites built for speed and clarity.</p><p class="build">Multiple client deliveries.</p></article>
-      <article class="proj reveal reveal-d2"><div class="genre">Growth</div><h3>Social &amp; Influencer</h3><p class="log">Campaigns that reach people.</p><p class="build">Content and influencer systems.</p></article>
+      <article class="proj rv" data-cursor="big"><div class="num">01</div><h3>Polka — Commercial Street</h3><p>E-commerce for a retail brand. Catalog, clean UI, conversion-focused layout. End-to-end ownership.</p><div class="tags"><span>E-commerce</span><span>UI</span><span>Conversion</span></div></article>
+      <article class="proj rv d1" data-cursor="big"><div class="num">02</div><h3>AI Receptionist</h3><p>Intelligent front-desk agent for inquiries, support and scheduling — without constant human input.</p><div class="tags"><span>AI Agents</span><span>Automation</span></div></article>
+      <article class="proj rv d2" data-cursor="big"><div class="num">03</div><h3>Data Analytics System</h3><p>Interactive dashboards for performance, trends and decisions. Insights teams can act on.</p><div class="tags"><span>Analytics</span><span>Dashboards</span></div></article>
+      <article class="proj rv" data-cursor="big"><div class="num">04</div><h3>AI Workflow Pipelines</h3><p>Multi-step automation connecting tools, data and agents. Less manual work, more reliability.</p><div class="tags"><span>Workflows</span><span>Integrations</span></div></article>
+      <article class="proj rv d1" data-cursor="big"><div class="num">05</div><h3>Client Websites</h3><p>Custom sites and landing pages built for speed, clarity and results. Full ownership end to end.</p><div class="tags"><span>Full Stack</span><span>Landing pages</span></div></article>
+      <article class="proj rv d2" data-cursor="big"><div class="num">06</div><h3>Social &amp; Influencer</h3><p>Campaign and content systems oriented around real reach and growth — not vanity metrics only.</p><div class="tags"><span>Marketing</span><span>Social</span><span>Content</span></div></article>
     </div>
   </div>
 </section>
 <section id="skills">
   <div class="wrap">
-    <div class="k reveal">Skills</div>
-    <h2 class="t reveal reveal-d1">What I work with</h2>
-    <div class="skill-cats">
-      <div class="scat reveal"><h3>AI &amp; Automation</h3><div class="sub">Agents · Workflows</div><div class="chips"><span>AI Agents</span><span>AI Automation</span><span>Integrations</span><span>Workflows</span></div></div>
-      <div class="scat reveal reveal-d1"><h3>Web Development</h3><div class="sub">Frontend · Backend</div><div class="chips"><span>Full Stack</span><span>Websites</span><span>E-commerce</span><span>Landing Pages</span></div></div>
-      <div class="scat reveal reveal-d2"><h3>Growth &amp; Marketing</h3><div class="sub">Reach · Convert</div><div class="chips"><span>Digital Marketing</span><span>Influencer</span><span>Social Media</span><span>Content</span></div></div>
-      <div class="scat reveal reveal-d3"><h3>Data &amp; Product</h3><div class="sub">Insights · Leadership</div><div class="chips"><span>Data Analytics</span><span>Product Thinking</span><span>Leadership</span></div></div>
+    <div class="k rv">Capabilities</div>
+    <h2 class="t rv d1">What I work with</h2>
+    <p class="sub rv d1">Where the work actually shows up.</p>
+    <div class="bento">
+      <div class="cell wide rv" data-cursor="big"><h3>AI &amp; Automation</h3><p>Agents, workflows and integrations that handle real operational tasks.</p><div class="chips"><span>AI Agents</span><span>AI Automation</span><span>Integrations</span><span>Workflows</span><span>Pipelines</span></div></div>
+      <div class="cell wide rv d1" data-cursor="big"><h3>Web Development</h3><p>Full-stack sites, e-commerce and landing pages shipped for clients.</p><div class="chips"><span>Full Stack</span><span>E-commerce</span><span>Landing Pages</span><span>UI</span></div></div>
+      <div class="cell wide rv" data-cursor="big"><h3>Growth &amp; Marketing</h3><p>Digital, influencer and social systems built to reach and convert.</p><div class="chips"><span>Digital Marketing</span><span>Influencer</span><span>Social Media</span><span>Content</span></div></div>
+      <div class="cell wide rv d1" data-cursor="big"><h3>Data &amp; Leadership</h3><p>Analytics for decisions. Building Primora from Bangalore.</p><div class="chips"><span>Data Analytics</span><span>Product</span><span>Leadership</span><span>Primora</span></div></div>
     </div>
   </div>
 </section>
-<section id="moments">
+<section id="impact">
   <div class="wrap">
-    <div class="k reveal">Moments</div>
-    <h2 class="t reveal reveal-d1">Achievements</h2>
-    <div class="ach">
-      <div class="item reveal"><div class="laurel">Leadership</div><h3>Founder &amp; CEO</h3><p>Primora Solutions · Bangalore</p></div>
-      <div class="item reveal reveal-d1"><div class="laurel">AI Systems</div><h3>AI Agents &amp; Automation</h3><p>Agents for real tasks</p></div>
-      <div class="item reveal reveal-d2"><div class="laurel">Delivery</div><h3>Websites Shipped</h3><p>Polka and client sites</p></div>
-      <div class="item reveal reveal-d3"><div class="laurel">Growth</div><h3>Digital Growth</h3><p>Campaigns &amp; social</p></div>
+    <div class="k rv">Impact</div>
+    <h2 class="t rv d1">What stands out</h2>
+    <div class="impact-row" style="margin-top:36px">
+      <div class="impact rv"><div class="big">CEO</div><p>Founder · Primora Solutions</p></div>
+      <div class="impact rv d1"><div class="big">6+</div><p>Projects shipped</p></div>
+      <div class="impact rv d2"><div class="big">AI</div><p>Agents in production</p></div>
+      <div class="impact rv d3"><div class="big">BLR</div><p>Based in Bangalore</p></div>
     </div>
   </div>
 </section>
 <section id="contact">
   <div class="wrap">
-    <div class="cta reveal">
-      <h2>Get in touch</h2>
-      <p>Projects, collaborations or a conversation.</p>
+    <div class="cta rv">
+      <h2>Let’s build something.</h2>
+      <p>Projects, collaborations or a conversation — open to it.</p>
       <div class="links">
-        <a href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="tel:+919480751817">Call</a>
-        <a href="mailto:affanahmed2302@gmail.com">Email</a>
-        <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/919480751817" target="_blank" rel="noopener" data-cursor="big">WhatsApp</a>
+        <a href="tel:+919480751817" data-cursor="big">Call</a>
+        <a href="mailto:affanahmed2302@gmail.com" data-cursor="big">Email</a>
+        <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener" data-cursor="big">GitHub</a>
+        <a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener" data-cursor="big">LinkedIn</a>
       </div>
       <p class="num">+91 94807 51817</p>
     </div>
   </div>
 </section>
 </main>
-<footer>© 2026 Affan Ahmed Shariff · A Primora Original · THE SERIES</footer>
+<footer>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore</footer>
 <script>
 document.getElementById('playBtn').onclick=()=>document.getElementById('opening').classList.add('done');
-setTimeout(()=>document.getElementById('opening').classList.add('done'),4800);
+setTimeout(()=>document.getElementById('opening').classList.add('done'),4500);
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>40),{passive:true});
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelectorAll('.hero .reveal').forEach(el=>el.classList.add('in'));
+window.addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>30),{passive:true});
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(scrollY/h)*100:0)+'%';},{passive:true});
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('[data-cursor="big"]').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.classList.add('big');ring.classList.add('big');});el.addEventListener('mouseleave',()=>{cur.classList.remove('big');ring.classList.remove('big');});});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.hero .rv').forEach(el=>el.classList.add('in'));
+const counter=document.querySelector('[data-count]');
+if(counter){const target=+counter.dataset.count;const cio=new IntersectionObserver(([e])=>{if(!e.isIntersecting)return;let n=0;const step=()=>{n+=1;counter.textContent=n;if(n<target)requestAnimationFrame(step);};step();cio.disconnect();},{threshold:0.5});cio.observe(counter);}
+const c=document.getElementById('bg'),ctx=c.getContext('2d');
+let W,H,stars=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+function init(){stars=[];for(let i=0;i<90;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,s:Math.random()*.35+.05,a:Math.random()*.5+.15});}
+function draw(){ctx.clearRect(0,0,W,H);const scroll=window.scrollY||0;for(const s of stars){s.y+=s.s;if(s.y>H)s.y=0;const yy=(s.y+scroll*0.08)%H;ctx.beginPath();ctx.arc(s.x,yy,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${s.a})`;ctx.fill();}requestAnimationFrame(draw);}
+resize();init();draw();window.addEventListener('resize',()=>{resize();init();});
 </script>
 </body>
 </html>
