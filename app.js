@@ -1,74 +1,40 @@
 (function(){
 var XP=0,achs={};
-function addXP(n){XP+=n;document.getElementById('xpN').textContent=XP;}
+function addXP(n){XP+=n;var el=document.getElementById('xpN');if(el)el.textContent=XP;}
 function unlock(id){if(achs[id])return;achs[id]=1;var el=document.querySelector('[data-a="'+id+'"]');if(el)el.classList.add('got');toast('Achievement: '+id);addXP(15);}
 
-var loadout=[],maxSlots=6;
-function renderSlots(){
-  document.querySelectorAll('.slot').forEach(function(sl,i){
-    if(loadout[i]){sl.className='slot filled';sl.innerHTML='<span class="ic">'+loadout[i].i+'</span><span>'+loadout[i].t+'</span>';}
-    else{sl.className='slot';sl.textContent='empty';}
-  });
-  document.querySelectorAll('.tp').forEach(function(tp){
-    var name=tp.getAttribute('data-t');
-    var used=loadout.some(function(x){return x.t===name;});
-    tp.classList.toggle('used',used);tp.classList.toggle('on',used);
-  });
-  var db=document.getElementById('deployBtn');
-  if(db)db.disabled=loadout.length===0;
-  var sm=document.getElementById('stackMsg');
-  if(sm)sm.textContent=loadout.length?loadout.length+'/6 equipped':'Pick tools from the left →';
-}
+var toolLinks={"Hatch":"https://hatch-primeora.vercel.app","Aether":"/aether/","Primora":"#contact"};
 document.querySelectorAll('.tp').forEach(function(tp){
   tp.addEventListener('click',function(){
-    if(loadout.length>=maxSlots){toast('Loadout full');return;}
-    var t=tp.getAttribute('data-t'),ic=tp.getAttribute('data-i');
-    if(loadout.some(function(x){return x.t===t;}))return;
-    loadout.push({t:t,i:ic});renderSlots();
+    document.querySelectorAll('.tp').forEach(function(x){x.classList.remove('on');});
+    tp.classList.add('on');
+    document.getElementById('tdIcon').textContent=tp.getAttribute('data-i');
+    document.getElementById('tdName').textContent=tp.getAttribute('data-t');
+    document.getElementById('tdProj').textContent='Used in '+tp.getAttribute('data-proj');
+    document.getElementById('tdUse').textContent=tp.getAttribute('data-use');
+    var link=document.getElementById('tdLink');
+    var proj=tp.getAttribute('data-proj');
+    link.href=toolLinks[proj]||'#';
+    link.textContent=proj==='Primora'?'Contact →':'Open '+proj+' →';
   });
 });
-document.querySelectorAll('.slot').forEach(function(sl){
-  sl.addEventListener('click',function(){
-    var i=+sl.getAttribute('data-s');
-    if(!loadout[i])return;
-    loadout.splice(i,1);renderSlots();
-  });
-});
-var deployBtn=document.getElementById('deployBtn');
-if(deployBtn)deployBtn.onclick=function(){
-  if(!loadout.length)return;
-  document.getElementById('stackMsg').textContent='✓ Deployed: '+loadout.map(function(x){return x.t;}).join(' + ');
-  toast('Stack deployed 🚀');unlock('tools');addXP(20);
-  this.textContent='Deployed ✓';
-  var self=this;setTimeout(function(){self.textContent='Deploy stack';},2000);
-};
 
-var pipeRunning=false;
-var stageLogs=[['Scanning problem space…','Interviewing constraints…','Definition of done locked.'],['Sketching flows…','Choosing architecture…','Design freeze.'],['Scaffolding repo…','Implementing core path…','Tests green. Shipping.'],['Metrics online…','Load check passed…','Pipeline complete.']];
-function pipePrint(cls,msg){var log=document.getElementById('pipeLog');if(!log)return;var d=document.createElement('div');d.className=cls;d.textContent=msg;log.appendChild(d);log.scrollTop=log.scrollHeight;}
-function resetPipeUI(){document.querySelectorAll('.stage').forEach(function(s){s.className='stage';var f=s.querySelector('.fill');if(f)f.style.width='0';});var log=document.getElementById('pipeLog');if(log)log.innerHTML='<div class="info">$ pipeline idle — press Run</div>';pipeRunning=false;}
-var resetPipe=document.getElementById('resetPipe');if(resetPipe)resetPipe.onclick=resetPipeUI;
-var runPipe=document.getElementById('runPipe');
-if(runPipe)runPipe.onclick=function(){
-  if(pipeRunning)return;pipeRunning=true;
-  document.getElementById('pipeLog').innerHTML='';
-  document.querySelectorAll('.stage').forEach(function(s){s.className='stage';s.querySelector('.fill').style.width='0';});
-  pipePrint('run','$ pipeline start');
-  var stages=document.querySelectorAll('.stage'),si=0;
-  function nextStage(){
-    if(si>=stages.length){pipePrint('ok','✓ all stages green — shipped');toast('Pipeline complete');unlock('pipe');addXP(25);pipeRunning=false;return;}
-    var st=stages[si];st.classList.add('run');
-    pipePrint('run','→ stage 0'+(si+1)+' '+st.querySelector('h3').textContent);
-    var fill=st.querySelector('.fill'),logs=stageLogs[si],li=0,prog=0;
-    var tick=setInterval(function(){
-      prog+=8;fill.style.width=Math.min(prog,100)+'%';
-      if(prog>=30&&li===0){pipePrint('info','  '+logs[0]);li++;}
-      if(prog>=60&&li===1){pipePrint('info','  '+logs[1]);li++;}
-      if(prog>=100){clearInterval(tick);st.classList.remove('run');st.classList.add('done');pipePrint('ok','  '+logs[2]);si++;setTimeout(nextStage,280);}
-    },90);
-  }
-  nextStage();
-};
+var stepData=[
+  {t:'Discover',b:'Before code: what problem is real? For Hatch it was campus teams stuck without one place to find teammates and ship together. For Aether it was “I want real systems depth, not another CRUD app.”',e:'Hatch started from a clear campus pain, not a random feature list.'},
+  {t:'Design',b:'Shape the system before typing. Hatch: teams, clubs, collab flows. Aether: nodes, leader election, majority commit, failure modes.',e:'Aether’s design is Raft-first: consensus is the product, not a side feature.'},
+  {t:'Build',b:'Ship working software. Hatch is Next.js + Supabase + TypeScript on Vercel. Aether is Go + Raft + Docker with a live simulator.',e:'Both projects have live demos you can open above, not just GitHub repos.'},
+  {t:'Ship',b:'Get it in front of people. Hatch is live for campus use. Aether’s demo lets you poke consensus. Then harden what works.',e:'Live links on this site are the proof, not screenshots in a deck.'}
+];
+document.querySelectorAll('.step').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.step').forEach(function(x){x.classList.remove('on');});
+    btn.classList.add('on');
+    var d=stepData[+btn.getAttribute('data-s')];
+    document.getElementById('spTitle').textContent=d.t;
+    document.getElementById('spBody').textContent=d.b;
+    document.getElementById('spEx').innerHTML='<b>Example</b> — '+d.e;
+  });
+});
 
 var intro=document.getElementById('intro');
 function dismiss(){if(intro)intro.classList.add('gone');}
