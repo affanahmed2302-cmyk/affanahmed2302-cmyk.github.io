@@ -1,1 +1,187 @@
-PLACEHOLDER_WILL_FIX
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Affan Ahmed Shariff — Portfolio</title>
+<meta name="description" content="Affan Ahmed Shariff — Founder & CEO Primora Solutions. Hatch · Aether. Bangalore."/>
+<meta name="theme-color" content="#05050a"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#05050a;--card:#0c0c14;--t:#f5f1ea;--m:#a8a49c;--d:#6b6760;--a:#ff2d4a;--a2:#ff6b7a;--g:rgba(255,45,74,.45);--b:rgba(255,255,255,.08);--safe-top:env(safe-area-inset-top,0px);--safe-bot:env(safe-area-inset-bottom,0px);--cloud:rgba(255,45,74,.55)}
+html[data-theme="ocean"]{--a:#3b82f6;--a2:#60a5fa;--g:rgba(59,130,246,.45);--cloud:rgba(59,130,246,.55)}
+html[data-theme="forest"]{--a:#22c55e;--a2:#4ade80;--g:rgba(34,197,94,.45);--cloud:rgba(34,197,94,.55)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.55;overflow-x:hidden;min-height:100dvh}
+a,button{color:inherit;text-decoration:none;border:0;background:0;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,var(--a),#fff);box-shadow:0 0 12px var(--g);transition:background .4s}
+#clouds{position:fixed;inset:0;z-index:180;pointer-events:none;opacity:0;visibility:hidden}#clouds.on{opacity:1;visibility:visible}
+.cloud{position:absolute;border-radius:50%;filter:blur(40px);background:var(--cloud);opacity:0;transform:scale(.4)}
+#clouds.on .cloud{animation:cloudSweep 1.4s ease-in-out forwards}
+.cloud:nth-child(1){width:70vw;height:50vw;top:-10%;left:-20%;animation-delay:0s!important}
+.cloud:nth-child(2){width:60vw;height:45vw;top:20%;right:-25%;animation-delay:.12s!important}
+.cloud:nth-child(3){width:80vw;height:55vw;bottom:10%;left:10%;animation-delay:.2s!important}
+.cloud:nth-child(4){width:50vw;height:40vw;top:40%;left:30%;animation-delay:.08s!important}
+.cloud:nth-child(5){width:90vw;height:60vw;bottom:-15%;right:-10%;animation-delay:.25s!important}
+@keyframes cloudSweep{0%{opacity:0;transform:scale(.3) translateY(40px)}35%{opacity:.85;transform:scale(1.1) translateY(0)}70%{opacity:.7;transform:scale(1.25)}100%{opacity:0;transform:scale(1.5) translateY(-20px)}}
+#themeFlash{position:fixed;inset:0;z-index:179;pointer-events:none;background:var(--a);opacity:0;transition:opacity .15s}#themeFlash.on{opacity:.12}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;opacity:.3;animation:bf 14s ease-in-out infinite;transition:background .6s}
+.blob1{width:min(380px,80vw);height:min(380px,80vw);background:var(--a);top:-8%;left:-15%}
+.blob2{width:min(300px,70vw);height:min(300px,70vw);background:#3b82f6;bottom:5%;right:-12%;animation-delay:-5s;opacity:.22}
+@keyframes bf{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-25px)}}
+#intro{position:fixed;inset:0;z-index:200;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;transition:opacity .7s,visibility .7s}
+#intro.gone{opacity:0;visibility:hidden;pointer-events:none}
+.intro-line{overflow:hidden;width:100%}
+.intro-line span{display:block;font-family:Syne,sans-serif;font-weight:800;font-size:clamp(2.4rem,14vw,4.5rem);letter-spacing:-.04em;line-height:1.05;transform:translateY(110%);animation:up .85s cubic-bezier(.16,1,.3,1) forwards}
+.intro-line:nth-child(1) span{color:var(--a);animation-delay:.25s}
+.intro-line:nth-child(2) span{animation-delay:.45s;font-size:clamp(1.6rem,9vw,3.2rem);color:var(--t)}
+.intro-sub{margin-top:18px;font-size:.7rem;letter-spacing:.35em;color:var(--m);opacity:0;animation:fade .5s .85s forwards}
+.intro-btn{margin-top:32px;padding:14px 36px;background:var(--a);color:#fff;font-weight:700;font-size:.95rem;border-radius:8px;opacity:0;animation:fade .4s 1.1s forwards;box-shadow:0 0 40px var(--g)}
+@keyframes up{to{transform:translateY(0)}}@keyframes fade{to{opacity:1}}
+nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:calc(10px + var(--safe-top)) 16px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;transition:background .3s;border-bottom:1px solid transparent}
+nav.on{background:rgba(5,5,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--b)}
+.logo{font-family:Syne,sans-serif;font-weight:800;font-size:1.1rem}.logo em{color:var(--a);font-style:normal;transition:color .4s}
+.nav-r{display:flex;align-items:center;gap:6px}
+.theme-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--b);display:grid;place-items:center;transition:transform .3s}.theme-btn:active{transform:scale(.9)}.theme-btn .dot{width:12px;height:12px;border-radius:50%;background:var(--a);box-shadow:0 0 10px var(--g);transition:background .4s,transform .4s}.theme-btn.spin .dot{transform:scale(1.6)}
+.pill{padding:8px 12px;border-radius:999px;font-size:.72rem;font-weight:600;border:1px solid var(--b);white-space:nowrap}.pill.red{background:var(--a);border-color:var(--a);color:#fff;box-shadow:0 4px 20px var(--g)}
+main{position:relative;z-index:2}
+.hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:calc(88px + var(--safe-top)) 20px 48px;max-width:1100px;margin:0 auto}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--a);font-weight:600;margin-bottom:16px}.tag i{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.4}}
+h1{font-family:Syne,sans-serif;font-weight:800;font-size:clamp(2rem,8.5vw,4.2rem);line-height:1.08;letter-spacing:-.035em;margin-bottom:14px}h1 .accent{color:var(--a);transition:color .4s}.cycle{display:inline-block;min-width:3.2ch}
+.lead{font-size:clamp(.95rem,3.5vw,1.15rem);color:var(--m);max-width:520px;margin-bottom:8px}.lead strong{color:var(--t)}.meta{font-size:.85rem;color:var(--d);margin-bottom:6px}.clock{font-size:.72rem;color:var(--d);margin-bottom:24px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:8px;font-weight:600;font-size:.9rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s,background .3s}
+.btn-p{background:var(--a);color:#fff;box-shadow:0 4px 28px var(--g)}.btn-p:active{transform:scale(.97)}
+.btn-g{border:1px solid var(--b);background:rgba(255,255,255,.03)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}@media(min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat strong{display:block;font-family:Syne,sans-serif;font-size:clamp(1.1rem,4vw,1.8rem);font-weight:800}.stat span{font-size:.65rem;color:var(--d);display:block;margin-top:2px}
+.mq-wrap{overflow:hidden;border-block:1px solid var(--b);padding:14px 0;background:rgba(12,12,20,.8);position:relative;z-index:2}
+.mq{display:flex;width:max-content;animation:mq 32s linear infinite}.mq span{font-family:Syne,sans-serif;font-size:.9rem;font-weight:700;padding:0 22px;color:var(--m);white-space:nowrap}.mq span b{color:var(--a)}@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:72px 0;position:relative;z-index:2}
+.k{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--a);font-weight:600;margin-bottom:10px}
+.t{font-family:Syne,sans-serif;font-size:clamp(1.5rem,5.5vw,2.3rem);font-weight:800;margin-bottom:10px}.sub{color:var(--d);font-size:.9rem;margin-bottom:28px}
+.personal{display:flex;flex-direction:column;gap:16px}
+.p-card{background:linear-gradient(160deg,var(--card),#10101a);border:1px solid color-mix(in srgb,var(--a) 40%,transparent);border-radius:20px;padding:24px;position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.p-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent)}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.p-card .badge-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.p-card .num{font-family:Syne,sans-serif;font-size:.68rem;color:var(--a);font-weight:700;letter-spacing:.1em}
+.live-badge{font-size:.58rem;padding:3px 9px;border-radius:4px;background:color-mix(in srgb,var(--a) 20%,transparent);color:var(--a);font-weight:700}
+.pers-badge{font-size:.58rem;padding:3px 9px;border-radius:4px;background:rgba(255,255,255,.06);color:var(--m);font-weight:600}
+.p-card h3{font-family:Syne,sans-serif;font-size:clamp(1.2rem,4vw,1.5rem);font-weight:700;margin-bottom:10px}
+.p-card .desc{font-size:.9rem;color:var(--m);margin-bottom:14px}.p-card .case{display:grid;gap:10px;margin-bottom:16px}.p-card .case div{font-size:.84rem}
+.lbl{color:var(--d);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;font-weight:600;display:block;margin-bottom:2px}.val{color:var(--m)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tags span{font-size:.68rem;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--b);color:var(--d)}
+.links{display:flex;flex-wrap:wrap;gap:8px}.links a{font-size:.8rem;font-weight:600;padding:11px 16px;border-radius:8px;border:1px solid var(--b)}
+.links a.live{background:var(--a);border-color:var(--a);color:#fff;box-shadow:0 4px 20px var(--g)}
+.radar{display:grid;gap:12px}.radar-row{display:grid;grid-template-columns:100px 1fr 36px;align-items:center;gap:10px}
+.radar-row .lbl2{font-size:.78rem;color:var(--m)}.radar-bar{height:7px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden}
+.radar-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a),var(--a2));box-shadow:0 0 10px var(--g);transition:width 1.2s cubic-bezier(.16,1,.3,1),background .4s}
+.radar-row .pct{font-size:.72rem;color:var(--d);text-align:right}
+.tools{display:flex;flex-wrap:wrap;gap:8px}.tools span{padding:10px 14px;border-radius:8px;border:1px solid var(--b);background:var(--card);font-size:.8rem;transition:all .25s}.tools span:hover{border-color:var(--a);color:var(--a);transform:translateY(-3px)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(min-width:700px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:18px;transition:transform .3s}.step:hover{transform:translateY(-4px)}.step .n{font-family:Syne,sans-serif;font-size:1.5rem;font-weight:800;color:var(--a)}.step p{font-size:.78rem;color:var(--m)}
+.timeline{position:relative;padding-left:24px}.timeline::before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--a),transparent)}
+.tl{position:relative;padding-bottom:28px}.tl::before{content:'';position:absolute;left:-23px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--a);box-shadow:0 0 10px var(--g);border:2px solid var(--bg)}
+.tl .y{font-size:.65rem;color:var(--a);font-weight:700;letter-spacing:.1em;margin-bottom:4px}.tl h3{font-family:Syne,sans-serif;font-size:1.05rem}.tl p{font-size:.85rem;color:var(--m)}
+.cta{text-align:center;padding:40px 20px;border:1px solid var(--b);border-radius:20px;background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--a) 14%,transparent),transparent 55%)}
+.cta h2{font-family:Syne,sans-serif;font-size:clamp(1.5rem,5vw,2.2rem);font-weight:800;margin-bottom:10px}.cta p{color:var(--m)}.cta .reply{font-size:.75rem;color:var(--d);margin:8px 0 22px}
+.cta-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.cta-links a{padding:12px 16px;border:1px solid var(--b);border-radius:8px;font-size:.82rem;font-weight:500}
+.phone{margin-top:18px;color:var(--d);font-size:.85rem}
+.toast{position:fixed;bottom:calc(20px + var(--safe-bot));left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--b);padding:11px 18px;border-radius:12px;font-size:.82rem;z-index:150;opacity:0;transition:all .35s;pointer-events:none;max-width:90vw}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.dots{position:fixed;right:10px;top:50%;transform:translateY(-50%);z-index:60;display:none;flex-direction:column;gap:10px}@media(min-width:900px){.dots{display:flex}}
+.dots a{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .3s}.dots a.active{background:var(--a);transform:scale(1.4);box-shadow:0 0 10px var(--g)}
+#cmd{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding-top:12vh}#cmd.open{display:flex}
+.cmd-box{width:min(480px,92vw);background:var(--card);border:1px solid var(--b);border-radius:14px;overflow:hidden}.cmd-box input{width:100%;padding:16px 18px;background:0;border:0;border-bottom:1px solid var(--b);color:var(--t);font-size:1rem;outline:0;font-family:inherit}
+.cmd-list button{display:block;width:100%;text-align:left;padding:12px 18px;color:var(--m);font-size:.9rem}.cmd-list button:hover{background:color-mix(in srgb,var(--a) 12%,transparent);color:var(--t)}
+.cmd-hint{padding:8px 18px;font-size:.68rem;color:var(--d);border-top:1px solid var(--b)}
+#topBtn{position:fixed;bottom:calc(20px + var(--safe-bot));right:16px;width:44px;height:44px;border-radius:50%;background:var(--a);color:#fff;font-size:1.1rem;z-index:70;opacity:0;pointer-events:none;box-shadow:0 6px 24px var(--g);transition:opacity .3s,background .4s}#topBtn.show{opacity:1;pointer-events:auto}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:rip .55s ease-out;pointer-events:none}@keyframes rip{to{transform:scale(4);opacity:0}}
+footer{text-align:center;padding:32px 20px calc(24px + var(--safe-bot));color:var(--d);font-size:.7rem;border-top:1px solid var(--b);position:relative;z-index:2}
+@media(min-width:900px){body{cursor:none}a,button{cursor:none}.cur{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--a);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}.cur.big{width:44px;height:44px;background:rgba(255,255,255,.1);mix-blend-mode:normal;border:1px solid rgba(255,255,255,.3)}}
+@media(max-width:899px){.cur{display:none!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div><div id="themeFlash"></div>
+<div id="clouds" aria-hidden="true"><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div></div>
+<canvas id="bg"></canvas><div class="blob blob1"></div><div class="blob blob2"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="toast" id="toast">Copied</div>
+<button type="button" id="topBtn" aria-label="Back to top">↑</button>
+<div class="dots"><a href="#top" data-s="top"></a><a href="#personal" data-s="personal"></a><a href="#skills" data-s="skills"></a><a href="#journey" data-s="journey"></a><a href="#contact" data-s="contact"></a></div>
+<div id="cmd"><div class="cmd-box"><input id="cmdIn" placeholder="Jump to… Hatch, Aether, theme" autocomplete="off"/><div class="cmd-list" id="cmdList"><button type="button" data-go="#personal">Personal projects</button><button type="button" data-go="https://hatch-primeora.vercel.app">Hatch — Live</button><button type="button" data-go="/aether/">Aether — Live</button><button type="button" data-go="theme">Cycle theme (clouds)</button><button type="button" data-go="#contact">Contact</button><button type="button" data-go="copy">Copy email</button></div><div class="cmd-hint">⌘K / Ctrl+K · Esc</div></div></div>
+<div id="intro"><div class="intro-line"><span>AFFAN</span></div><div class="intro-line"><span>PORTFOLIO</span></div><div class="intro-sub">PRIMORA SOLUTIONS</div><button type="button" class="intro-btn" id="enter">ENTER →</button></div>
+<nav id="nav"><a class="logo" href="#top">Affan<em>.</em></a><div class="nav-r"><button type="button" class="theme-btn" id="themeBtn" aria-label="Change theme"><span class="dot"></span></button><a class="pill" href="mailto:affanahmed2302@gmail.com?subject=Resume">Resume</a><a class="pill red" href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a></div></nav>
+<main id="top">
+<section class="hero">
+<div class="tag"><i></i> Available · Replies in 24h</div>
+<h1>I build systems<br/>that <span class="accent cycle" id="cyc">ship</span></h1>
+<p class="lead"><strong>Campus products & distributed systems</strong> — built to ship, not sit in decks.</p>
+<p class="meta">Affan Ahmed Shariff · Founder & CEO, Primora Solutions · Bangalore</p>
+<p class="clock" id="clk">Bangalore · --:--</p>
+<div class="ctas"><a class="btn btn-p" href="#personal">Personal projects</a><a class="btn btn-g" href="#contact">Contact</a></div>
+<div class="stats"><div class="stat"><strong data-n="2">0</strong><span>Projects</span></div><div class="stat"><strong>2</strong><span>Live demos</span></div><div class="stat"><strong>Hatch</strong><span>Campus</span></div><div class="stat"><strong>Aether</strong><span>Systems</span></div></div>
+</section>
+<div class="mq-wrap" aria-hidden="true"><div class="mq"><span>Hatch Live <b>·</b></span><span>Aether Live <b>·</b></span><span>Raft <b>·</b></span><span>Next.js <b>·</b></span><span>Go Systems <b>·</b></span><span>Primora <b>·</b></span><span>BMSCE <b>·</b></span><span>Hatch Live <b>·</b></span><span>Aether Live <b>·</b></span><span>Raft <b>·</b></span><span>Next.js <b>·</b></span><span>Go Systems <b>·</b></span><span>Primora <b>·</b></span><span>BMSCE <b>·</b></span></div></div>
+<section id="personal"><div class="wrap">
+<div class="k scramble" data-text="PERSONAL PROJECTS">Personal projects</div>
+<h2 class="t scramble" data-text="Built by me — live now">Built by me — live now</h2>
+<p class="sub">Only two. Both real. Open the demos.</p>
+<div class="personal">
+<article class="p-card"><div class="badge-row"><span class="num">01</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL PROJECT</span></div><h3>Hatch — BMS Campus Network</h3><p class="desc">Campus platform for finding teammates, joining clubs, and shipping projects together.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Students needed one place for teams, clubs & collaboration.</span></div><div><span class="lbl">Outcome</span><span class="val">Live network — Next.js + Supabase + TypeScript on Vercel.</span></div></div><div class="tags"><span>Next.js</span><span>Supabase</span><span>TypeScript</span><span>Vercel</span></div><div class="links"><a class="live" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a></div></article>
+<article class="p-card"><div class="badge-row"><span class="num">02</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL PROJECT</span></div><h3>Aether — Distributed KV Store</h3><p class="desc">Raft consensus key-value store with leader election, majority commit, chaos testing & an interactive simulator.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Needed real distributed systems depth — not another CRUD app.</span></div><div><span class="lbl">Outcome</span><span class="val">Go + Raft + Docker. Live interactive demo on this site.</span></div></div><div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos testing</span></div><div class="links"><a class="live" href="/aether/">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a></div></article>
+</div></div></section>
+<section id="skills"><div class="wrap"><div class="k">Depth</div><h2 class="t scramble" data-text="Skill radar">Skill radar</h2><div class="radar" id="radar"><div class="radar-row"><span class="lbl2">Full Stack</span><div class="radar-bar"><div class="radar-fill" data-w="90"></div></div><span class="pct">90%</span></div><div class="radar-row"><span class="lbl2">Go / Systems</span><div class="radar-bar"><div class="radar-fill" data-w="85"></div></div><span class="pct">85%</span></div><div class="radar-row"><span class="lbl2">Next.js</span><div class="radar-bar"><div class="radar-fill" data-w="88"></div></div><span class="pct">88%</span></div><div class="radar-row"><span class="lbl2">Distributed</span><div class="radar-bar"><div class="radar-fill" data-w="82"></div></div><span class="pct">82%</span></div><div class="radar-row"><span class="lbl2">AI / Auto</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div><div class="radar-row"><span class="lbl2">Leadership</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div></div></div></section>
+<section id="tools"><div class="wrap"><div class="k">Stack</div><h2 class="t">Tools I use</h2><div class="tools"><span>Next.js</span><span>TypeScript</span><span>React</span><span>Supabase</span><span>Vercel</span><span>Go</span><span>Raft</span><span>Docker</span><span>Distributed Systems</span><span>Full Stack</span><span>AI Agents</span><span>Automation</span></div></div></section>
+<section id="process"><div class="wrap"><div class="k">Process</div><h2 class="t">How work gets done</h2><div class="steps"><div class="step"><div class="n">01</div><h3>Discover</h3><p>Clarify the problem and what done looks like.</p></div><div class="step"><div class="n">02</div><h3>Design</h3><p>Structure flows or systems before code.</p></div><div class="step"><div class="n">03</div><h3>Build</h3><p>Ship working software. Iterate with feedback.</p></div><div class="step"><div class="n">04</div><h3>Scale</h3><p>Harden, measure, extend what works.</p></div></div></div></section>
+<section id="journey"><div class="wrap"><div class="k">Journey</div><h2 class="t">Timeline</h2><div class="timeline"><div class="tl"><div class="y">SEASON 1 · COLLEGE</div><h3>Hatch</h3><p>BMSCE. Built Hatch — campus network for teams & clubs.</p></div><div class="tl"><div class="y">SEASON 2 · SYSTEMS</div><h3>Aether</h3><p>Raft KV store, chaos testing, interactive live demo.</p></div><div class="tl"><div class="y">SEASON 3 · PRIMORA</div><h3>Founder path</h3><p>Primora Solutions. Shipping from Bangalore.</p></div></div></div></section>
+<section id="contact"><div class="wrap"><div class="cta"><h2 class="scramble" data-text="Let's build something.">Let's build something.</h2><p>Projects, collabs, or a quick chat.</p><p class="reply">Usually replies within 24 hours.</p><div class="cta-links"><a href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a><a href="tel:+919480751817">Call</a><a href="#" id="copyMail">Copy email</a><a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a><a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Hatch live</a><a href="/aether/">Aether live</a></div><p class="phone">+91 94807 51817</p></div></div></section>
+</main>
+<footer>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore · Press ⌘K</footer>
+<script>
+(function(){
+var intro=document.getElementById('intro');
+function dismiss(){intro.classList.add('gone');}
+document.getElementById('enter').onclick=dismiss;setTimeout(dismiss,3800);
+var words=['ship','scale','work','last','win'],wi=0,cyc=document.getElementById('cyc');
+setInterval(function(){cyc.style.opacity='0';cyc.style.transform='translateY(-8px)';setTimeout(function(){wi=(wi+1)%words.length;cyc.textContent=words[wi];cyc.style.transform='translateY(8px)';requestAnimationFrame(function(){cyc.style.transition='opacity .35s,transform .35s';cyc.style.opacity='1';cyc.style.transform='translateY(0)';});},280);},2600);
+cyc.style.transition='opacity .35s,transform .35s';
+var themes=['','ocean','forest'],ti=0,themeBusy=false;
+function applyTheme(i){ti=((i%3)+3)%3;var t=themes[ti];if(t)document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('affan-theme',String(ti));}catch(e){}}
+function setTheme(i){if(themeBusy)return;themeBusy=true;var clouds=document.getElementById('clouds'),flash=document.getElementById('themeFlash'),btn=document.getElementById('themeBtn');
+btn.classList.add('spin');clouds.classList.add('on');flash.classList.add('on');
+setTimeout(function(){applyTheme(i);},450);
+setTimeout(function(){clouds.classList.remove('on');flash.classList.remove('on');btn.classList.remove('spin');themeBusy=false;var name=themes[ti]==='ocean'?'Ocean':themes[ti]==='forest'?'Forest':'Crimson';toast(name+' theme');},1400);}
+try{var s=localStorage.getItem('affan-theme');if(s!==null){ti=+s;applyTheme(ti);}}catch(e){}
+document.getElementById('themeBtn').onclick=function(){setTheme(ti+1);};
+var nav=document.getElementById('nav'),prog=document.getElementById('prog'),topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',function(){nav.classList.toggle('on',scrollY>30);var h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?(scrollY/h)*100:0)+'%';topBtn.classList.toggle('show',scrollY>500);var secs=['top','personal','skills','journey','contact'],cur='top';for(var i=0;i<secs.length;i++){var el=document.getElementById(secs[i]);if(el&&el.getBoundingClientRect().top<=innerHeight*0.35)cur=secs[i];}document.querySelectorAll('.dots a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-s')===cur);});},{passive:true});
+topBtn.onclick=function(){scrollTo({top:0,behavior:'smooth'});};
+var cn=document.querySelector('[data-n]');if(cn){var target=+cn.getAttribute('data-n'),n=0;var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;(function tick(){n++;cn.textContent=n;if(n<target)requestAnimationFrame(tick);})();io.disconnect();},{threshold:.4});io.observe(cn);}
+var radar=document.getElementById('radar');if(radar){var rio=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;radar.querySelectorAll('.radar-fill').forEach(function(f){f.style.width=f.getAttribute('data-w')+'%';});rio.disconnect();},{threshold:.25});rio.observe(radar);}
+var chars='!<>-_\\/[]{}—=+*^?#________';
+function scramble(el){var original=el.getAttribute('data-text')||el.textContent;el.setAttribute('data-text',original);var frame=0,total=Math.min(original.length*2.5,36);clearInterval(el._sc);el._sc=setInterval(function(){el.textContent=original.split('').map(function(c,i){if(c===' ')return ' ';if(i<frame/2)return original[i];return chars[Math.floor(Math.random()*chars.length)];}).join('');frame++;if(frame>total){clearInterval(el._sc);el.textContent=original;}},30);}
+document.querySelectorAll('.scramble').forEach(function(el){el.addEventListener('mouseenter',function(){scramble(el);});});
+var c=document.getElementById('bg'),ctx=c.getContext('2d'),W,H,stars=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+function init(){stars=[];var n=window.innerWidth<700?40:90;for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,s:Math.random()*.35+.04,a:Math.random()*.5+.15});}
+function draw(){ctx.clearRect(0,0,W,H);var sc=scrollY||0;for(var i=0;i<stars.length;i++){var s=stars[i];s.y+=s.s;if(s.y>H)s.y=0;var yy=(s.y+sc*.05)%H;ctx.beginPath();ctx.arc(s.x,yy,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+s.a+')';ctx.fill();}requestAnimationFrame(draw);}
+resize();init();draw();window.addEventListener('resize',function(){resize();init();});
+function tick(){document.getElementById('clk').textContent='Bangalore · '+new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit'});}tick();setInterval(tick,1000);
+function toast(m){var el=document.getElementById('toast');el.textContent=m;el.classList.add('show');setTimeout(function(){el.classList.remove('show');},2200);}
+document.getElementById('copyMail').onclick=function(e){e.preventDefault();if(navigator.clipboard)navigator.clipboard.writeText('affanahmed2302@gmail.com').then(function(){toast('Email copied');});else toast('affanahmed2302@gmail.com');};
+var cmd=document.getElementById('cmd');
+function openCmd(){cmd.classList.add('open');document.getElementById('cmdIn').value='';document.getElementById('cmdIn').focus();}function closeCmd(){cmd.classList.remove('open');}
+document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();cmd.classList.contains('open')?closeCmd():openCmd();}if(e.key==='Escape')closeCmd();});
+cmd.onclick=function(e){if(e.target===cmd)closeCmd();};
+document.getElementById('cmdList').querySelectorAll('button').forEach(function(b){b.onclick=function(){var g=b.getAttribute('data-go');closeCmd();if(g==='copy'){if(navigator.clipboard)navigator.clipboard.writeText('affanahmed2302@gmail.com').then(function(){toast('Email copied');});}else if(g==='theme')setTheme(ti+1);else if(g.indexOf('http')===0||g.indexOf('/')===0)window.open(g,'_blank');else{var el=document.querySelector(g);if(el)el.scrollIntoView({behavior:'smooth'});}};});
+document.querySelectorAll('.btn-p,.pill.red,.intro-btn').forEach(function(btn){btn.style.position=btn.style.position||'relative';btn.style.overflow='hidden';btn.addEventListener('click',function(e){var r=btn.getBoundingClientRect();var span=document.createElement('span');span.className='ripple';var size=Math.max(r.width,r.height);span.style.width=span.style.height=size+'px';span.style.left=(e.clientX-r.left-size/2)+'px';span.style.top=(e.clientY-r.top-size/2)+'px';btn.appendChild(span);setTimeout(function(){span.remove();},550);});});
+if(window.matchMedia('(min-width:900px)').matches){var cur=document.getElementById('cur');document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cur.classList.add('big');});el.addEventListener('mouseleave',function(){cur.classList.remove('big');});});}
+})();
+</script>
+</body>
+</html>
