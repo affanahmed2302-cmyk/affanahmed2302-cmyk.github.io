@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>Play — Affan Ahmed Shariff</title>
+<meta name="theme-color" content="#05050a"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.play-page{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:calc(72px + env(safe-area-inset-top)) 18px 40px;max-width:480px;margin:0 auto;position:relative;z-index:2}
+.play-page .back{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--m);margin-bottom:20px;font-weight:600}
+.play-page .back:hover{color:var(--a)}
+.play-page .k{margin-bottom:6px}
+.play-page .t{margin-bottom:8px}
+.play-page .sub{margin-bottom:24px}
+.play-hero{text-align:center;margin-bottom:8px}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<nav id="nav" class="on">
+  <a class="logo" href="index.html">Affan<em>.</em></a>
+  <div class="nav-r">
+    <a class="pill" href="index.html">← Portfolio</a>
+    <a class="pill red" href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</nav>
+<main class="play-page">
+  <a class="back" href="index.html">← Back to portfolio</a>
+  <div class="play-hero">
+    <div class="k">Game</div>
+    <h1 class="t">Sequence memory</h1>
+    <p class="sub">Watch the pattern. Repeat it. How far can you go?</p>
+  </div>
+  <div class="mem">
+    <div class="mem-status" id="memStatus">Press Start — watch carefully</div>
+    <div class="mem-grid" id="memGrid">
+      <button type="button" class="pad p0" data-p="0" aria-label="red"></button>
+      <button type="button" class="pad p1" data-p="1" aria-label="blue"></button>
+      <button type="button" class="pad p2" data-p="2" aria-label="green"></button>
+      <button type="button" class="pad p3" data-p="3" aria-label="yellow"></button>
+    </div>
+    <div class="mem-bar">
+      <div class="mem-score">Level <b id="memLvl">0</b> · Best <b id="memBest">0</b></div>
+      <button type="button" class="mem-btn" id="memStart">Start</button>
+    </div>
+    <div class="ach-row">
+      <span class="ach" data-a="first">First clear</span>
+      <span class="ach" data-a="lvl5">Level 5</span>
+      <span class="ach" data-a="lvl8">Level 8</span>
+    </div>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+  var c=document.getElementById('bg'),ctx=c.getContext('2d'),W,H,stars=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  function init(){stars=[];var n=innerWidth<700?28:65;for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,s:Math.random()*.25+.04,a:Math.random()*.4+.1});}
+  function draw(){ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.y+=s.s;if(s.y>H)s.y=0;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+s.a+')';ctx.fill();}requestAnimationFrame(draw);}
+  resize();init();draw();window.addEventListener('resize',function(){resize();init();});
+
+  function toast(m){var el=document.getElementById('toast');el.textContent=m;el.classList.add('show');setTimeout(function(){el.classList.remove('show');},1800);}
+  function unlock(id){var el=document.querySelector('[data-a="'+id+'"]');if(el)el.classList.add('got');}
+
+  var seq=[],player=[],accept=false,level=0,best=0;
+  try{best=+localStorage.getItem('affan-mem-best')||0;}catch(e){}
+  document.getElementById('memBest').textContent=best;
+
+  function lit(p){var el=document.querySelector('.pad[data-p="'+p+'"]');if(!el)return;el.classList.add('lit');setTimeout(function(){el.classList.remove('lit');},320);}
+  function playSeq(){accept=false;document.getElementById('memStatus').textContent='Watch…';var i=0;(function step(){if(i>=seq.length){accept=true;player=[];document.getElementById('memStatus').textContent='Your turn';return;}lit(seq[i]);i++;setTimeout(step,550);})();}
+  function nextRound(){level++;document.getElementById('memLvl').textContent=level;seq.push(Math.floor(Math.random()*4));setTimeout(playSeq,500);}
+
+  document.getElementById('memStart').onclick=function(){
+    seq=[];level=0;document.getElementById('memLvl').textContent=0;
+    document.getElementById('memStatus').textContent='Get ready…';
+    setTimeout(nextRound,600);
+  };
+  document.querySelectorAll('.pad').forEach(function(pad){
+    pad.addEventListener('click',function(){
+      if(!accept)return;
+      var p=+pad.getAttribute('data-p');lit(p);player.push(p);
+      var idx=player.length-1;
+      if(player[idx]!==seq[idx]){
+        accept=false;document.getElementById('memStatus').textContent='Missed! Level '+level;
+        toast('Game over · level '+level);
+        if(level>best){best=level;document.getElementById('memBest').textContent=best;try{localStorage.setItem('affan-mem-best',String(best));}catch(e){}}
+        return;
+      }
+      if(player.length===seq.length){
+        accept=false;document.getElementById('memStatus').textContent='Nice! Next…';
+        if(level===1)unlock('first');if(level>=5)unlock('lvl5');if(level>=8)unlock('lvl8');
+        setTimeout(nextRound,700);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
