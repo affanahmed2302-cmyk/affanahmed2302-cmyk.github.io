@@ -3,7 +3,7 @@ var XP=0,achs={};
 function addXP(n){XP+=n;var el=document.getElementById('xpN');if(el)el.textContent=XP;}
 function unlock(id){if(achs[id])return;achs[id]=1;var el=document.querySelector('[data-a="'+id+'"]');if(el)el.classList.add('got');toast('Achievement: '+id);addXP(15);}
 
-var toolLinks={"Hatch":"https://hatch-primeora.vercel.app","Aether":"/aether/","Primora":"#contact"};
+var toolLinks={"Hatch":"https://hatch-primeora.vercel.app","Aether":"/aether/","GestureOS":"/gestureos/","Primora":"#contact"};
 document.querySelectorAll('.tp').forEach(function(tp){
   tp.addEventListener('click',function(){
     document.querySelectorAll('.tp').forEach(function(x){x.classList.remove('on');});
@@ -22,8 +22,8 @@ document.querySelectorAll('.tp').forEach(function(tp){
 var stepData=[
   {t:'Discover',b:'Before code: what problem is real? For Hatch it was campus teams stuck without one place to find teammates and ship together. For Aether it was “I want real systems depth, not another CRUD app.”',e:'Hatch started from a clear campus pain, not a random feature list.'},
   {t:'Design',b:'Shape the system before typing. Hatch: teams, clubs, collab flows. Aether: nodes, leader election, majority commit, failure modes.',e:'Aether’s design is Raft-first: consensus is the product, not a side feature.'},
-  {t:'Build',b:'Ship working software. Hatch is Next.js + Supabase + TypeScript on Vercel. Aether is Go + Raft + Docker with a live simulator.',e:'Both projects have live demos you can open above, not just GitHub repos.'},
-  {t:'Ship',b:'Get it in front of people. Hatch is live for campus use. Aether’s demo lets you poke consensus. Then harden what works.',e:'Live links on this site are the proof, not screenshots in a deck.'}
+  {t:'Build',b:'Ship working software. Hatch is Next.js + Supabase + TypeScript on Vercel. Aether is Go + Raft + Docker with a live simulator. GestureOS is Python + MediaPipe + OpenCV.',e:'All three projects have live demos you can open above, not just GitHub repos.'},
+  {t:'Ship',b:'Get it in front of people. Hatch is live for campus use. Aether’s demo lets you poke consensus. GestureOS has an interactive gesture simulator.',e:'Live links on this site are the proof, not screenshots in a deck.'}
 ];
 document.querySelectorAll('.step').forEach(function(btn){
   btn.addEventListener('click',function(){
@@ -71,6 +71,6 @@ if(cmdList)cmdList.querySelectorAll('button').forEach(function(b){b.onclick=func
 var termOut=document.getElementById('termOut');
 function tprint(html){if(!termOut)return;var d=document.createElement('div');d.innerHTML=html;termOut.appendChild(d);termOut.scrollTop=termOut.scrollHeight;}
 var termIn=document.getElementById('termIn');
-if(termIn)termIn.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=this.value.trim().toLowerCase();this.value='';tprint('<span class="cmd">$ '+v+'</span>');unlock('term');if(v==='help')tprint('<span class="out">projects · contact · theme · hatch · aether · play · clear</span>');else if(v==='projects')tprint('<span class="out">Hatch (campus) · Aether (Raft KV). Both live.</span>');else if(v==='contact')tprint('<span class="out">WhatsApp +91 9480751817 · affanahmed2302@gmail.com</span>');else if(v==='theme'){setTheme(ti+1);tprint('<span class="out">Theme blasted.</span>');}else if(v==='hatch'){window.open('https://hatch-primeora.vercel.app','_blank');tprint('<span class="out">Opening Hatch…</span>');}else if(v==='aether'){location.href='/aether/';}else if(v==='play'){location.href='play.html';tprint('<span class="out">Opening game…</span>');}else if(v==='clear')termOut.innerHTML='';else tprint('<span class="out">Unknown. Type help.</span>');});
+if(termIn)termIn.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=this.value.trim().toLowerCase();this.value='';tprint('<span class="cmd">$ '+v+'</span>');unlock('term');if(v==='help')tprint('<span class="out">projects · contact · theme · hatch · aether · gestureos · play · clear</span>');else if(v==='projects')tprint('<span class="out">Hatch · Aether · GestureOS. All have live pages.</span>');else if(v==='contact')tprint('<span class="out">WhatsApp +91 9480751817 · affanahmed2302@gmail.com</span>');else if(v==='theme'){setTheme(ti+1);tprint('<span class="out">Theme blasted.</span>');}else if(v==='hatch'){window.open('https://hatch-primeora.vercel.app','_blank');tprint('<span class="out">Opening Hatch…</span>');}else if(v==='aether'){location.href='/aether/';}else if(v==='gestureos'||v==='gesture'){location.href='/gestureos/';}else if(v==='play'){location.href='play.html';tprint('<span class="out">Opening game…</span>');}else if(v==='clear')termOut.innerHTML='';else tprint('<span class="out">Unknown. Type help.</span>');});
 if(window.matchMedia('(min-width:900px)').matches){var cur=document.getElementById('cur');if(cur){document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cur.classList.add('big');});el.addEventListener('mouseleave',function(){cur.classList.remove('big');});});}}
 })();
