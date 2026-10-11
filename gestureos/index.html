@@ -2,102 +2,329 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>GestureOS — Affan Ahmed Shariff</title>
-<meta name="description" content="GestureOS — Touchless PC control with hand gestures. Python, MediaPipe, OpenCV."/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"/>
+<title>GestureOS — Live hand tracking</title>
+<meta name="description" content="Control the demo with real hand gestures — camera + MediaPipe on your phone."/>
 <meta name="theme-color" content="#05050a"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#05050a;--card:#0c0c14;--t:#f5f1ea;--m:#a8a49c;--d:#6b6760;--a:#a78bfa;--g:rgba(167,139,250,.45);--b:rgba(255,255,255,.08)}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.55;min-height:100dvh}
+:root{--bg:#05050a;--card:#0c0c14;--t:#f5f1ea;--m:#a8a49c;--d:#6b6760;--a:#a78bfa;--g:rgba(167,139,250,.5);--b:rgba(255,255,255,.08);--ok:#22c55e}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.45}
 a,button{color:inherit;text-decoration:none;border:0;background:0;font:inherit;cursor:pointer}
-.wrap{max-width:900px;margin:0 auto;padding:0 18px}
-nav{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--b);position:sticky;top:0;background:rgba(5,5,10,.92);backdrop-filter:blur(12px);z-index:10}
-.logo{font-family:Syne,sans-serif;font-weight:800}.logo em{color:var(--a);font-style:normal}
-.nav-r{display:flex;gap:8px}
-.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--b);font-size:.75rem;font-weight:600}
-.pill.p{background:var(--a);border-color:var(--a);color:#0a0a10}
-.hero{padding:48px 18px 32px;text-align:center}
-.k{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:10px}
-h1{font-family:Syne,sans-serif;font-size:clamp(1.8rem,6vw,2.8rem);font-weight:800;margin-bottom:10px}
-.lead{color:var(--m);max-width:520px;margin:0 auto 20px;font-size:.95rem}
-.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
-.badges span{font-size:.7rem;padding:6px 10px;border-radius:8px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--a);font-weight:600}
-.grid{display:grid;gap:12px;margin:24px 0}@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:18px}
-.card h3{font-family:Syne,sans-serif;font-size:1rem;margin-bottom:6px}
-.card p{font-size:.85rem;color:var(--m)}
-.sim{background:var(--card);border:1px solid var(--b);border-radius:18px;padding:20px;margin:28px 0}
-.sim h2{font-family:Syne,sans-serif;font-size:1.2rem;margin-bottom:8px}
-.sim .hint{font-size:.8rem;color:var(--d);margin-bottom:16px}
-.hand-area{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
-.gbtn{padding:16px 10px;border-radius:14px;border:1px solid var(--b);background:rgba(0,0,0,.3);text-align:center;transition:all .2s;font-size:.85rem}
-.gbtn .emoji{font-size:1.6rem;display:block;margin-bottom:6px}
-.gbtn:active,.gbtn.on{border-color:var(--a);box-shadow:0 0 24px var(--g);background:rgba(167,139,250,.12)}
-.status{font-family:JetBrains Mono,monospace;font-size:.8rem;padding:12px;border-radius:10px;background:rgba(0,0,0,.4);color:var(--m);min-height:44px}
-.status b{color:var(--a)}
-.steps{margin:28px 0}
-.steps h2{font-family:Syne,sans-serif;font-size:1.15rem;margin-bottom:12px}
-.steps pre{background:#0a0a10;border:1px solid var(--b);border-radius:12px;padding:14px;font-family:JetBrains Mono,monospace;font-size:.75rem;color:#c8e6c9;overflow-x:auto;line-height:1.6}
-footer{text-align:center;padding:28px 16px;color:var(--d);font-size:.7rem;border-top:1px solid var(--b)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--b);position:sticky;top:0;z-index:20;background:rgba(5,5,10,.94);backdrop-filter:blur(12px)}
+.logo{font-family:Syne,sans-serif;font-weight:800;font-size:1rem}.logo em{color:var(--a);font-style:normal}
+.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--b);font-size:.72rem;font-weight:600}
+.wrap{max-width:520px;margin:0 auto;padding:16px 14px 40px}
+.k{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:6px}
+h1{font-family:Syne,sans-serif;font-size:clamp(1.5rem,6vw,2rem);font-weight:800;margin-bottom:6px}
+.lead{color:var(--m);font-size:.88rem;margin-bottom:14px}
+.stage{position:relative;width:100%;aspect-ratio:3/4;max-height:min(62vh,520px);border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--b);margin-bottom:12px}
+#video,#canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#canvas{pointer-events:none}
+.overlay{position:absolute;left:10px;right:10px;bottom:10px;z-index:5;display:flex;flex-direction:column;gap:8px}
+.badge{align-self:flex-start;padding:8px 12px;border-radius:10px;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);font-family:JetBrains Mono,monospace;font-size:.78rem;border:1px solid var(--b)}
+.badge b{color:var(--a)}
+.badge.live b{color:var(--ok)}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.btn{flex:1;min-width:120px;padding:14px 16px;border-radius:12px;font-weight:700;font-size:.88rem;text-align:center}
+.btn-p{background:var(--a);color:#0a0a10;box-shadow:0 4px 20px var(--g)}
+.btn-g{border:1px solid var(--b);background:var(--card)}
+.btn:disabled{opacity:.45}
+.hint{font-size:.78rem;color:var(--d);margin-bottom:14px}
+.hint strong{color:var(--m)}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.act{background:var(--card);border:1px solid var(--b);border-radius:12px;padding:12px 8px;text-align:center;font-size:.72rem;color:var(--m);transition:border-color .2s,box-shadow .2s,background .2s}
+.act .e{font-size:1.35rem;display:block;margin-bottom:4px}
+.act.on{border-color:var(--a);background:rgba(167,139,250,.12);color:var(--t);box-shadow:0 0 18px var(--g)}
+.log{font-family:JetBrains Mono,monospace;font-size:.72rem;background:var(--card);border:1px solid var(--b);border-radius:12px;padding:12px;min-height:72px;color:var(--m);max-height:120px;overflow-y:auto}
+.log div{margin-bottom:4px}.log .t{color:var(--d)}.log .g{color:var(--a)}
+.err{color:#f87171;font-size:.8rem;margin-top:8px;display:none}
+footer{text-align:center;padding:16px;color:var(--d);font-size:.68rem}
+@media(min-width:700px){.stage{aspect-ratio:4/3;max-height:480px}.wrap{max-width:640px}}
 </style>
 </head>
 <body>
 <nav>
   <a class="logo" href="/">Affan<em>.</em></a>
-  <div class="nav-r">
-    <a class="pill" href="/">← Portfolio</a>
-    <a class="pill p" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
-  </div>
+  <a class="pill" href="/">← Portfolio</a>
 </nav>
-<header class="hero wrap">
-  <div class="k">Personal project · CV / AI</div>
-  <h1>GestureOS</h1>
-  <p class="lead">Touchless PC control with hand gestures. Webcam in → mouse, clicks, media &amp; window actions out. Built with Python, MediaPipe &amp; OpenCV.</p>
-  <div class="badges">
-    <span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>PyAutoGUI</span><span>Realtime CV</span>
-  </div>
-</header>
 <div class="wrap">
-  <div class="grid">
-    <div class="card"><h3>🖱️ Cursor &amp; clicks</h3><p>Index tracking for mouse move. Pinch for click. Fist for drag mode.</p></div>
-    <div class="card"><h3>🔊 Media control</h3><p>Palm play/pause, peace mute, thumbs for volume — no keyboard needed.</p></div>
-    <div class="card"><h3>🪟 Window actions</h3><p>Gestures for desktop, maximize, and tab switching.</p></div>
-    <div class="card"><h3>📹 Webcam only</h3><p>No special hardware — consumer camera + computer vision pipeline.</p></div>
-  </div>
-  <div class="sim">
-    <h2>Gesture simulator</h2>
-    <p class="hint">Tap a gesture — see what the system would do (UI demo; full stack runs locally with your webcam).</p>
-    <div class="hand-area" id="gestures">
-      <button type="button" class="gbtn" data-a="Move cursor · index tracking"><span class="emoji">☝️</span>Index</button>
-      <button type="button" class="gbtn" data-a="Left click · pinch"><span class="emoji">🤏</span>Pinch</button>
-      <button type="button" class="gbtn" data-a="Drag mode · fist"><span class="emoji">✊</span>Fist</button>
-      <button type="button" class="gbtn" data-a="Play / Pause media · open palm"><span class="emoji">✋</span>Palm</button>
-      <button type="button" class="gbtn" data-a="Mute / unmute · peace"><span class="emoji">✌️</span>Peace</button>
-      <button type="button" class="gbtn" data-a="Volume up · thumbs up"><span class="emoji">👍</span>Thumbs up</button>
+  <div class="k">Live on your phone</div>
+  <h1>GestureOS</h1>
+  <p class="lead">Allow camera → show your hand → system detects the gesture in real time.</p>
+
+  <div class="stage" id="stage">
+    <video id="video" playsinline autoplay muted></video>
+    <canvas id="canvas"></canvas>
+    <div class="overlay">
+      <div class="badge" id="status"><b>Camera off</b> · tap Start</div>
     </div>
-    <div class="status" id="status">Ready — pick a gesture</div>
   </div>
-  <div class="steps">
-    <h2>Run locally</h2>
-    <pre>git clone https://github.com/affanahmed2302-cmyk/GestureOS.git
-cd GestureOS
-pip install -r requirements.txt
-python main.py</pre>
-    <p style="font-size:.8rem;color:var(--d);margin-top:10px">Needs a webcam and good lighting. Repo link updates when the public repo is connected.</p>
+
+  <div class="controls">
+    <button type="button" class="btn btn-p" id="startBtn">Start camera</button>
+    <button type="button" class="btn btn-g" id="stopBtn" disabled>Stop</button>
   </div>
+  <p class="hint" id="hint"><strong>Gestures:</strong> ☝️ open palm · ✊ fist · ✌️ peace · 👍 thumbs up · 🤏 pinch (thumb+index close)</p>
+  <p class="err" id="err"></p>
+
+  <div class="actions" id="acts">
+    <div class="act" data-g="open"><span class="e">✋</span>Open</div>
+    <div class="act" data-g="fist"><span class="e">✊</span>Fist</div>
+    <div class="act" data-g="peace"><span class="e">✌️</span>Peace</div>
+    <div class="act" data-g="thumb"><span class="e">👍</span>Thumb</div>
+    <div class="act" data-g="pinch"><span class="e">🤏</span>Pinch</div>
+    <div class="act" data-g="point"><span class="e">☝️</span>Point</div>
+  </div>
+
+  <div class="log" id="log"><div class="t">Waiting for camera…</div></div>
 </div>
-<footer>GestureOS · Affan Ahmed Shariff · Primora Solutions · <a href="/">Portfolio</a></footer>
-<script>
-document.querySelectorAll('.gbtn').forEach(function(b){
-  b.onclick=function(){
-    document.querySelectorAll('.gbtn').forEach(function(x){x.classList.remove('on');});
-    b.classList.add('on');
-    document.getElementById('status').innerHTML='<b>Action:</b> '+b.getAttribute('data-a');
-  };
-});
+<footer>GestureOS · real MediaPipe tracking · Affan Ahmed Shariff</footer>
+
+<script type="module">
+import {
+  HandLandmarker,
+  FilesetResolver,
+  DrawingUtils
+} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14";
+
+const video = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const statusEl = document.getElementById("status");
+const startBtn = document.getElementById("startBtn");
+const stopBtn = document.getElementById("stopBtn");
+const errEl = document.getElementById("err");
+const logEl = document.getElementById("log");
+
+let handLandmarker = null;
+let running = false;
+let raf = 0;
+let lastVideoTime = -1;
+let lastGesture = "";
+let lastFire = 0;
+let stream = null;
+
+function log(msg, cls) {
+  const d = document.createElement("div");
+  if (cls) d.className = cls;
+  d.innerHTML = msg;
+  logEl.prepend(d);
+  while (logEl.children.length > 8) logEl.removeChild(logEl.lastChild);
+}
+
+function setStatus(html, live) {
+  statusEl.innerHTML = html;
+  statusEl.classList.toggle("live", !!live);
+}
+
+function highlight(name) {
+  document.querySelectorAll(".act").forEach(a => {
+    a.classList.toggle("on", a.getAttribute("data-g") === name);
+  });
+}
+
+function dist(a, b) {
+  const dx = a.x - b.x, dy = a.y - b.y;
+  return Math.hypot(dx, dy);
+}
+
+// finger tip ids: thumb 4, index 8, middle 12, ring 16, pinky 20
+// pip-ish: 3,6,10,14,18 · mcp: 2,5,9,13,17
+function fingerUp(lm, tip, pip, mcp, isThumb) {
+  if (isThumb) {
+    // thumb: compare tip to ip joint sideways relative to wrist
+    return dist(lm[4], lm[2]) > dist(lm[3], lm[2]) * 1.1 && lm[4].x < lm[3].x - 0.02 || lm[4].x > lm[3].x + 0.02
+      ? dist(lm[4], lm[0]) > dist(lm[2], lm[0])
+      : dist(lm[4], lm[2]) > 0.06;
+  }
+  return lm[tip].y < lm[pip].y - 0.02;
+}
+
+function classify(lm) {
+  // landmarks normalized 0-1
+  const thumb = lm[4].y < lm[3].y - 0.015 || dist(lm[4], lm[2]) > dist(lm[3], lm[2]) * 1.15;
+  const index = lm[8].y < lm[6].y - 0.02;
+  const middle = lm[12].y < lm[10].y - 0.02;
+  const ring = lm[16].y < lm[14].y - 0.02;
+  const pinky = lm[20].y < lm[18].y - 0.02;
+  const pinch = dist(lm[4], lm[8]) < 0.055;
+
+  if (pinch && !middle && !ring) return "pinch";
+  if (index && middle && !ring && !pinky) return "peace";
+  if (index && !middle && !ring && !pinky) return "point";
+  if (thumb && !index && !middle && !ring && !pinky) return "thumb";
+  if (!index && !middle && !ring && !pinky) return "fist";
+  if (index && middle && ring && pinky) return "open";
+  if (index && middle && ring) return "open";
+  return "none";
+}
+
+const labels = {
+  open: "✋ Open palm",
+  fist: "✊ Fist",
+  peace: "✌️ Peace",
+  thumb: "👍 Thumbs up",
+  pinch: "🤏 Pinch",
+  point: "☝️ Point",
+  none: "…"
+};
+
+const effects = {
+  open: "Play / focus",
+  fist: "Desktop / pause",
+  peace: "Mute toggle",
+  thumb: "Volume up",
+  pinch: "Click",
+  point: "Cursor mode"
+};
+
+async function initModel() {
+  const vision = await FilesetResolver.forVisionTasks(
+    "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm"
+  );
+  handLandmarker = await HandLandmarker.createFromOptions(vision, {
+    baseOptions: {
+      modelAssetPath:
+        "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
+      delegate: "GPU"
+    },
+    runningMode: "VIDEO",
+    numHands: 1
+  });
+}
+
+async function start() {
+  errEl.style.display = "none";
+  startBtn.disabled = true;
+  setStatus("<b>Loading model…</b>");
+  try {
+    if (!handLandmarker) await initModel();
+
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+        facingMode: "user",
+        width: { ideal: 640 },
+        height: { ideal: 480 }
+      }
+    });
+    video.srcObject = stream;
+    await video.play();
+
+    running = true;
+    stopBtn.disabled = false;
+    startBtn.textContent = "Running";
+    setStatus("<b>Live</b> · show your hand", true);
+    log("Camera started — show one hand", "t");
+    loop();
+  } catch (e) {
+    startBtn.disabled = false;
+    startBtn.textContent = "Start camera";
+    setStatus("<b>Camera error</b>");
+    errEl.style.display = "block";
+    const msg = String(e && e.message ? e.message : e);
+    if (/NotAllowed|Permission/i.test(msg)) {
+      errEl.textContent = "Camera permission denied. Allow camera for this site in browser settings, then try again.";
+    } else if (/NotFound|DevicesNotFound/i.test(msg)) {
+      errEl.textContent = "No camera found on this device.";
+    } else {
+      errEl.textContent = "Could not start camera: " + msg;
+    }
+    log("Error: " + msg, "t");
+  }
+}
+
+function stop() {
+  running = false;
+  cancelAnimationFrame(raf);
+  if (stream) {
+    stream.getTracks().forEach(t => t.stop());
+    stream = null;
+  }
+  video.srcObject = null;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  startBtn.disabled = false;
+  startBtn.textContent = "Start camera";
+  stopBtn.disabled = true;
+  setStatus("<b>Camera off</b> · tap Start");
+  highlight("");
+  log("Camera stopped", "t");
+}
+
+function resizeCanvas() {
+  const r = video.getBoundingClientRect();
+  canvas.width = video.videoWidth || r.width;
+  canvas.height = video.videoHeight || r.height;
+}
+
+function loop() {
+  if (!running) return;
+  raf = requestAnimationFrame(loop);
+  if (!video.videoWidth) return;
+
+  if (canvas.width !== video.videoWidth) resizeCanvas();
+
+  const now = performance.now();
+  if (video.currentTime === lastVideoTime) return;
+  lastVideoTime = video.currentTime;
+
+  const result = handLandmarker.detectForVideo(video, now);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // mirror drawing to match selfie view
+  ctx.save();
+  ctx.scale(-1, 1);
+  ctx.translate(-canvas.width, 0);
+
+  if (result.landmarks && result.landmarks.length) {
+    const drawingUtils = new DrawingUtils(ctx);
+    for (const landmarks of result.landmarks) {
+      drawingUtils.drawConnectors(
+        landmarks,
+        HandLandmarker.HAND_CONNECTIONS,
+        { color: "#a78bfa", lineWidth: 3 }
+      );
+      drawingUtils.drawLandmarks(landmarks, {
+        color: "#f5f1ea",
+        fillColor: "#a78bfa",
+        radius: 4
+      });
+    }
+    ctx.restore();
+
+    const g = classify(result.landmarks[0]);
+    if (g !== "none") {
+      setStatus("<b>" + labels[g] + "</b> · " + effects[g], true);
+      highlight(g);
+      if (g !== lastGesture || now - lastFire > 900) {
+        lastGesture = g;
+        lastFire = now;
+        log("<span class=\"g\">" + labels[g] + "</span> → " + effects[g]);
+        // light haptic if available
+        if (navigator.vibrate) navigator.vibrate(12);
+      }
+    } else {
+      setStatus("<b>Live</b> · hand seen", true);
+    }
+  } else {
+    ctx.restore();
+    setStatus("<b>Live</b> · show your hand", true);
+    highlight("");
+  }
+}
+
+startBtn.onclick = start;
+stopBtn.onclick = stop;
+
+// HTTPS / localhost required for camera
+if (location.protocol === "http:" && location.hostname !== "localhost") {
+  errEl.style.display = "block";
+  errEl.textContent = "Camera needs HTTPS. Open the GitHub Pages link (https://…).";
+}
 </script>
 </body>
 </html>
