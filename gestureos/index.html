@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>GestureOS — Affan Ahmed Shariff</title>
+<meta name="description" content="GestureOS — Touchless PC control with hand gestures. Python, MediaPipe, OpenCV."/>
+<meta name="theme-color" content="#05050a"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#05050a;--card:#0c0c14;--t:#f5f1ea;--m:#a8a49c;--d:#6b6760;--a:#a78bfa;--g:rgba(167,139,250,.45);--b:rgba(255,255,255,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.55;min-height:100dvh}
+a,button{color:inherit;text-decoration:none;border:0;background:0;font:inherit;cursor:pointer}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--b);position:sticky;top:0;background:rgba(5,5,10,.92);backdrop-filter:blur(12px);z-index:10}
+.logo{font-family:Syne,sans-serif;font-weight:800}.logo em{color:var(--a);font-style:normal}
+.nav-r{display:flex;gap:8px}
+.pill{padding:8px 12px;border-radius:999px;border:1px solid var(--b);font-size:.75rem;font-weight:600}
+.pill.p{background:var(--a);border-color:var(--a);color:#0a0a10}
+.hero{padding:48px 18px 32px;text-align:center}
+.k{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--a);font-weight:700;margin-bottom:10px}
+h1{font-family:Syne,sans-serif;font-size:clamp(1.8rem,6vw,2.8rem);font-weight:800;margin-bottom:10px}
+.lead{color:var(--m);max-width:520px;margin:0 auto 20px;font-size:.95rem}
+.badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:24px}
+.badges span{font-size:.7rem;padding:6px 10px;border-radius:8px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--a);font-weight:600}
+.grid{display:grid;gap:12px;margin:24px 0}@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:18px}
+.card h3{font-family:Syne,sans-serif;font-size:1rem;margin-bottom:6px}
+.card p{font-size:.85rem;color:var(--m)}
+.sim{background:var(--card);border:1px solid var(--b);border-radius:18px;padding:20px;margin:28px 0}
+.sim h2{font-family:Syne,sans-serif;font-size:1.2rem;margin-bottom:8px}
+.sim .hint{font-size:.8rem;color:var(--d);margin-bottom:16px}
+.hand-area{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.gbtn{padding:16px 10px;border-radius:14px;border:1px solid var(--b);background:rgba(0,0,0,.3);text-align:center;transition:all .2s;font-size:.85rem}
+.gbtn .emoji{font-size:1.6rem;display:block;margin-bottom:6px}
+.gbtn:active,.gbtn.on{border-color:var(--a);box-shadow:0 0 24px var(--g);background:rgba(167,139,250,.12)}
+.status{font-family:JetBrains Mono,monospace;font-size:.8rem;padding:12px;border-radius:10px;background:rgba(0,0,0,.4);color:var(--m);min-height:44px}
+.status b{color:var(--a)}
+.steps{margin:28px 0}
+.steps h2{font-family:Syne,sans-serif;font-size:1.15rem;margin-bottom:12px}
+.steps pre{background:#0a0a10;border:1px solid var(--b);border-radius:12px;padding:14px;font-family:JetBrains Mono,monospace;font-size:.75rem;color:#c8e6c9;overflow-x:auto;line-height:1.6}
+footer{text-align:center;padding:28px 16px;color:var(--d);font-size:.7rem;border-top:1px solid var(--b)}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">Affan<em>.</em></a>
+  <div class="nav-r">
+    <a class="pill" href="/">← Portfolio</a>
+    <a class="pill p" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+<header class="hero wrap">
+  <div class="k">Personal project · CV / AI</div>
+  <h1>GestureOS</h1>
+  <p class="lead">Touchless PC control with hand gestures. Webcam in → mouse, clicks, media &amp; window actions out. Built with Python, MediaPipe &amp; OpenCV.</p>
+  <div class="badges">
+    <span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>PyAutoGUI</span><span>Realtime CV</span>
+  </div>
+</header>
+<div class="wrap">
+  <div class="grid">
+    <div class="card"><h3>🖱️ Cursor &amp; clicks</h3><p>Index tracking for mouse move. Pinch for click. Fist for drag mode.</p></div>
+    <div class="card"><h3>🔊 Media control</h3><p>Palm play/pause, peace mute, thumbs for volume — no keyboard needed.</p></div>
+    <div class="card"><h3>🪟 Window actions</h3><p>Gestures for desktop, maximize, and tab switching.</p></div>
+    <div class="card"><h3>📹 Webcam only</h3><p>No special hardware — consumer camera + computer vision pipeline.</p></div>
+  </div>
+  <div class="sim">
+    <h2>Gesture simulator</h2>
+    <p class="hint">Tap a gesture — see what the system would do (UI demo; full stack runs locally with your webcam).</p>
+    <div class="hand-area" id="gestures">
+      <button type="button" class="gbtn" data-a="Move cursor · index tracking"><span class="emoji">☝️</span>Index</button>
+      <button type="button" class="gbtn" data-a="Left click · pinch"><span class="emoji">🤏</span>Pinch</button>
+      <button type="button" class="gbtn" data-a="Drag mode · fist"><span class="emoji">✊</span>Fist</button>
+      <button type="button" class="gbtn" data-a="Play / Pause media · open palm"><span class="emoji">✋</span>Palm</button>
+      <button type="button" class="gbtn" data-a="Mute / unmute · peace"><span class="emoji">✌️</span>Peace</button>
+      <button type="button" class="gbtn" data-a="Volume up · thumbs up"><span class="emoji">👍</span>Thumbs up</button>
+    </div>
+    <div class="status" id="status">Ready — pick a gesture</div>
+  </div>
+  <div class="steps">
+    <h2>Run locally</h2>
+    <pre>git clone https://github.com/affanahmed2302-cmyk/GestureOS.git
+cd GestureOS
+pip install -r requirements.txt
+python main.py</pre>
+    <p style="font-size:.8rem;color:var(--d);margin-top:10px">Needs a webcam and good lighting. Repo link updates when the public repo is connected.</p>
+  </div>
+</div>
+<footer>GestureOS · Affan Ahmed Shariff · Primora Solutions · <a href="/">Portfolio</a></footer>
+<script>
+document.querySelectorAll('.gbtn').forEach(function(b){
+  b.onclick=function(){
+    document.querySelectorAll('.gbtn').forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    document.getElementById('status').innerHTML='<b>Action:</b> '+b.getAttribute('data-a');
+  };
+});
+</script>
+</body>
+</html>
