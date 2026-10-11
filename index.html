@@ -10,14 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
 <link rel="stylesheet" href="features.css"/>
+<link rel="prefetch" href="/aether/"/>
+<link rel="prefetch" href="/gestureos/"/>
+<link rel="prefetch" href="play.html"/>
 </head>
 <body>
 <div id="prog"></div><canvas id="blast"></canvas><div id="themeFlash"></div>
 <canvas id="bg"></canvas><div id="spot" aria-hidden="true"></div><div class="blob blob1"></div><div class="blob blob2"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
 <div class="toast" id="toast"></div>
-<div class="xp">XP <b id="xpN">0</b></div>
-<button type="button" id="topBtn" aria-label="Top">↑</button>
+<button type="button" id="topBtn" aria-label="Top"><span id="readPct">0</span>%</button>
 <div class="dots"><a href="#top" data-s="top" data-label="Top"></a><a href="#personal" data-s="personal" data-label="Work"></a><a href="#tools" data-s="tools" data-label="Stack"></a><a href="play.html" data-s="play" data-label="Play"></a><a href="#contact" data-s="contact" data-label="Contact"></a></div>
 <div id="keys" class="keys-modal" aria-hidden="true"><div class="keys-box"><h3>Keyboard</h3>
 <div class="keys-grid"><div><kbd>⌘</kbd><kbd>K</kbd><span>Command palette</span></div>
@@ -30,13 +32,12 @@
 <button type="button" class="keys-close" id="keysClose">Close</button></div></div>
 <div id="cmd"><div class="cmd-box"><input id="cmdIn" placeholder="Jump… Hatch, play, theme" autocomplete="off"/><div class="cmd-list" id="cmdList"><button type="button" data-go="#personal">Projects</button><button type="button" data-go="play.html">Play</button><button type="button" data-go="https://hatch-primeora.vercel.app">Hatch live</button><button type="button" data-go="/aether/">Aether live</button><button type="button" data-go="/gestureos/">GestureOS live</button><button type="button" data-go="theme">Theme blast</button><button type="button" data-go="#contact">Contact</button><button type="button" data-go="copy">Copy email</button></div><div class="cmd-hint">⌘K · Esc · ?</div></div></div>
 <div id="intro"><div class="intro-line"><span>AFFAN</span></div><div class="intro-line"><span>PORTFOLIO</span></div><div class="intro-sub">PRIMORA SOLUTIONS</div><button type="button" class="intro-btn" id="enter">ENTER →</button></div>
-<nav id="nav"><a class="logo" href="#top">Affan<em>.</em></a><div class="nav-r"><button type="button" class="theme-btn" id="sfxBtn" aria-label="Sound" title="Sound">♪</button><button type="button" class="theme-btn" id="themeBtn" aria-label="Theme"><span class="dot"></span></button><a class="pill" href="mailto:affanahmed2302@gmail.com?subject=Resume">Resume</a><a class="pill red" href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a></div></nav>
+<nav id="nav"><a class="logo" href="#top">Affan<em>.</em></a><div class="nav-r"><button type="button" class="theme-btn" id="themeBtn" aria-label="Theme"><span class="dot"></span></button><a class="pill" href="mailto:affanahmed2302@gmail.com?subject=Resume">Resume</a><a class="pill red" href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a></div></nav>
 <main id="top">
-<section class="hero"><div class="tag"><i></i> Available · Replies in 24h</div>
+<section class="hero"><div class="tag"><i></i> <span id="greet">Available</span> · Replies in 24h</div>
 <h1>I build systems<br/>that <span class="accent cycle" id="cyc" data-scramble>ship</span></h1>
-<p class="lead"><strong>Campus products & distributed systems</strong> — built to ship, not sit in decks.</p>
-<p class="meta">Affan Ahmed Shariff · Founder & CEO, Primora Solutions · Bangalore</p>
-<p class="status-pulse"><i></i> Open to collabs · usually replies in 24h</p>
+<p class="lead"><strong>Campus products &amp; distributed systems</strong> — built to ship, not sit in decks.</p>
+<p class="meta">Affan Ahmed Shariff · Founder &amp; CEO, Primora Solutions · Bangalore</p>
 <p class="clock" id="clk">Bangalore · --:--</p>
 <div class="ctas"><a class="btn btn-p" href="#personal">Personal projects</a><a class="btn btn-g" href="play.html">Play a game</a></div>
 <div class="stats"><div class="stat"><strong data-n="3">0</strong><span>Projects</span></div><div class="stat"><strong>3</strong><span>Live demos</span></div><div class="stat"><strong>Hatch</strong><span>Campus</span></div><div class="stat"><strong>GestureOS</strong><span>CV / AI</span></div></div>
@@ -46,18 +47,24 @@
   <a class="bento-cell b3" href="/gestureos/"><span class="bc">03</span><strong>GestureOS</strong><em>Hand tracking</em></a>
   <a class="bento-cell b4" href="play.html"><span class="bc">PLAY</span><strong>Game</strong><em>Sequence memory</em></a>
   <button type="button" class="bento-cell b5" id="shareBtn"><span class="bc">SHARE</span><strong>Copy link</strong><em>Share profile</em></button>
-  <a class="bento-cell b6" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener"><span class="bc">GH</span><strong>GitHub</strong><em>Repos & code</em></a>
+  <a class="bento-cell b6" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener"><span class="bc">GH</span><strong>GitHub</strong><em>Repos &amp; code</em></a>
 </div>
 </section>
 <div class="mq-wrap" aria-hidden="true"><div class="mq"><span>Hatch Live <b>·</b></span><span>Aether Live <b>·</b></span><span>GestureOS <b>·</b></span><span>MediaPipe <b>·</b></span><span>Raft <b>·</b></span><span>Next.js <b>·</b></span><span>Go <b>·</b></span><span>Primora <b>·</b></span><span>Hatch Live <b>·</b></span><span>Aether Live <b>·</b></span><span>GestureOS <b>·</b></span><span>MediaPipe <b>·</b></span><span>Raft <b>·</b></span><span>Next.js <b>·</b></span><span>Go <b>·</b></span><span>Primora <b>·</b></span></div></div>
-<section id="personal"><div class="wrap"><div class="k">Personal projects</div><h2 class="t">Built by me — live now</h2><p class="sub">Move cursor over cards — 3D tilt.</p>
+<section id="personal" class="reveal-sec"><div class="wrap"><div class="k">Personal projects</div><h2 class="t">Built by me — live now</h2><p class="sub">Move cursor over cards — 3D tilt.</p>
+<div class="p-filters" id="pFilters">
+  <button type="button" class="pf on" data-f="all">All</button>
+  <button type="button" class="pf" data-f="college">College</button>
+  <button type="button" class="pf" data-f="systems">Systems</button>
+  <button type="button" class="pf" data-f="cv">CV / AI</button>
+</div>
 <div class="personal">
-<article class="p-card"><div class="badge-row"><span class="num">01</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>Hatch — BMS Campus Network</h3><p class="desc">Campus platform for teammates, clubs, and shipping projects together.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">One place for teams, clubs & collab.</span></div><div><span class="lbl">Outcome</span><span class="val">Next.js + Supabase + TypeScript · live on Vercel.</span></div></div><div class="tags"><span>Next.js</span><span>Supabase</span><span>TypeScript</span><span>Vercel</span></div><div class="links"><a class="live" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a></div></article>
-<article class="p-card"><div class="badge-row"><span class="num">02</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>Aether — Distributed KV Store</h3><p class="desc">Raft consensus, leader election, majority commit, chaos testing + interactive simulator.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Real systems depth — not another CRUD app.</span></div><div><span class="lbl">Outcome</span><span class="val">Go + Raft + Docker · live demo here.</span></div></div><div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div><div class="links"><a class="live" href="/aether/">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a></div></article>
-<article class="p-card"><div class="badge-row"><span class="num">03</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>GestureOS — Touchless Control</h3><p class="desc">Control your PC with hand gestures via webcam — mouse, clicks, media, and window actions. Computer vision + system control.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Hands-free PC control without extra hardware.</span></div><div><span class="lbl">Outcome</span><span class="val">Python + MediaPipe + OpenCV · interactive demo page.</span></div></div><div class="tags"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div><div class="links"><a class="live" href="/gestureos/">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a></div></article>
+<article class="p-card" data-cat="college"><div class="badge-row"><span class="num">01</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>Hatch — BMS Campus Network</h3><p class="desc">Campus platform for teammates, clubs, and shipping projects together.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">One place for teams, clubs &amp; collab.</span></div><div><span class="lbl">Outcome</span><span class="val">Next.js + Supabase + TypeScript · live on Vercel.</span></div></div><div class="tags"><span>Next.js</span><span>Supabase</span><span>TypeScript</span><span>Vercel</span></div><div class="links"><a class="live" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a><button type="button" class="copy-link" data-url="https://hatch-primeora.vercel.app">Copy link</button></div></article>
+<article class="p-card" data-cat="systems"><div class="badge-row"><span class="num">02</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>Aether — Distributed KV Store</h3><p class="desc">Raft consensus, leader election, majority commit, chaos testing + interactive simulator.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Real systems depth — not another CRUD app.</span></div><div><span class="lbl">Outcome</span><span class="val">Go + Raft + Docker · live demo here.</span></div></div><div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div><div class="links"><a class="live" href="/aether/">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a><button type="button" class="copy-link" data-url="/aether/">Copy link</button></div></article>
+<article class="p-card" data-cat="cv"><div class="badge-row"><span class="num">03</span><span class="live-badge">LIVE</span><span class="pers-badge">PERSONAL</span></div><h3>GestureOS — Touchless Control</h3><p class="desc">Control your PC with hand gestures via webcam — mouse, clicks, media, and window actions. Computer vision + system control.</p><div class="case"><div><span class="lbl">Problem</span><span class="val">Hands-free PC control without extra hardware.</span></div><div><span class="lbl">Outcome</span><span class="val">Python + MediaPipe + OpenCV · interactive demo page.</span></div></div><div class="tags"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div><div class="links"><a class="live" href="/gestureos/">Open live demo →</a><a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a><button type="button" class="copy-link" data-url="/gestureos/">Copy link</button></div></article>
 </div></div></section>
-<section id="skills"><div class="wrap"><div class="k">Depth</div><h2 class="t">Skill radar</h2><div class="radar" id="radar"><div class="radar-row"><span class="lbl2">Full Stack</span><div class="radar-bar"><div class="radar-fill" data-w="90"></div></div><span class="pct">90%</span></div><div class="radar-row"><span class="lbl2">Go / Systems</span><div class="radar-bar"><div class="radar-fill" data-w="85"></div></div><span class="pct">85%</span></div><div class="radar-row"><span class="lbl2">Next.js</span><div class="radar-bar"><div class="radar-fill" data-w="88"></div></div><span class="pct">88%</span></div><div class="radar-row"><span class="lbl2">Distributed</span><div class="radar-bar"><div class="radar-fill" data-w="82"></div></div><span class="pct">82%</span></div><div class="radar-row"><span class="lbl2">AI / Auto</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div><div class="radar-row"><span class="lbl2">Leadership</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div></div></div></section>
-<section id="tools"><div class="wrap">
+<section id="skills" class="reveal-sec"><div class="wrap"><div class="k">Depth</div><h2 class="t">Skill radar</h2><div class="radar" id="radar"><div class="radar-row"><span class="lbl2">Full Stack</span><div class="radar-bar"><div class="radar-fill" data-w="90"></div></div><span class="pct">90%</span></div><div class="radar-row"><span class="lbl2">Go / Systems</span><div class="radar-bar"><div class="radar-fill" data-w="85"></div></div><span class="pct">85%</span></div><div class="radar-row"><span class="lbl2">Next.js</span><div class="radar-bar"><div class="radar-fill" data-w="88"></div></div><span class="pct">88%</span></div><div class="radar-row"><span class="lbl2">Distributed</span><div class="radar-bar"><div class="radar-fill" data-w="82"></div></div><span class="pct">82%</span></div><div class="radar-row"><span class="lbl2">AI / Auto</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div><div class="radar-row"><span class="lbl2">Leadership</span><div class="radar-bar"><div class="radar-fill" data-w="80"></div></div><span class="pct">80%</span></div></div></div></section>
+<section id="tools" class="reveal-sec"><div class="wrap">
 <div class="k">Stack</div>
 <h2 class="t">Tools I actually use</h2>
 <p class="sub">Tap any tool — see where it shows up in my work.</p>
@@ -72,6 +79,11 @@
     <button type="button" class="tp" data-t="Raft" data-i="🔗" data-use="Consensus in Aether — leader election, majority commit, survival when nodes die." data-proj="Aether">🔗<span>Raft</span></button>
     <button type="button" class="tp" data-t="Docker" data-i="🐳" data-use="Package and run Aether nodes the same way every time — chaos-test ready." data-proj="Aether">🐳<span>Docker</span></button>
     <button type="button" class="tp" data-t="MediaPipe" data-i="✋" data-use="Hand landmarks for GestureOS — real-time gesture classification from webcam." data-proj="GestureOS">✋<span>MediaPipe</span></button>
+    <button type="button" class="tp" data-t="OpenCV" data-i="📷" data-use="Camera pipeline for GestureOS — frames in, landmarks out, real-time on device." data-proj="GestureOS">📷<span>OpenCV</span></button>
+    <button type="button" class="tp" data-t="Git" data-i="🌿" data-use="Version control across Hatch, Aether, GestureOS — branches, PRs, clean history." data-proj="Primora">🌿<span>Git</span></button>
+    <button type="button" class="tp" data-t="Linux" data-i="🐧" data-use="Server and local tooling — Docker hosts, scripts, systems work for Aether." data-proj="Aether">🐧<span>Linux</span></button>
+    <button type="button" class="tp" data-t="Node.js" data-i="🟢" data-use="Tooling and scripts around the JS stack — Hatch build, automation helpers." data-proj="Hatch">🟢<span>Node.js</span></button>
+    <button type="button" class="tp" data-t="PostgreSQL" data-i="🐘" data-use="Relational data under Supabase on Hatch — teams, clubs, structured campus data." data-proj="Hatch">🐘<span>PostgreSQL</span></button>
     <button type="button" class="tp" data-t="Python" data-i="🐍" data-use="GestureOS core — OpenCV capture, MediaPipe, system actions for touchless control." data-proj="GestureOS">🐍<span>Python</span></button>
     <button type="button" class="tp" data-t="AI Agents" data-i="🤖" data-use="Automation and agent workflows — part of how I think about product + ops." data-proj="Primora">🤖<span>AI Agents</span></button>
     <button type="button" class="tp" data-t="Distributed" data-i="🌐" data-use="Core of Aether — multi-node, failure modes, real distributed systems practice." data-proj="Aether">🌐<span>Distributed</span></button>
@@ -85,7 +97,7 @@
   </div>
 </div>
 </div></section>
-<section id="process"><div class="wrap">
+<section id="process" class="reveal-sec"><div class="wrap">
 <div class="k">Process</div>
 <h2 class="t">How I actually build</h2>
 <p class="sub">Four steps. Tap one — see a real example from my work.</p>
@@ -101,12 +113,21 @@
   <div class="sp-ex" id="spEx"><b>Example</b> — Hatch started from a clear campus pain, not a random feature list.</div>
 </div>
 </div></section>
-<section id="terminal"><div class="wrap"><div class="k">Live terminal</div><h2 class="t">Talk to the site</h2><p class="sub">Type help · projects · contact · theme · hatch · aether · gestureos · play</p>
+<section id="terminal" class="reveal-sec"><div class="wrap"><div class="k">Live terminal</div><h2 class="t">Talk to the site</h2><p class="sub">Type help · projects · contact · theme · hatch · aether · gestureos · play</p>
 <div class="term"><div class="term-bar"><i></i><i></i><i></i><span>affan@primora ~</span></div><div class="term-body" id="termOut"><div class="out">Welcome. Type help.</div></div><div class="term-input"><span>$</span><input id="termIn" autocomplete="off" placeholder="help"/></div></div></div></section>
-<section id="journey"><div class="wrap"><div class="k">Journey</div><h2 class="t">Timeline</h2><div class="timeline"><div class="tl"><div class="y">SEASON 1 · COLLEGE</div><h3>Hatch</h3><p>BMSCE. Campus network for teams & clubs.</p></div><div class="tl"><div class="y">SEASON 2 · SYSTEMS</div><h3>Aether</h3><p>Raft KV, chaos testing, live simulator.</p></div><div class="tl"><div class="y">SEASON 2 · CV / AI</div><h3>GestureOS</h3><p>Touchless PC control with hand gestures · MediaPipe.</p></div><div class="tl"><div class="y">SEASON 3 · PRIMORA</div><h3>Founder path</h3><p>Primora Solutions · Bangalore.</p></div></div></div></section>
-<section id="contact"><div class="wrap"><div class="cta"><h2>Let's build something.</h2><p>Projects, collabs, or a quick chat.</p><p class="reply">Usually replies within 24 hours.</p><div class="cta-links"><a href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a><a href="tel:+919480751817">Call</a><a href="#" id="copyMail">Copy email</a><a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a><a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Hatch</a><a href="/aether/">Aether</a><a href="/gestureos/">GestureOS</a></div><p class="phone">+91 94807 51817</p></div></div></section>
+<section id="proof"><div class="wrap">
+<div class="k">Proof</div>
+<h2 class="t">What I optimize for</h2>
+<div class="proof-grid">
+  <blockquote class="proof-card reveal"><p>“Ship live demos, not slide decks.”</p><footer>Build rule</footer></blockquote>
+  <blockquote class="proof-card reveal"><p>“Systems depth over another CRUD clone.”</p><footer>Aether</footer></blockquote>
+  <blockquote class="proof-card reveal"><p>“One campus product people actually open.”</p><footer>Hatch</footer></blockquote>
+</div>
+</div></section>
+<section id="journey" class="reveal-sec"><div class="wrap"><div class="k">Journey</div><h2 class="t">Timeline</h2><div class="timeline"><div class="tl"><div class="y">SEASON 1 · COLLEGE</div><h3>Hatch</h3><p>BMSCE. Campus network for teams &amp; clubs.</p></div><div class="tl"><div class="y">SEASON 2 · SYSTEMS</div><h3>Aether</h3><p>Raft KV, chaos testing, live simulator.</p></div><div class="tl"><div class="y">SEASON 2 · CV / AI</div><h3>GestureOS</h3><p>Touchless PC control with hand gestures · MediaPipe.</p></div><div class="tl"><div class="y">SEASON 3 · PRIMORA</div><h3>Founder path</h3><p>Primora Solutions · Bangalore.</p></div></div></div></section>
+<section id="contact" class="reveal-sec"><div class="wrap"><div class="cta"><h2>Let's build something.</h2><p>Projects, collabs, or a quick chat.</p><p class="reply">Usually replies within 24 hours.</p><div class="cta-links"><a href="https://wa.me/919480751817" target="_blank" rel="noopener">WhatsApp</a><a href="tel:+919480751817">Call</a><a href="#" id="copyMail">Copy email</a><a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a><a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Hatch</a><a href="/aether/">Aether</a><a href="/gestureos/">GestureOS</a></div><p class="phone">+91 94807 51817</p></div></div></section>
 </main>
-<footer>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore · ⌘K · ?</footer>
+<footer>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore · ⌘K · <span id="updated">Updated Oct 2026</span></footer>
 <script src="app.js"></script>
 <script src="features.js"></script>
 </body>
