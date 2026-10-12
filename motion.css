@@ -1,0 +1,73 @@
+/* motion.css — living background & continuous motion */
+#orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#orbs span{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--a) 35%,transparent),transparent 70%);
+  filter:blur(40px);opacity:.45;
+  animation:orbFloat var(--dur,20s) ease-in-out infinite alternate;
+}
+#orbs span:nth-child(1){width:min(420px,70vw);height:min(420px,70vw);top:-8%;left:-5%;--dur:22s}
+#orbs span:nth-child(2){width:min(320px,55vw);height:min(320px,55vw);top:40%;right:-10%;--dur:26s;animation-delay:-4s;background:radial-gradient(circle,rgba(59,130,246,.3),transparent 70%)}
+#orbs span:nth-child(3){width:min(280px,50vw);height:min(280px,50vw);bottom:5%;left:20%;--dur:18s;animation-delay:-8s;background:radial-gradient(circle,rgba(34,197,94,.22),transparent 70%)}
+#orbs span:nth-child(4){width:min(200px,40vw);height:min(200px,40vw);top:15%;left:50%;--dur:24s;animation-delay:-2s}
+#orbs span:nth-child(5){width:min(240px,45vw);height:min(240px,45vw);bottom:20%;right:15%;--dur:28s;animation-delay:-6s;background:radial-gradient(circle,rgba(168,85,247,.18),transparent 70%)}
+@keyframes orbFloat{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(30px,-40px) scale(1.08)}
+  100%{transform:translate(-20px,25px) scale(.95)}
+}
+.p-card,.bento-cell,.pipe-step,.tp,.tool-detail,.pipe-panel{
+  animation:softBreath 7s ease-in-out infinite;
+}
+.p-card:nth-child(2),.bento-cell:nth-child(2),.tp:nth-child(2){animation-delay:1.2s}
+.p-card:nth-child(3),.bento-cell:nth-child(3),.tp:nth-child(3){animation-delay:2.4s}
+.bento-cell:nth-child(4){animation-delay:.6s}
+.bento-cell:nth-child(5){animation-delay:1.8s}
+.bento-cell:nth-child(6){animation-delay:3s}
+@keyframes softBreath{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.06)}
+}
+.t{position:relative;display:inline-block}
+.t::after{
+  content:"";position:absolute;left:0;bottom:-6px;height:2px;width:40%;
+  background:linear-gradient(90deg,var(--a),transparent);
+  animation:lineGrow 3.5s ease-in-out infinite alternate;
+}
+@keyframes lineGrow{from{width:28%;opacity:.5}to{width:70%;opacity:1}}
+.stat{position:relative}
+.stat::before{
+  content:"";position:absolute;inset:-6px;border-radius:16px;
+  border:1px solid color-mix(in srgb,var(--a) 20%,transparent);
+  animation:ringPulse 4s ease-in-out infinite;opacity:0;
+}
+.stat:hover::before{opacity:1}
+@keyframes ringPulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.04);opacity:.8}}
+.sound-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--b);background:var(--card);
+  color:var(--m);font-size:.9rem;cursor:pointer;
+  display:grid;place-items:center;transition:all .2s;
+}
+.sound-btn.on{color:var(--a);border-color:var(--a);box-shadow:0 0 16px var(--g)}
+.sound-btn:hover{color:var(--t);border-color:var(--a)}
+body > main{position:relative;z-index:2}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;
+  background-image:
+    linear-gradient(color-mix(in srgb,var(--a) 40%,transparent) 1px,transparent 1px),
+    linear-gradient(90deg,color-mix(in srgb,var(--a) 40%,transparent) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 70%);
+  animation:gridDrift 40s linear infinite;
+}
+@keyframes gridDrift{to{background-position:48px 48px}}
+.tag i{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:var(--a);margin-right:6px;
+  box-shadow:0 0 10px var(--g);
+  animation:livePulse 1.8s ease infinite;
+}
+@media(prefers-reduced-motion:reduce){
+  #orbs span,.p-card,.bento-cell,.pipe-step,.tp,.t::after,.hero::before,.sound-btn{animation:none!important}
+}
