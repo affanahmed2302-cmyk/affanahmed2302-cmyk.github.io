@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="features.css"/>
 <link rel="stylesheet" href="wow.css"/>
 <link rel="stylesheet" href="pro.css"/>
+<link rel="stylesheet" href="motion.css"/>
 <link rel="prefetch" href="/aether/"/>
 <link rel="prefetch" href="/gestureos/"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Affan Ahmed Shariff","jobTitle":"Founder & CEO","worksFor":{"@type":"Organization","name":"Primora Solutions"},"url":"https://affanahmed2302-cmyk.github.io/","sameAs":["https://github.com/affanahmed2302-cmyk","https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332"],"address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressCountry":"IN"}}</script>
@@ -26,6 +27,7 @@
 <a class="skip" href="#personal">Skip to work</a>
 <div id="prog"></div><canvas id="blast"></canvas><div id="themeFlash"></div>
 <canvas id="bg"></canvas><div id="spot" aria-hidden="true"></div><div class="blob blob1"></div><div class="blob blob2"></div>
+<div id="orbs" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
 <div class="toast" id="toast"></div>
 <button type="button" id="topBtn" aria-label="Top"><span id="readPct">0</span>%</button>
@@ -68,8 +70,9 @@
     <a href="#about">About</a>
   </div>
   <div class="nav-r">
+    <button type="button" class="sound-btn" id="soundBtn" aria-label="Sound" title="Sound on/off">♪</button>
     <button type="button" class="theme-btn" id="themeBtn" aria-label="Theme"><span class="dot"></span></button>
-    <a class="pill nav-cta" href="#contact">Contact</a>
+    <a class="pill nav-cta" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </nav>
 
@@ -275,10 +278,7 @@
   <h2>Let’s build something real</h2>
   <p class="cta-sub">Products, systems, or a focused technical chat. I usually reply within 24 hours.</p>
   <div class="contact-actions">
-    <a class="btn btn-p contact-wa" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20saw%20your%20portfolio" target="_blank" rel="noopener">
-      <span class="wa-icon">💬</span> WhatsApp
-    </a>
-    <a class="btn btn-g" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+    <a class="btn btn-p" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
     <button type="button" class="btn btn-g" id="copyMail">Copy email</button>
   </div>
   <div class="contact-social">
@@ -293,5 +293,7 @@
 <script src="app.js"></script>
 <script src="features.js"></script>
 <script src="wow.js"></script>
+<script src="sound.js"></script>
+<script src="motion.js"></script>
 </body>
 </html>
