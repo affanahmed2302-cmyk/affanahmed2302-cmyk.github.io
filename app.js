@@ -19,27 +19,9 @@ document.querySelectorAll('.tp').forEach(function(tp){
   });
 });
 
-var stepData=[
-  {t:'Discover',b:'Before code: what problem is real? For Hatch it was campus teams stuck without one place to find teammates and ship together. For Aether it was “I want real systems depth, not another CRUD app.”',e:'Hatch started from a clear campus pain, not a random feature list.'},
-  {t:'Design',b:'Shape the system before typing. Hatch: teams, clubs, collab flows. Aether: nodes, leader election, majority commit, failure modes.',e:'Aether’s design is Raft-first: consensus is the product, not a side feature.'},
-  {t:'Build',b:'Ship working software. Hatch is Next.js + Supabase + TypeScript on Vercel. Aether is Go + Raft + Docker with a live simulator. GestureOS is Python + MediaPipe + OpenCV.',e:'All three projects have live demos you can open above, not just GitHub repos.'},
-  {t:'Ship',b:'Get it in front of people. Hatch is live for campus use. Aether’s demo lets you poke consensus. GestureOS has an interactive gesture simulator.',e:'Live links on this site are the proof, not screenshots in a deck.'}
-];
-document.querySelectorAll('.step').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.step').forEach(function(x){x.classList.remove('on');});
-    btn.classList.add('on');
-    var d=stepData[+btn.getAttribute('data-s')];
-    document.getElementById('spTitle').textContent=d.t;
-    document.getElementById('spBody').textContent=d.b;
-    document.getElementById('spEx').innerHTML='<b>Example</b> — '+d.e;
-  });
-});
-
 var intro=document.getElementById('intro');
 function dismiss(){if(intro)intro.classList.add('gone');}
 var enter=document.getElementById('enter');if(enter)enter.onclick=dismiss;setTimeout(dismiss,3000);
-/* cycle handled by features.js scramble */
 var themes=['','ocean','forest'],ti=0,busy=false;
 var blast=document.getElementById('blast'),bctx=blast?blast.getContext('2d'):null,parts=[];
 function sizeBlast(){if(!blast)return;blast.width=innerWidth;blast.height=innerHeight;}sizeBlast();window.addEventListener('resize',sizeBlast);
@@ -54,10 +36,9 @@ var nav=document.getElementById('nav'),prog=document.getElementById('prog'),topB
 window.addEventListener('scroll',function(){if(nav)nav.classList.toggle('on',scrollY>20);var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?(scrollY/h)*100:0)+'%';if(topBtn)topBtn.classList.toggle('show',scrollY>450);},{passive:true});
 if(topBtn)topBtn.onclick=function(){scrollTo({top:0,behavior:'smooth'});};
 var cn=document.querySelector('[data-n]');if(cn){var target=+cn.getAttribute('data-n'),n=0;var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;(function t(){n++;cn.textContent=n;if(n<target)requestAnimationFrame(t);})();io.disconnect();},{threshold:.4});io.observe(cn);}
-var radar=document.getElementById('radar');if(radar){var rio=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;radar.querySelectorAll('.radar-fill').forEach(function(f){f.style.width=f.getAttribute('data-w')+'%';});rio.disconnect();},{threshold:.2});rio.observe(radar);}
 var c=document.getElementById('bg'),ctx=c?c.getContext('2d'):null,W,H,stars=[];
-function resize(){if(!c)return;W=c.width=innerWidth;H=c.height=innerHeight;}function init(){if(!c)return;stars=[];var n=innerWidth<700?28:65;for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,s:Math.random()*.25+.04,a:Math.random()*.4+.1});}
-function draw(){if(!ctx)return;ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.y+=s.s;if(s.y>H)s.y=0;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+s.a+')';ctx.fill();}requestAnimationFrame(draw);}resize();init();draw();window.addEventListener('resize',function(){resize();init();});
+function resize(){if(!c)return;W=c.width=innerWidth;H=c.height=innerHeight;}function init(){if(!c)return;stars=[];var n=innerWidth<700?40:95;for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+.2,s:Math.random()*.25+.04,a:Math.random()*.4+.1});}
+function draw(){if(!ctx)return;ctx.clearRect(0,0,W,H);for(var i=0;i<stars.length;i++){var s=stars[i];s.y+=s.s;if(s.y>H){s.y=0;s.x=Math.random()*W;}ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+s.a+')';ctx.fill();for(var j=i+1;j<stars.length;j++){var t=stars[j],dx=s.x-t.x,dy=s.y-t.y,d=Math.sqrt(dx*dx+dy*dy);if(d<90){ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(t.x,t.y);ctx.strokeStyle='rgba(255,255,255,'+(0.08*(1-d/90))+')';ctx.stroke();}}}requestAnimationFrame(draw);}resize();init();draw();window.addEventListener('resize',function(){resize();init();});
 function tick(){var clk=document.getElementById('clk');if(clk)clk.textContent='Bangalore · '+new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit'});}tick();setInterval(tick,1000);
 window.toast=function toast(m){var el=document.getElementById('toast');if(!el)return;el.textContent=m;el.classList.add('show');setTimeout(function(){el.classList.remove('show');},1800);};
 var copyMail=document.getElementById('copyMail');if(copyMail)copyMail.onclick=function(e){e.preventDefault();if(navigator.clipboard)navigator.clipboard.writeText('affanahmed2302@gmail.com').then(function(){toast('Email copied');});};
@@ -67,9 +48,5 @@ document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key
 if(cmd)cmd.onclick=function(e){if(e.target===cmd)closeCmd();};
 var cmdList=document.getElementById('cmdList');
 if(cmdList)cmdList.querySelectorAll('button').forEach(function(b){b.onclick=function(){var g=b.getAttribute('data-go');closeCmd();if(g==='copy'){if(navigator.clipboard)navigator.clipboard.writeText('affanahmed2302@gmail.com').then(function(){toast('Email copied');});}else if(g==='theme')setTheme(ti+1);else if(g.indexOf('http')===0)window.open(g,'_blank');else if(g.indexOf('/')===0||g.indexOf('.html')>=0)location.href=g;else{var el=document.querySelector(g);if(el)el.scrollIntoView({behavior:'smooth'});}};});
-var termOut=document.getElementById('termOut');
-function tprint(html){if(!termOut)return;var d=document.createElement('div');d.innerHTML=html;termOut.appendChild(d);termOut.scrollTop=termOut.scrollHeight;}
-var termIn=document.getElementById('termIn');
-if(termIn)termIn.addEventListener('keydown',function(e){if(e.key!=='Enter')return;var v=this.value.trim().toLowerCase();this.value='';tprint('<span class="cmd">$ '+v+'</span>');unlock('term');if(v==='help')tprint('<span class="out">projects · contact · theme · hatch · aether · gestureos · play · clear</span>');else if(v==='projects')tprint('<span class="out">Hatch · Aether · GestureOS. All have live pages.</span>');else if(v==='contact')tprint('<span class="out">WhatsApp +91 9480751817 · affanahmed2302@gmail.com</span>');else if(v==='theme'){setTheme(ti+1);tprint('<span class="out">Theme blasted.</span>');}else if(v==='hatch'){window.open('https://hatch-primeora.vercel.app','_blank');tprint('<span class="out">Opening Hatch…</span>');}else if(v==='aether'){location.href='/aether/';}else if(v==='gestureos'||v==='gesture'){location.href='/gestureos/';}else if(v==='play'){location.href='play.html';tprint('<span class="out">Opening game…</span>');}else if(v==='clear')termOut.innerHTML='';else tprint('<span class="out">Unknown. Type help.</span>');});
 if(window.matchMedia('(min-width:900px)').matches){var cur=document.getElementById('cur');if(cur){document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cur.classList.add('big');});el.addEventListener('mouseleave',function(){cur.classList.remove('big');});});}}
 })();
