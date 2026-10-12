@@ -1,0 +1,91 @@
+/* ===== WOW LAYER ===== */
+html{scroll-behavior:smooth}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% -10%,color-mix(in srgb,var(--a) 18%,transparent),transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%,rgba(59,130,246,.12),transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%,rgba(34,197,94,.06),transparent 45%);
+  animation:meshShift 18s ease-in-out infinite alternate;
+}
+@keyframes meshShift{
+  0%{opacity:.85;filter:hue-rotate(0deg)}
+  100%{opacity:1;filter:hue-rotate(12deg)}
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:150;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+.hero h1{
+  background:linear-gradient(135deg,var(--t) 30%,var(--a) 55%,var(--t) 80%);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 8s linear infinite;
+}
+@keyframes shine{to{background-position:200% center}}
+html[data-theme="ocean"] .hero h1{background:linear-gradient(135deg,#f5f1ea 30%,#60a5fa 55%,#f5f1ea 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+html[data-theme="forest"] .hero h1{background:linear-gradient(135deg,#f5f1ea 30%,#4ade80 55%,#f5f1ea 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .accent{-webkit-text-fill-color:var(--a);background:none;text-shadow:0 0 40px var(--g)}
+.tag{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--b);padding:6px 12px;border-radius:999px;width:fit-content}
+.stat,.bento-cell,.p-card,.tool-detail,.pipe-panel,.pipe-step,.about-list li,.cta,.tp{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.p-card{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;box-shadow:0 0 0 1px transparent,0 20px 50px rgba(0,0,0,.25)}
+.p-card:hover{box-shadow:0 0 0 1px color-mix(in srgb,var(--a) 40%,transparent),0 28px 60px rgba(0,0,0,.4),0 0 40px color-mix(in srgb,var(--a) 15%,transparent)}
+.p-card::after{content:"";position:absolute;inset:-1px;border-radius:18px;padding:1px;background:linear-gradient(135deg,color-mix(in srgb,var(--a) 50%,transparent),transparent 40%,transparent 60%,color-mix(in srgb,var(--a) 30%,transparent));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s;pointer-events:none;z-index:0}
+.p-card:hover::after{opacity:1}
+.btn-p{position:relative;overflow:hidden;transition:transform .2s,box-shadow .3s}
+.btn-p::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.25) 50%,transparent 60%);transform:translateX(-120%);transition:transform .6s ease}
+.btn-p:hover::after{transform:translateX(120%)}
+.btn-p:hover{box-shadow:0 8px 32px var(--g);transform:translateY(-2px)}
+.btn-g:hover{border-color:var(--a);color:var(--t);transform:translateY(-2px)}
+.bento-cell{position:relative;overflow:hidden}
+.bento-cell::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--a) 18%,transparent),transparent 55%);opacity:0;transition:opacity .3s;pointer-events:none}
+.bento-cell:hover::before{opacity:1}
+nav.on{box-shadow:0 8px 32px rgba(0,0,0,.35)}
+.logo{letter-spacing:-.02em;transition:transform .2s}
+.logo:hover{transform:scale(1.04)}
+.intro-btn{position:relative;overflow:hidden;animation:pulseGlow 2.4s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 24px var(--g)}50%{box-shadow:0 0 48px var(--g),0 0 80px color-mix(in srgb,var(--a) 30%,transparent)}}
+#prog{height:3px;background:linear-gradient(90deg,var(--a),#fff,var(--a2));background-size:200% 100%;animation:progShine 2s linear infinite;box-shadow:0 0 16px var(--g)}
+@keyframes progShine{to{background-position:200% 0}}
+.live-badge{animation:livePulse 2s ease infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--a) 40%,transparent)}50%{box-shadow:0 0 0 6px transparent}}
+.pipe-step{transition:transform .2s,border-color .25s,box-shadow .25s}
+.pipe-step:hover{transform:translateY(-3px)}
+.pipe-step.on{animation:pipeOn .4s cubic-bezier(.16,1,.3,1)}
+@keyframes pipeOn{from{transform:scale(.94);opacity:.7}to{transform:scale(1);opacity:1}}
+.tp{transition:transform .2s cubic-bezier(.16,1,.3,1),border-color .2s,box-shadow .25s}
+.tp:hover{transform:translateY(-4px) scale(1.02)}
+.tp.on{animation:toolPop .35s cubic-bezier(.16,1,.3,1)}
+@keyframes toolPop{0%{transform:scale(.92)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+.reveal-sec{transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal-sec.in .k{animation:fadeUp .5s .05s both}
+.reveal-sec.in .t{animation:fadeUp .55s .12s both}
+.reveal-sec.in .sub{animation:fadeUp .55s .18s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.cta{position:relative;overflow:hidden;border:1px solid color-mix(in srgb,var(--a) 25%,var(--b))}
+.cta::before{content:"";position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:conic-gradient(from 0deg,transparent,color-mix(in srgb,var(--a) 20%,transparent),transparent 30%);animation:spinSlow 12s linear infinite;opacity:.5;pointer-events:none}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.cta>*{position:relative;z-index:1}
+.float-wa{transition:transform .2s,box-shadow .2s;animation:waBob 3s ease-in-out infinite}
+@keyframes waBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.float-wa:hover{transform:scale(1.08);box-shadow:0 10px 28px rgba(34,197,94,.55)}
+#topBtn{transition:opacity .25s,transform .2s;box-shadow:0 6px 24px var(--g)}
+#topBtn:hover{transform:scale(1.08)}
+.toast{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:color-mix(in srgb,var(--a) 30%,var(--b));box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.keys-box,.cmd-box{box-shadow:0 24px 80px rgba(0,0,0,.55);border-color:color-mix(in srgb,var(--a) 20%,var(--b))}
+.timeline .tl:hover h3{color:var(--a)}
+.arch{position:relative;border-color:color-mix(in srgb,var(--a) 25%,var(--b));box-shadow:inset 0 0 30px rgba(0,0,0,.3)}
+.p-card{opacity:0;transform:translateY(28px)}
+.reveal-sec.in .p-card{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.reveal-sec.in .p-card:nth-child(1){transition-delay:.08s}
+.reveal-sec.in .p-card:nth-child(2){transition-delay:.16s}
+.reveal-sec.in .p-card:nth-child(3){transition-delay:.24s}
+.stat strong{text-shadow:0 0 24px color-mix(in srgb,var(--a) 35%,transparent)}
+@media(prefers-reduced-motion:reduce){
+  body::before,body::after,#prog,.hero h1,.intro-btn,.live-badge,.float-wa,.cta::before{animation:none!important}
+  .hero h1{-webkit-text-fill-color:var(--t);background:none}
+  .p-card{opacity:1;transform:none}
+}
+@media(max-width:700px){body::after{opacity:.03}.hero h1{animation-duration:12s}}
