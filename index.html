@@ -4,114 +4,124 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>Affan Ahmed Shariff — builds things that run</title>
-<meta name="description" content="1st year · BMSCE · Founder Primora Solutions. Hatch, Aether, GestureOS — live demos. Press Cmd+K."/>
-<meta name="theme-color" content="#070b14"/>
+<meta name="description" content="1st year BMSCE · Primora Solutions. Hatch, Aether, GestureOS — live. Inspired motion."/>
+<meta name="theme-color" content="#05050a"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="lab.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="fx.css"/>
 </head>
 <body>
-<div class="orb orb-a" aria-hidden="true"></div>
-<div class="orb orb-b" aria-hidden="true"></div>
-<div id="cursor" class="cursor" aria-hidden="true"></div>
-<div id="cursor-ring" class="cursor-ring" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob a1"></div>
+  <div class="aurora-blob a2"></div>
+  <div class="aurora-blob a3"></div>
+  <div class="aurora-noise"></div>
+</div>
+<svg class="beams" aria-hidden="true"><defs>
+  <linearGradient id="beam" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="var(--accent)" stop-opacity="0"/>
+    <stop offset="50%" stop-color="var(--accent)" stop-opacity=".35"/>
+    <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+  <line x1="10%" y1="0" x2="40%" y2="100%" stroke="url(#beam)" stroke-width="1"/>
+  <line x1="55%" y1="0" x2="85%" y2="100%" stroke="url(#beam)" stroke-width="1"/>
+  <line x1="80%" y1="0" x2="30%" y2="100%" stroke="url(#beam)" stroke-width="1"/>
+</svg>
 
 <a class="skip" href="#work">Skip</a>
 
-<header class="bar">
-  <a class="mark" href="#top">affan<span>_</span></a>
-  <div class="bar-right">
-    <button type="button" class="chip" id="themeBtn" title="Switch theme">Theme</button>
-    <button type="button" class="chip" id="cmdBtn" title="Command palette">Cmd+K</button>
-    <button type="button" class="menu" id="menuBtn" aria-label="Menu"><i></i><i></i></button>
+<header class="nav-bar">
+  <a class="logo" href="#top">affan<span class="blink">_</span></a>
+  <div class="nav-actions">
+    <button type="button" class="pill" id="themeBtn">Theme</button>
+    <button type="button" class="pill" id="cmdOpen">Cmd+K</button>
+    <button type="button" class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
   </div>
-  <nav class="nav" id="nav">
+  <nav class="links" id="links">
     <a href="#work">Work</a>
     <a href="#lab">Lab</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
     <a class="wa" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
   </nav>
 </header>
 
 <main id="top">
 <section class="hero">
-  <div class="terminal" id="terminal">
-    <div class="term-bar"><span></span><span></span><span></span><em>affan@primora ~</em></div>
-    <div class="term-body" id="termBody"></div>
+  <div class="reveal">
+    <p class="badge"><span class="dot"></span> 1st year · BMSCE · Bangalore</p>
   </div>
-  <p class="tag"><span class="pulse"></span> 1st year · BMSCE · Bangalore</p>
-  <h1>I build stuff that <span class="hl">actually runs</span>.</h1>
-  <p class="sub">Not just assignments. Live products, systems, and vision demos friends can open on their phone.</p>
-  <div class="cta-row">
-    <a class="btn solid" href="#work">See projects</a>
-    <button type="button" class="btn ghost" id="playIntro">Replay intro</button>
+  <h1 class="reveal delay-1">
+    <span class="line">I build stuff that</span>
+    <span class="line gradient-text">actually runs.</span>
+  </h1>
+  <p class="lead reveal delay-2">Live products, systems, and vision demos — not slide decks. Founder of Primora Solutions.</p>
+  <div class="hero-cta reveal delay-3">
+    <a class="btn glow" href="#work">View work</a>
+    <button type="button" class="btn glass" id="cmdOpen2">Command palette</button>
   </div>
-  <p class="hint">Press <kbd>Ctrl</kbd><kbd>K</kbd> — command palette</p>
+  <div class="marquee reveal delay-4" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Next.js</span><span>TypeScript</span><span>Go</span><span>Raft</span><span>MediaPipe</span><span>Supabase</span><span>Docker</span><span>OpenCV</span>
+      <span>Next.js</span><span>TypeScript</span><span>Go</span><span>Raft</span><span>MediaPipe</span><span>Supabase</span><span>Docker</span><span>OpenCV</span>
+    </div>
+  </div>
 </section>
 
-<section id="work" class="sec">
-  <div class="sec-top">
-    <span class="label">01 — Work</span>
-    <h2>Three things you can open right now</h2>
+<section id="work" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">01 — Selected work</span>
+    <h2>Projects you can open</h2>
+    <p>Spotlight cards · expand for stack and links</p>
   </div>
-
-  <div class="stack">
-    <article class="card" data-expand>
-      <button type="button" class="card-hit" aria-expanded="false">
-        <div class="card-top">
-          <span class="num">01</span>
-          <span class="live">LIVE</span>
-        </div>
+  <div class="cards">
+    <article class="spot-card reveal" data-expand>
+      <div class="spot"></div>
+      <button type="button" class="card-main" aria-expanded="false">
+        <div class="row"><span class="idx">01</span><span class="live">LIVE</span></div>
         <h3>Hatch</h3>
-        <p class="one">Campus network for BMSCE — find teammates, clubs, ship together.</p>
-        <span class="more">Tap for details</span>
+        <p>Campus network for BMSCE — teams, clubs, ship together.</p>
+        <span class="expand-hint">Details</span>
       </button>
-      <div class="card-body">
-        <p>Students were stuck in random WhatsApp groups. Hatch is a real product: auth, profiles, and campus flow on Next.js + Supabase.</p>
-        <div class="pills"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Vercel</span></div>
-        <div class="card-links">
+      <div class="card-extra">
+        <p>Auth + campus flow. Next.js, TypeScript, Supabase, Vercel.</p>
+        <div class="tags"><span>Next.js</span><span>TS</span><span>Supabase</span></div>
+        <div class="links">
           <a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live</a>
           <a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </article>
-
-    <article class="card" data-expand>
-      <button type="button" class="card-hit" aria-expanded="false">
-        <div class="card-top">
-          <span class="num">02</span>
-          <span class="live">LIVE</span>
-        </div>
+    <article class="spot-card reveal delay-1" data-expand>
+      <div class="spot"></div>
+      <button type="button" class="card-main" aria-expanded="false">
+        <div class="row"><span class="idx">02</span><span class="live">LIVE</span></div>
         <h3>Aether</h3>
-        <p class="one">Distributed KV store with Raft — break a node, watch the cluster survive.</p>
-        <span class="more">Tap for details</span>
+        <p>Raft KV store — kill a node, watch consensus hold.</p>
+        <span class="expand-hint">Details</span>
       </button>
-      <div class="card-body">
-        <p>Built in Go with real consensus: leader election, log replication, chaos tests. Interactive simulator on this site.</p>
-        <div class="pills"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div>
-        <div class="card-links">
-          <a href="/aether/">Open simulator</a>
+      <div class="card-extra">
+        <p>Go + Raft + Docker. Interactive cluster simulator.</p>
+        <div class="tags"><span>Go</span><span>Raft</span><span>Docker</span></div>
+        <div class="links">
+          <a href="/aether/">Simulator</a>
           <a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </article>
-
-    <article class="card" data-expand>
-      <button type="button" class="card-hit" aria-expanded="false">
-        <div class="card-top">
-          <span class="num">03</span>
-          <span class="live">LIVE</span>
-        </div>
+    <article class="spot-card reveal delay-2" data-expand>
+      <div class="spot"></div>
+      <button type="button" class="card-main" aria-expanded="false">
+        <div class="row"><span class="idx">03</span><span class="live">LIVE</span></div>
         <h3>GestureOS</h3>
-        <p class="one">Control a machine with hand gestures — webcam only, works on phone.</p>
-        <span class="more">Tap for details</span>
+        <p>Hand gestures via webcam — MediaPipe, works on phone.</p>
+        <span class="expand-hint">Details</span>
       </button>
-      <div class="card-body">
-        <p>MediaPipe + OpenCV pipeline. No extra hardware. Camera demo runs in the browser on mobile too.</p>
-        <div class="pills"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div>
-        <div class="card-links">
-          <a href="/gestureos/">Open camera demo</a>
+      <div class="card-extra">
+        <p>Python · MediaPipe · OpenCV. Live camera demo.</p>
+        <div class="tags"><span>Python</span><span>MediaPipe</span><span>CV</span></div>
+        <div class="links">
+          <a href="/gestureos/">Camera demo</a>
           <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -119,66 +129,64 @@
   </div>
 </section>
 
-<section id="lab" class="sec">
-  <div class="sec-top">
-    <span class="label">02 — Lab</span>
-    <h2>Stuff you can play with here</h2>
+<section id="lab" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">02 — Lab</span>
+    <h2>Interactive layer</h2>
   </div>
   <div class="lab-grid">
-    <div class="lab-item">
+    <div class="lab-tile reveal">
       <h3>Theme morph</h3>
-      <p>Blue to green. Same site, different energy.</p>
-      <button type="button" class="btn solid sm" id="themeBtn2">Flip theme</button>
+      <p>Blue to green aurora</p>
+      <button type="button" class="btn glass sm" id="themeBtn2">Flip</button>
     </div>
-    <div class="lab-item">
+    <div class="lab-tile reveal delay-1">
       <h3>Command palette</h3>
-      <p>Navigate or open projects without scrolling.</p>
-      <button type="button" class="btn ghost sm" id="cmdBtn2">Open palette</button>
+      <p>Ctrl+K / Cmd+K</p>
+      <button type="button" class="btn glass sm" id="cmdOpen3">Open</button>
     </div>
-    <div class="lab-item">
-      <h3>Aether sim</h3>
-      <p>Kill a node. Watch Raft recover.</p>
-      <a class="btn ghost sm" href="/aether/">Launch</a>
+    <div class="lab-tile reveal delay-2">
+      <h3>Aether</h3>
+      <p>Raft simulator</p>
+      <a class="btn glass sm" href="/aether/">Launch</a>
     </div>
-    <div class="lab-item">
-      <h3>Gesture demo</h3>
-      <p>Hands in front of the camera. Live tracking.</p>
-      <a class="btn ghost sm" href="/gestureos/">Launch</a>
+    <div class="lab-tile reveal delay-3">
+      <h3>GestureOS</h3>
+      <p>Camera tracking</p>
+      <a class="btn glass sm" href="/gestureos/">Launch</a>
     </div>
   </div>
-  <div class="xp-wrap">
-    <p class="xp-label">Site explorer XP</p>
-    <div class="xp-bar"><div class="xp-fill" id="xpFill"></div></div>
-    <p class="xp-text" id="xpText">0 / 100 — click around to unlock</p>
+  <div class="xp reveal">
+    <div class="xp-top"><span>Explorer XP</span><span id="xpNum">0</span></div>
+    <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
   </div>
 </section>
 
-<section id="about" class="sec">
-  <div class="sec-top">
-    <span class="label">03 — About</span>
-    <h2>Who is behind this</h2>
+<section id="about" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">03 — About</span>
+    <h2>Affan Ahmed Shariff</h2>
   </div>
-  <div class="about">
-    <p><strong>Affan Ahmed Shariff</strong> — 1st year at <strong>BMSCE</strong>, founder of <strong>Primora Solutions</strong>. I ship early: campus products, systems experiments, and CV demos people can open.</p>
+  <div class="about reveal">
+    <p>1st year at <strong>BMSCE</strong>. Founder of <strong>Primora Solutions</strong>. I ship early — campus products, distributed systems, computer vision — with URLs you can open.</p>
     <ul>
-      <li>Prefer live URLs over slide decks</li>
-      <li>Learning by building under real constraints</li>
-      <li>Open to internships, collabs, weird ideas</li>
+      <li>Live demos over presentations</li>
+      <li>Open to internships and collabs</li>
+      <li>Bangalore · remote-friendly</li>
     </ul>
   </div>
 </section>
 
-<section id="contact" class="sec contact">
-  <div class="sec-top">
-    <span class="label">04 — Contact</span>
+<section id="contact" class="section contact">
+  <div class="section-head reveal">
+    <span class="eyebrow">04 — Contact</span>
     <h2>Say hi</h2>
   </div>
-  <p class="sub">Usually reply within a day.</p>
-  <div class="cta-row">
-    <a class="btn solid" href="mailto:affanahmed2302@gmail.com">Email</a>
-    <a class="btn ghost" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
+  <div class="hero-cta reveal">
+    <a class="btn glow" href="mailto:affanahmed2302@gmail.com">Email</a>
+    <a class="btn glass" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
   </div>
-  <div class="socials">
+  <div class="social reveal">
     <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a>
     <a href="tel:+919480751817">+91 94807 51817</a>
@@ -186,18 +194,18 @@
 </section>
 </main>
 
-<footer class="foot">
-  <p>2026 Affan · Primora · Built to be opened, not just viewed</p>
+<footer class="footer">
+  <p>2026 Affan · Primora · Motion patterns inspired by 21st.dev</p>
 </footer>
 
-<div class="overlay" id="overlay" hidden>
-  <div class="cmd" role="dialog" aria-label="Command palette">
-    <input type="text" id="cmdInput" placeholder="Type a command..." autocomplete="off"/>
-    <ul id="cmdList"></ul>
-    <p class="cmd-hint">Up/Down navigate · Enter open · Esc close</p>
+<div class="cmd-layer" id="cmdLayer" hidden>
+  <div class="cmd-box" role="dialog" aria-label="Commands">
+    <input id="cmdIn" type="text" placeholder="Search commands..." autocomplete="off"/>
+    <ul id="cmdUl"></ul>
+    <p class="cmd-foot">Up/Down · Enter · Esc</p>
   </div>
 </div>
 
-<script src="lab.js"></script>
+<script src="fx.js"></script>
 </body>
 </html>
