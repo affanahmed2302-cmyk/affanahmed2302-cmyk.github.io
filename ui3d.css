@@ -1,0 +1,64 @@
+/* ui3d.css — depth, glass, perspective */
+#meshBg{position:fixed;inset:0;z-index:0;pointer-events:none}
+#bg{opacity:.25!important}
+#asciiRain{display:none!important}
+#scan{opacity:.25}
+
+.card-3d{
+  transform-style:preserve-3d;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s;
+  will-change:transform;
+}
+.card-3d:hover{
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.45),
+    0 0 0 1px color-mix(in srgb,var(--a) 30%,transparent),
+    0 0 40px color-mix(in srgb,var(--a) 12%,transparent);
+}
+
+.glass{
+  background:color-mix(in srgb,var(--card) 72%,transparent)!important;
+  backdrop-filter:blur(16px) saturate(1.2);
+  -webkit-backdrop-filter:blur(16px) saturate(1.2);
+  border:1px solid color-mix(in srgb,var(--b) 80%,var(--a) 20%);
+}
+
+.looking{
+  max-width:720px;margin:20px auto 0;padding:14px 18px;border-radius:14px;
+  border:1px solid var(--b);background:color-mix(in srgb,var(--a) 8%,var(--card));
+  font-size:.88rem;color:var(--m);line-height:1.5;text-align:left;
+}
+.looking strong{color:var(--t)}
+.looking .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.looking .tags span{
+  font-size:.7rem;padding:4px 10px;border-radius:999px;border:1px solid var(--b);
+  color:var(--a);font-weight:600;
+}
+
+.exp-grid{display:grid;gap:14px;max-width:720px}
+.exp-item{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
+  padding:16px 18px;border-radius:14px;border:1px solid var(--b);
+  background:var(--card);
+}
+.exp-item .yr{
+  font-family:JetBrains Mono,monospace;font-size:.72rem;color:var(--a);
+  letter-spacing:.06em;min-width:4.5rem;
+}
+.exp-item h3{font-family:Syne,sans-serif;font-size:1rem;margin:0 0 4px}
+.exp-item p{font-size:.85rem;color:var(--m);margin:0;line-height:1.45}
+
+.skill-rows{display:grid;gap:10px;max-width:720px}
+.skill-row{
+  display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center;
+  padding:12px 14px;border-radius:12px;border:1px solid var(--b);background:var(--card);
+}
+@media(max-width:560px){.skill-row{grid-template-columns:1fr}}
+.skill-row .lab{font-weight:700;font-size:.82rem;color:var(--t)}
+.skill-row .bits{display:flex;flex-wrap:wrap;gap:6px}
+.skill-row .bits span{
+  font-size:.72rem;padding:3px 9px;border-radius:6px;
+  background:color-mix(in srgb,var(--a) 12%,transparent);color:var(--m);
+}
+
+.resume-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;justify-content:center}
