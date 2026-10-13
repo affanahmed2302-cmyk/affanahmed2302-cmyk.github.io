@@ -3,314 +3,154 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Affan Ahmed Shariff — Systems & Product Engineer</title>
-<meta name="description" content="Affan Ahmed Shariff — Founder, Primora Solutions. Product & systems engineer. Campus products, distributed systems, CV tools — live demos."/>
-<meta name="theme-color" content="#05050a"/>
-<meta name="author" content="Affan Ahmed Shariff"/>
+<title>Affan Ahmed Shariff — Product & Systems Engineer</title>
+<meta name="description" content="Affan Ahmed Shariff — Founder, Primora Solutions. Campus products, distributed systems, computer vision. Live: Hatch, Aether, GestureOS."/>
+<meta name="theme-color" content="#0a0a0f"/>
 <meta property="og:title" content="Affan Ahmed Shariff"/>
-<meta property="og:description" content="Product & systems engineer · Hatch · Aether · GestureOS · Primora Solutions"/>
-<meta property="og:type" content="website"/>
+<meta property="og:description" content="Product & systems engineer · Hatch · Aether · GestureOS"/>
 <meta property="og:url" content="https://affanahmed2302-cmyk.github.io/"/>
-<meta name="twitter:card" content="summary"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-<link rel="stylesheet" href="features.css"/>
-<link rel="stylesheet" href="wow.css"/>
-<link rel="stylesheet" href="pro.css"/>
-<link rel="stylesheet" href="motion.css"/>
-<link rel="stylesheet" href="discover.css"/>
-<link rel="stylesheet" href="ascii-fx.css"/>
-<link rel="stylesheet" href="cinema.css"/>
-<link rel="stylesheet" href="ui3d.css"/>
-<link rel="prefetch" href="/aether/"/>
-<link rel="prefetch" href="/gestureos/"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Affan Ahmed Shariff","jobTitle":"Founder & CEO","worksFor":{"@type":"Organization","name":"Primora Solutions"},"url":"https://affanahmed2302-cmyk.github.io/","sameAs":["https://github.com/affanahmed2302-cmyk","https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332"],"address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressCountry":"IN"}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="clean.css"/>
 </head>
 <body>
-<a class="skip" href="#personal">Skip to work</a>
-<div id="prog"></div><canvas id="blast"></canvas><div id="themeFlash"></div>
-<canvas id="bg"></canvas><div id="spot" aria-hidden="true"></div><div class="blob blob1"></div><div class="blob blob2"></div>
-<div id="orbs" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<div class="cur" id="cur" aria-hidden="true"></div>
-<div class="toast" id="toast"></div>
-<button type="button" id="topBtn" aria-label="Top"><span id="readPct">0</span>%</button>
-<div class="dots" aria-label="Sections">
-  <a href="#top" data-s="top" data-label="Top"></a>
-  <a href="#personal" data-s="personal" data-label="Work"></a>
-  <a href="#skills" data-s="skills" data-label="Skills"></a>
-  <a href="#about" data-s="about" data-label="About"></a>
-  <a href="#contact" data-s="contact" data-label="Contact"></a>
-</div>
-<div id="keys" class="keys-modal" aria-hidden="true"><div class="keys-box"><h3>Keyboard</h3>
-<div class="keys-grid">
-<div><kbd>⌘</kbd><kbd>K</kbd><span>Command palette</span></div>
-<div><kbd>?</kbd><span>This sheet</span></div>
-<div><kbd>T</kbd><span>Theme</span></div>
-<div><kbd>G</kbd> then <kbd>H</kbd><span>Hatch</span></div>
-<div><kbd>G</kbd> then <kbd>A</kbd><span>Aether</span></div>
-<div><kbd>G</kbd> then <kbd>G</kbd><span>GestureOS</span></div>
-<div><kbd>Esc</kbd><span>Close</span></div>
-</div>
-<button type="button" class="keys-close" id="keysClose">Close</button></div></div>
-<div id="cmd"><div class="cmd-box"><input id="cmdIn" placeholder="Jump… projects, hatch, aether, contact" autocomplete="off"/><div class="cmd-list" id="cmdList">
-<button type="button" data-go="#personal">Projects</button>
-<button type="button" data-go="#skills">Skills</button>
-<button type="button" data-go="https://hatch-primeora.vercel.app">Hatch live</button>
-<button type="button" data-go="/aether/">Aether live</button>
-<button type="button" data-go="/gestureos/">GestureOS live</button>
-<button type="button" data-go="theme">Theme</button>
-<button type="button" data-go="#contact">Contact</button>
-<button type="button" data-go="copy">Copy email</button>
-</div><div class="cmd-hint">⌘K · Esc · ?</div></div></div>
-<div id="intro"><div class="intro-line"><span>AFFAN</span></div><div class="intro-line"><span>PORTFOLIO</span></div><div class="intro-sub">PRIMORA SOLUTIONS</div><button type="button" class="intro-btn" id="enter">ENTER →</button></div>
+<a class="skip" href="#work">Skip to work</a>
 
-<nav id="nav">
-  <a class="logo" href="#top">Affan<em>.</em></a>
-  <div class="nav-links">
-    <a href="#personal">Work</a>
+<header class="top">
+  <a class="logo" href="#top">Affan<span>.</span></a>
+  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
+  <nav class="nav" id="nav">
+    <a href="#work">Work</a>
     <a href="#skills">Skills</a>
-    <a href="#experience">Path</a>
     <a href="#about">About</a>
-  </div>
-  <div class="nav-r">
-    <button type="button" class="sound-btn" id="soundBtn" aria-label="Sound" title="Sound on/off">♪</button>
-    <button type="button" class="theme-btn" id="themeBtn" aria-label="Theme"><span class="dot"></span></button>
-    <a class="pill nav-cta" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
-  </div>
-</nav>
+    <a href="#contact">Contact</a>
+    <a class="wa" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
+  </nav>
+</header>
 
 <main id="top">
 <section class="hero">
-<div class="tag"><i></i> <span id="greet">Available</span> · Replies in 24h</div>
-<h1>I build systems<br/>that <span class="accent cycle" id="cyc" data-scramble>ship</span></h1>
-<p class="lead"><strong>Product & systems engineer</strong> building campus software, distributed systems, and computer-vision tools — live demos, not decks.</p>
-<div class="looking glass">
-  <strong>Open to:</strong> internships, product engineering roles, and technical partnerships · Bangalore / remote-friendly · replies in 24h
-  <div class="tags"><span>Full-stack</span><span>Systems</span><span>CV / AI</span><span>Founder</span></div>
-</div>
-<p class="position">Founder & CEO · Primora Solutions · BMSCE · Bangalore</p>
-<p class="clock" id="clk">Bangalore · --:--</p>
-<div class="ctas">
-  <a class="btn btn-p" href="#personal">See the work</a>
-  <a class="btn btn-g" href="#contact">Get in touch</a>
-</div>
-<div class="stats">
-  <div class="stat"><strong data-n="3">0</strong><span>Shipped projects</span></div>
-  <div class="stat"><strong>3</strong><span>Live demos</span></div>
-  <div class="stat"><strong>Hatch</strong><span>Campus</span></div>
-  <div class="stat"><strong>Aether</strong><span>Systems</span></div>
-</div>
-<div class="bento" id="bento">
-  <a class="bento-cell" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener"><span class="bc">01</span><strong>Hatch</strong><em>Campus network · live</em></a>
-  <a class="bento-cell" href="/aether/"><span class="bc">02</span><strong>Aether</strong><em>Raft KV · simulator</em></a>
-  <a class="bento-cell" href="/gestureos/"><span class="bc">03</span><strong>GestureOS</strong><em>Hand tracking · live</em></a>
-  <a class="bento-cell" href="#pipeline"><span class="bc">FLOW</span><strong>Pipeline</strong><em>How I ship</em></a>
-  <button type="button" class="bento-cell" id="shareBtn"><span class="bc">SHARE</span><strong>Copy link</strong><em>Share profile</em></button>
-  <a class="bento-cell" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener"><span class="bc">GH</span><strong>GitHub</strong><em>Code & repos</em></a>
-</div>
+  <p class="eyebrow"><span class="dot"></span> Available · Bangalore</p>
+  <h1>I build systems<br/>that <em>ship</em></h1>
+  <p class="lead">Product &amp; systems engineer — campus software, distributed systems, and computer vision. Live demos, not slide decks.</p>
+  <p class="meta">Founder &amp; CEO · Primora Solutions · BMSCE</p>
+  <div class="actions">
+    <a class="btn primary" href="#work">See the work</a>
+    <a class="btn" href="#contact">Get in touch</a>
+  </div>
+  <div class="open">
+    <strong>Open to</strong> internships, product engineering, and technical partnerships · remote-friendly · replies in 24h
+  </div>
 </section>
 
-<section id="personal" class="reveal-sec"><div class="wrap">
-<div class="k">Selected work</div>
-<h2 class="t">Case studies</h2>
-<p class="sub">Problem → decisions → architecture → outcome. Expand any card.</p>
-<div class="p-filters" id="pFilters">
-  <button type="button" class="pf on" data-f="all">All</button>
-  <button type="button" class="pf" data-f="college">College</button>
-  <button type="button" class="pf" data-f="systems">Systems</button>
-  <button type="button" class="pf" data-f="cv">CV / AI</button>
-</div>
-<div class="personal">
-<article class="p-card" data-cat="college">
-<div class="badge-row"><span class="num">01</span><span class="live-badge">LIVE</span><span class="pers-badge">CASE STUDY</span></div>
-<h3>Hatch — BMS Campus Network</h3>
-<p class="desc">One place for students to find teammates, clubs, and ship projects together.</p>
-<div class="case">
-  <div><span class="lbl">Problem</span><span class="val">Campus collab was scattered across chats and groups.</span></div>
-  <div><span class="lbl">Outcome</span><span class="val">Live Next.js + Supabase product on Vercel.</span></div>
-</div>
-<div class="tags"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Vercel</span></div>
-<div class="links">
-  <a class="live" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live →</a>
-  <a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a>
-  <button type="button" class="case-toggle" data-case="hatch">Case study ↓</button>
-</div>
-<div class="case-body" id="case-hatch" hidden>
-  <div class="case-grid">
-    <div><h4>Constraints</h4><p>Fast iteration, real campus users, auth + structured data.</p></div>
-    <div><h4>Decisions</h4><p>Next.js App Router. Supabase auth + Postgres. TypeScript end-to-end.</p></div>
-    <div><h4>Architecture</h4><pre class="arch">Client → Supabase Auth → Postgres → Vercel</pre></div>
-    <div><h4>Next</h4><p>Teammate matching, club workflows, activation metrics.</p></div>
+<section id="work" class="sec">
+  <p class="label">Selected work</p>
+  <h2>Case studies</h2>
+  <p class="sub">Three shipped projects with live demos.</p>
+
+  <article class="card">
+    <div class="card-top">
+      <span class="num">01</span>
+      <span class="badge">LIVE</span>
+    </div>
+    <h3>Hatch — BMS Campus Network</h3>
+    <p>One place for students to find teammates, clubs, and ship projects together.</p>
+    <dl>
+      <div><dt>Problem</dt><dd>Campus collab scattered across chats</dd></div>
+      <div><dt>Outcome</dt><dd>Live Next.js + Supabase on Vercel</dd></div>
+    </dl>
+    <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Vercel</span></div>
+    <div class="links">
+      <a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live →</a>
+      <a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-top">
+      <span class="num">02</span>
+      <span class="badge">LIVE</span>
+    </div>
+    <h3>Aether — Distributed KV</h3>
+    <p>Fault-tolerant key-value store with Raft consensus and a live cluster simulator.</p>
+    <dl>
+      <div><dt>Problem</dt><dd>Needed real systems depth, not CRUD</dd></div>
+      <div><dt>Outcome</dt><dd>Go + Raft + Docker · interactive demo</dd></div>
+    </dl>
+    <div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div>
+    <div class="links">
+      <a href="/aether/">Open simulator →</a>
+      <a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-top">
+      <span class="num">03</span>
+      <span class="badge">LIVE</span>
+    </div>
+    <h3>GestureOS — Touchless Control</h3>
+    <p>Control a machine with hand gestures via webcam. MediaPipe tracking — works on phone.</p>
+    <dl>
+      <div><dt>Problem</dt><dd>Hands-free control without extra hardware</dd></div>
+      <div><dt>Outcome</dt><dd>Python + MediaPipe · live camera demo</dd></div>
+    </dl>
+    <div class="tags"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div>
+    <div class="links">
+      <a href="/gestureos/">Open camera demo →</a>
+      <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </article>
+</section>
+
+<section id="skills" class="sec">
+  <p class="label">Skills</p>
+  <h2>Stack in context</h2>
+  <p class="sub">Where tools actually showed up — not skill bars.</p>
+  <div class="skill-grid">
+    <div class="skill"><h4>Frontend</h4><p>Next.js · TypeScript · React · CSS</p></div>
+    <div class="skill"><h4>Backend</h4><p>Go · Node · Postgres · Supabase</p></div>
+    <div class="skill"><h4>Systems</h4><p>Raft · Docker · Chaos testing</p></div>
+    <div class="skill"><h4>CV / AI</h4><p>MediaPipe · OpenCV · Python</p></div>
   </div>
-</div>
-</article>
-<article class="p-card" data-cat="systems">
-<div class="badge-row"><span class="num">02</span><span class="live-badge">LIVE</span><span class="pers-badge">CASE STUDY</span></div>
-<h3>Aether — Distributed KV Store</h3>
-<p class="desc">Fault-tolerant key-value store with Raft consensus and a live cluster simulator.</p>
-<div class="case">
-  <div><span class="lbl">Problem</span><span class="val">Needed real systems depth — not another CRUD app.</span></div>
-  <div><span class="lbl">Outcome</span><span class="val">Go + Raft + Docker · interactive demo on this site.</span></div>
-</div>
-<div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div>
-<div class="links">
-  <a class="live" href="/aether/">Open simulator →</a>
-  <a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a>
-  <button type="button" class="case-toggle" data-case="aether">Case study ↓</button>
-</div>
-<div class="case-body" id="case-aether" hidden>
-  <div class="case-grid">
-    <div><h4>Constraints</h4><p>Majority commit, leader election, survival when a node dies.</p></div>
-    <div><h4>Decisions</h4><p>Raft as the product. Go for concurrency. Docker for multi-node runs.</p></div>
-    <div><h4>Architecture</h4><pre class="arch">Client → Leader → Followers (AppendEntries)</pre></div>
-    <div><h4>Next</h4><p>Benchmarks, snapshotting, observability.</p></div>
+</section>
+
+<section id="about" class="sec">
+  <p class="label">About</p>
+  <h2>Affan Ahmed Shariff</h2>
+  <p class="about-text">Founder &amp; CEO of <strong>Primora Solutions</strong>. Studying at <strong>BMSCE</strong>, Bangalore. I ship products people can open — campus software, distributed systems, and computer-vision tools.</p>
+  <ul class="bullets">
+    <li>Live demos over slide decks</li>
+    <li>Real constraints: consensus, cameras, campus users</li>
+    <li>Open to internships, collabs, and product work</li>
+  </ul>
+  <div class="path">
+    <div class="path-item"><span>Now</span><strong>Primora Solutions</strong> — founder</div>
+    <div class="path-item"><span>College</span><strong>BMSCE</strong> — B.E., Bangalore</div>
+    <div class="path-item"><span>Builds</span><strong>Hatch · Aether · GestureOS</strong></div>
   </div>
-</div>
-</article>
-<article class="p-card" data-cat="cv">
-<div class="badge-row"><span class="num">03</span><span class="live-badge">LIVE</span><span class="pers-badge">CASE STUDY</span></div>
-<h3>GestureOS — Touchless Control</h3>
-<p class="desc">Control a machine with hand gestures via webcam. MediaPipe tracking — works on phone.</p>
-<div class="case">
-  <div><span class="lbl">Problem</span><span class="val">Hands-free control without extra hardware.</span></div>
-  <div><span class="lbl">Outcome</span><span class="val">Python + MediaPipe + OpenCV · live camera demo.</span></div>
-</div>
-<div class="tags"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div>
-<div class="links">
-  <a class="live" href="/gestureos/">Open camera demo →</a>
-  <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
-  <button type="button" class="case-toggle" data-case="gesture">Case study ↓</button>
-</div>
-<div class="case-body" id="case-gesture" hidden>
-  <div class="case-grid">
-    <div><h4>Constraints</h4><p>Consumer webcam, real-time latency, varied lighting.</p></div>
-    <div><h4>Decisions</h4><p>MediaPipe landmarks → gesture rules → actions.</p></div>
-    <div><h4>Architecture</h4><pre class="arch">Webcam → OpenCV → MediaPipe → Actions</pre></div>
-    <div><h4>Next</h4><p>Multi-gesture sequences, left-hand support.</p></div>
-  </div>
-</div>
-</article>
-</div></div></section>
+</section>
 
-<section id="skills" class="reveal-sec"><div class="wrap">
-<div class="k">Skills</div>
-<h2 class="t">Stack in context</h2>
-<p class="sub">Where each tool actually showed up — not skill bars.</p>
-<div class="skill-rows">
-  <div class="skill-row glass"><div class="lab">Frontend</div><div class="bits"><span>Next.js</span><span>TypeScript</span><span>React</span><span>CSS / motion</span></div></div>
-  <div class="skill-row glass"><div class="lab">Backend</div><div class="bits"><span>Go</span><span>Node</span><span>Postgres</span><span>Supabase</span><span>REST</span></div></div>
-  <div class="skill-row glass"><div class="lab">Systems</div><div class="bits"><span>Raft</span><span>Docker</span><span>Chaos testing</span><span>Distributed KV</span></div></div>
-  <div class="skill-row glass"><div class="lab">CV / AI</div><div class="bits"><span>MediaPipe</span><span>OpenCV</span><span>Python</span><span>Gesture pipelines</span></div></div>
-  <div class="skill-row glass"><div class="lab">Ship</div><div class="bits"><span>Vercel</span><span>GitHub</span><span>CI</span><span>Product sense</span></div></div>
-</div>
-<div class="resume-row">
-  <a class="btn btn-g" href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn →</a>
-  <a class="btn btn-g" href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub →</a>
-</div>
-</div></section>
-
-<section id="experience" class="reveal-sec"><div class="wrap">
-<div class="k">Path</div>
-<h2 class="t">Education & work</h2>
-<p class="sub">Where the work comes from.</p>
-<div class="exp-grid">
-  <div class="exp-item glass"><div class="yr">NOW</div><div><h3>Founder & CEO · Primora Solutions</h3><p>Product and systems under Primora — Hatch, Aether, GestureOS, and engineering work.</p></div></div>
-  <div class="exp-item glass"><div class="yr">BMSCE</div><div><h3>B.E. · B.M.S. College of Engineering</h3><p>Bangalore. Campus network product (Hatch) shipped for real student use while studying.</p></div></div>
-  <div class="exp-item glass"><div class="yr">BUILD</div><div><h3>Selected builds</h3><p>Hatch (Next.js + Supabase) · Aether (Go + Raft) · GestureOS (MediaPipe) — all with live demos.</p></div></div>
-</div>
-</div></section>
-
-<section id="about" class="reveal-sec"><div class="wrap">
-<div class="k">About</div>
-<h2 class="t">Flip to know me</h2>
-<p class="sub">Tap a card — front is the teaser, back is the real answer.</p>
-<div class="story-deck">
-  <div class="story-card" data-id="who"><div class="story-inner">
-    <div class="story-face"><div class="hint">Tap to flip</div><h3>Who is Affan?</h3><p>Founder · builder · Bangalore</p></div>
-    <div class="story-face back"><div class="hint">Who</div><h3>Affan Ahmed Shariff</h3><p>Founder & CEO of Primora Solutions. BMSCE. I ship campus products, distributed systems, and CV tools people can open.</p></div>
-  </div></div>
-  <div class="story-card" data-id="why"><div class="story-inner">
-    <div class="story-face"><div class="hint">Tap to flip</div><h3>What drives the work?</h3><p>One rule</p></div>
-    <div class="story-face back"><div class="hint">Rule</div><h3>Live demos > decks</h3><p>If you can’t open it, poke it, or break it — it’s not done.</p></div>
-  </div></div>
-  <div class="story-card" data-id="now"><div class="story-inner">
-    <div class="story-face"><div class="hint">Tap to flip</div><h3>What now?</h3><p>Open to…</p></div>
-    <div class="story-face back"><div class="hint">Now</div><h3>Collabs & product work</h3><p>Internships, partnerships, or building something real. WhatsApp is in the nav.</p></div>
-  </div></div>
-</div>
-</div></section>
-
-<section id="pipeline" class="reveal-sec"><div class="wrap">
-<div class="k">Process</div>
-<h2 class="t">How work actually moves</h2>
-<p class="sub">Click each stage — real examples from Hatch, Aether, GestureOS.</p>
-<div class="pipe" id="pipe">
-  <button type="button" class="pipe-step on" data-p="0"><span>01</span>Discover</button>
-  <button type="button" class="pipe-step" data-p="1"><span>02</span>Design</button>
-  <button type="button" class="pipe-step" data-p="2"><span>03</span>Build</button>
-  <button type="button" class="pipe-step" data-p="3"><span>04</span>Ship</button>
-  <button type="button" class="pipe-step" data-p="4"><span>05</span>Prove</button>
-</div>
-<div class="pipe-panel" id="pipePanel">
-  <h3 id="ppTitle">Discover</h3>
-  <p id="ppBody">Start from a real pain. Hatch: campus teams had no single place to form and ship. Aether: consensus under failure. GestureOS: touchless control with only a webcam.</p>
-  <div class="pipe-ex" id="ppEx"><b>Signal</b> — if the problem isn’t sharp, the product won’t be.</div>
-</div>
-</div></section>
-
-<section id="tools" class="reveal-sec"><div class="wrap">
-<div class="k">Stack</div>
-<h2 class="t">Tools tied to real work</h2>
-<p class="sub">Tap a tool — see which project uses it.</p>
-<div class="tool-focus">
-  <div class="tool-pool" id="toolPool">
-    <button type="button" class="tp on" data-t="Next.js" data-i="⚡" data-use="Hatch runs on Next.js." data-proj="Hatch">⚡<span>Next.js</span></button>
-    <button type="button" class="tp" data-t="TypeScript" data-i="📘" data-use="Typed end-to-end on Hatch." data-proj="Hatch">📘<span>TypeScript</span></button>
-    <button type="button" class="tp" data-t="Supabase" data-i="🗄️" data-use="Auth + Postgres for Hatch." data-proj="Hatch">🗄️<span>Supabase</span></button>
-    <button type="button" class="tp" data-t="Go" data-i="🐹" data-use="Aether is Go." data-proj="Aether">🐹<span>Go</span></button>
-    <button type="button" class="tp" data-t="Raft" data-i="🔗" data-use="Consensus in Aether." data-proj="Aether">🔗<span>Raft</span></button>
-    <button type="button" class="tp" data-t="MediaPipe" data-i="✋" data-use="Hand landmarks for GestureOS." data-proj="GestureOS">✋<span>MediaPipe</span></button>
-    <button type="button" class="tp" data-t="Python" data-i="🐍" data-use="GestureOS core." data-proj="GestureOS">🐍<span>Python</span></button>
-    <button type="button" class="tp" data-t="Docker" data-i="🐳" data-use="Aether clusters." data-proj="Aether">🐳<span>Docker</span></button>
-  </div>
-  <div class="tool-detail" id="toolDetail">
-    <div class="td-icon" id="tdIcon">⚡</div>
-    <div class="td-name" id="tdName">Next.js</div>
-    <div class="td-proj" id="tdProj">Used in Hatch</div>
-    <p class="td-use" id="tdUse">Hatch runs on Next.js.</p>
-    <a class="td-link" id="tdLink" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open related project →</a>
-  </div>
-</div>
-</div></section>
-
-<section id="contact" class="reveal-sec"><div class="wrap">
-<div class="cta contact-pro glass">
-  <div class="k">Contact</div>
+<section id="contact" class="sec contact">
+  <p class="label">Contact</p>
   <h2>Let’s build something real</h2>
-  <p class="cta-sub">Products, systems, or a focused technical chat. I usually reply within 24 hours.</p>
-  <div class="contact-actions">
-    <a class="btn btn-p" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
-    <button type="button" class="btn btn-g" id="copyMail">Copy email</button>
+  <p class="sub">Products, systems, or a focused technical chat. Usually replies within 24 hours.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
+    <a class="btn" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
   </div>
-  <div class="contact-social">
+  <div class="social">
     <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a>
     <a href="tel:+919480751817">+91 94807 51817</a>
   </div>
-</div>
-</div></section>
+</section>
 </main>
-<footer>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore · ⌘K</footer>
-<script src="app.js"></script>
-<script src="features.js"></script>
-<script src="wow.js"></script>
-<script src="sound.js"></script>
-<script src="motion.js"></script>
-<script src="discover.js"></script>
-<script src="ascii-fx.js"></script>
-<script src="cinema.js"></script>
-<script src="bg-mesh.js"></script>
-<script src="ui3d.js"></script>
+
+<footer>
+  <p>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore</p>
+</footer>
+
+<script src="clean.js"></script>
 </body>
 </html>
