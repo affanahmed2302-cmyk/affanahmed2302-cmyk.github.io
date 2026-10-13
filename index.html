@@ -4,142 +4,197 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>Affan Ahmed Shariff — Product & Systems Engineer</title>
-<meta name="description" content="Affan Ahmed Shariff — Founder, Primora Solutions. Campus products, distributed systems, computer vision. Live: Hatch, Aether, GestureOS."/>
-<meta name="theme-color" content="#0a0a0f"/>
+<meta name="description" content="Affan Ahmed Shariff — Founder, Primora Solutions. Building campus products, distributed systems, and computer vision tools. Live demos: Hatch, Aether, GestureOS."/>
+<meta name="theme-color" content="#08080c"/>
 <meta property="og:title" content="Affan Ahmed Shariff"/>
-<meta property="og:description" content="Product & systems engineer · Hatch · Aether · GestureOS"/>
+<meta property="og:description" content="Product & systems engineer · Primora Solutions · Hatch · Aether · GestureOS"/>
 <meta property="og:url" content="https://affanahmed2302-cmyk.github.io/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="clean.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="pro-site.css"/>
 </head>
 <body>
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-grid"></div>
+</div>
+
 <a class="skip" href="#work">Skip to work</a>
 
-<header class="top">
-  <a class="logo" href="#top">Affan<span>.</span></a>
-  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
+<header class="header">
+  <a class="logo" href="#top">Affan Ahmed Shariff</a>
+  <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
   <nav class="nav" id="nav">
     <a href="#work">Work</a>
     <a href="#skills">Skills</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a class="wa" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </nav>
 </header>
 
 <main id="top">
 <section class="hero">
-  <p class="eyebrow"><span class="dot"></span> Available · Bangalore</p>
-  <h1>I build systems<br/>that <em>ship</em></h1>
-  <p class="lead">Product &amp; systems engineer — campus software, distributed systems, and computer vision. Live demos, not slide decks.</p>
-  <p class="meta">Founder &amp; CEO · Primora Solutions · BMSCE</p>
-  <div class="actions">
-    <a class="btn primary" href="#work">See the work</a>
-    <a class="btn" href="#contact">Get in touch</a>
+  <p class="status"><span class="status-dot"></span> Open to opportunities · Bangalore</p>
+  <h1>Product &amp; systems engineer building software people can actually use.</h1>
+  <p class="lead">Founder of <strong>Primora Solutions</strong>. I ship campus products, distributed systems, and computer-vision tools — with live demos, not decks.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#work">View work</a>
+    <a class="btn btn-ghost" href="https://wa.me/919480751817?text=Hi%20Affan%20—%20from%20your%20portfolio" target="_blank" rel="noopener">WhatsApp</a>
   </div>
-  <div class="open">
-    <strong>Open to</strong> internships, product engineering, and technical partnerships · remote-friendly · replies in 24h
-  </div>
-</section>
-
-<section id="work" class="sec">
-  <p class="label">Selected work</p>
-  <h2>Case studies</h2>
-  <p class="sub">Three shipped projects with live demos.</p>
-
-  <article class="card">
-    <div class="card-top">
-      <span class="num">01</span>
-      <span class="badge">LIVE</span>
-    </div>
-    <h3>Hatch — BMS Campus Network</h3>
-    <p>One place for students to find teammates, clubs, and ship projects together.</p>
-    <dl>
-      <div><dt>Problem</dt><dd>Campus collab scattered across chats</dd></div>
-      <div><dt>Outcome</dt><dd>Live Next.js + Supabase on Vercel</dd></div>
-    </dl>
-    <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Vercel</span></div>
-    <div class="links">
-      <a href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live →</a>
-      <a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-top">
-      <span class="num">02</span>
-      <span class="badge">LIVE</span>
-    </div>
-    <h3>Aether — Distributed KV</h3>
-    <p>Fault-tolerant key-value store with Raft consensus and a live cluster simulator.</p>
-    <dl>
-      <div><dt>Problem</dt><dd>Needed real systems depth, not CRUD</dd></div>
-      <div><dt>Outcome</dt><dd>Go + Raft + Docker · interactive demo</dd></div>
-    </dl>
-    <div class="tags"><span>Go</span><span>Raft</span><span>Docker</span><span>Chaos</span></div>
-    <div class="links">
-      <a href="/aether/">Open simulator →</a>
-      <a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-
-  <article class="card">
-    <div class="card-top">
-      <span class="num">03</span>
-      <span class="badge">LIVE</span>
-    </div>
-    <h3>GestureOS — Touchless Control</h3>
-    <p>Control a machine with hand gestures via webcam. MediaPipe tracking — works on phone.</p>
-    <dl>
-      <div><dt>Problem</dt><dd>Hands-free control without extra hardware</dd></div>
-      <div><dt>Outcome</dt><dd>Python + MediaPipe · live camera demo</dd></div>
-    </dl>
-    <div class="tags"><span>Python</span><span>MediaPipe</span><span>OpenCV</span><span>CV</span></div>
-    <div class="links">
-      <a href="/gestureos/">Open camera demo →</a>
-      <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </article>
-</section>
-
-<section id="skills" class="sec">
-  <p class="label">Skills</p>
-  <h2>Stack in context</h2>
-  <p class="sub">Where tools actually showed up — not skill bars.</p>
-  <div class="skill-grid">
-    <div class="skill"><h4>Frontend</h4><p>Next.js · TypeScript · React · CSS</p></div>
-    <div class="skill"><h4>Backend</h4><p>Go · Node · Postgres · Supabase</p></div>
-    <div class="skill"><h4>Systems</h4><p>Raft · Docker · Chaos testing</p></div>
-    <div class="skill"><h4>CV / AI</h4><p>MediaPipe · OpenCV · Python</p></div>
-  </div>
-</section>
-
-<section id="about" class="sec">
-  <p class="label">About</p>
-  <h2>Affan Ahmed Shariff</h2>
-  <p class="about-text">Founder &amp; CEO of <strong>Primora Solutions</strong>. Studying at <strong>BMSCE</strong>, Bangalore. I ship products people can open — campus software, distributed systems, and computer-vision tools.</p>
-  <ul class="bullets">
-    <li>Live demos over slide decks</li>
-    <li>Real constraints: consensus, cameras, campus users</li>
-    <li>Open to internships, collabs, and product work</li>
+  <ul class="hero-meta">
+    <li>Primora Solutions</li>
+    <li>BMSCE</li>
+    <li>3 live projects</li>
   </ul>
-  <div class="path">
-    <div class="path-item"><span>Now</span><strong>Primora Solutions</strong> — founder</div>
-    <div class="path-item"><span>College</span><strong>BMSCE</strong> — B.E., Bangalore</div>
-    <div class="path-item"><span>Builds</span><strong>Hatch · Aether · GestureOS</strong></div>
+</section>
+
+<section id="work" class="section">
+  <header class="section-head">
+    <p class="section-label">Selected work</p>
+    <h2>Projects with live demos</h2>
+    <p class="section-desc">Each project solves a real constraint — campus users, consensus under failure, or webcam-only CV.</p>
+  </header>
+
+  <div class="projects">
+    <article class="project">
+      <div class="project-header">
+        <span class="project-index">01</span>
+        <span class="project-live">Live</span>
+      </div>
+      <h3 class="project-title">Hatch</h3>
+      <p class="project-role">Campus network · Full-stack product</p>
+      <p class="project-summary">A single place for BMSCE students to form teams, join clubs, and ship projects — replacing scattered group chats.</p>
+      <div class="project-facts">
+        <div><span>Problem</span><p>Collaboration lived in WhatsApp groups with no structure.</p></div>
+        <div><span>Built with</span><p>Next.js, TypeScript, Supabase, Vercel</p></div>
+        <div><span>Result</span><p>Deployed product with auth and real campus data.</p></div>
+      </div>
+      <div class="project-links">
+        <a class="link-primary" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Open live site</a>
+        <a href="https://github.com/affanahmed2302-cmyk/Hatch" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-header">
+        <span class="project-index">02</span>
+        <span class="project-live">Live</span>
+      </div>
+      <h3 class="project-title">Aether</h3>
+      <p class="project-role">Distributed systems · Raft KV store</p>
+      <p class="project-summary">A fault-tolerant key-value store implementing Raft consensus — leader election, log replication, and survival when nodes fail.</p>
+      <div class="project-facts">
+        <div><span>Problem</span><p>Needed systems depth beyond typical CRUD apps.</p></div>
+        <div><span>Built with</span><p>Go, Raft, Docker, chaos testing</p></div>
+        <div><span>Result</span><p>Working cluster plus interactive simulator on this site.</p></div>
+      </div>
+      <div class="project-links">
+        <a class="link-primary" href="/aether/">Open simulator</a>
+        <a href="https://github.com/affanahmed2302-cmyk/Aether" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-header">
+        <span class="project-index">03</span>
+        <span class="project-live">Live</span>
+      </div>
+      <h3 class="project-title">GestureOS</h3>
+      <p class="project-role">Computer vision · Touchless control</p>
+      <p class="project-summary">Hand-gesture control from a normal webcam using MediaPipe — no extra hardware. Demo runs on phone browsers too.</p>
+      <div class="project-facts">
+        <div><span>Problem</span><p>Hands-free input without specialized devices.</p></div>
+        <div><span>Built with</span><p>Python, MediaPipe, OpenCV</p></div>
+        <div><span>Result</span><p>Real-time tracking with a live camera demo.</p></div>
+      </div>
+      <div class="project-links">
+        <a class="link-primary" href="/gestureos/">Open camera demo</a>
+        <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
   </div>
 </section>
 
-<section id="contact" class="sec contact">
-  <p class="label">Contact</p>
-  <h2>Let’s build something real</h2>
-  <p class="sub">Products, systems, or a focused technical chat. Usually replies within 24 hours.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email me</a>
-    <a class="btn" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
+<section id="skills" class="section">
+  <header class="section-head">
+    <p class="section-label">Capabilities</p>
+    <h2>Skills in context</h2>
+    <p class="section-desc">Tools listed by where they were used in shipped work.</p>
+  </header>
+  <div class="skills">
+    <div class="skill">
+      <h3>Frontend</h3>
+      <p>Next.js, TypeScript, React, modern CSS</p>
+      <span class="skill-use">Used in Hatch</span>
+    </div>
+    <div class="skill">
+      <h3>Backend &amp; data</h3>
+      <p>Go, Node, PostgreSQL, Supabase, REST APIs</p>
+      <span class="skill-use">Used in Hatch &amp; Aether</span>
+    </div>
+    <div class="skill">
+      <h3>Distributed systems</h3>
+      <p>Raft consensus, Docker, multi-node testing</p>
+      <span class="skill-use">Used in Aether</span>
+    </div>
+    <div class="skill">
+      <h3>Computer vision</h3>
+      <p>MediaPipe, OpenCV, real-time pipelines</p>
+      <span class="skill-use">Used in GestureOS</span>
+    </div>
   </div>
-  <div class="social">
+</section>
+
+<section id="about" class="section">
+  <header class="section-head">
+    <p class="section-label">About</p>
+    <h2>Background</h2>
+  </header>
+  <div class="about-grid">
+    <div class="about-copy">
+      <p>I’m <strong>Affan Ahmed Shariff</strong>, founder and CEO of Primora Solutions, based in Bangalore. I study at BMS College of Engineering and build products under real constraints — campus users, consensus protocols, and webcam-only CV.</p>
+      <p>I prefer live demos over presentations. If something isn’t openable, it isn’t done.</p>
+    </div>
+    <div class="about-list">
+      <div class="about-row">
+        <span>Present</span>
+        <div>
+          <strong>Primora Solutions</strong>
+          <p>Founder &amp; CEO</p>
+        </div>
+      </div>
+      <div class="about-row">
+        <span>Education</span>
+        <div>
+          <strong>B.M.S. College of Engineering</strong>
+          <p>B.E. · Bangalore</p>
+        </div>
+      </div>
+      <div class="about-row">
+        <span>Focus</span>
+        <div>
+          <strong>Product engineering</strong>
+          <p>Full-stack, systems, CV</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section section-contact">
+  <header class="section-head">
+    <p class="section-label">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="section-desc">Open to internships, product engineering roles, and technical partnerships. I usually reply within 24 hours.</p>
+  </header>
+  <div class="contact-actions">
+    <a class="btn btn-primary" href="mailto:affanahmed2302@gmail.com?subject=Hello%20from%20your%20portfolio">Email</a>
+    <a class="btn btn-ghost" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+  <div class="contact-links">
     <a href="https://github.com/affanahmed2302-cmyk" target="_blank" rel="noopener">GitHub</a>
     <a href="https://www.linkedin.com/in/affan-ahmed-shariff-a0917a332" target="_blank" rel="noopener">LinkedIn</a>
     <a href="tel:+919480751817">+91 94807 51817</a>
@@ -147,10 +202,10 @@
 </section>
 </main>
 
-<footer>
+<footer class="footer">
   <p>© 2026 Affan Ahmed Shariff · Primora Solutions · Bangalore</p>
 </footer>
 
-<script src="clean.js"></script>
+<script src="pro-site.js"></script>
 </body>
 </html>
