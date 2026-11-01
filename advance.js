@@ -10,7 +10,7 @@
   }
 
   var canvas=document.getElementById('stars'),ctx=canvas&&canvas.getContext('2d');
-  var stars=[],W=0,H=0,raf=0;
+  var stars=[],W=0,H=0;
   function resize(){
     if(!canvas)return;
     W=canvas.width=window.innerWidth;
@@ -28,7 +28,7 @@
     var t=root.getAttribute('data-theme');
     return t==='green'?'rgba(110,231,183,':'rgba(140,176,255,';
   }
-  function draw(t){
+  function draw(){
     if(!ctx)return;
     ctx.clearRect(0,0,W,H);
     var c=color();
@@ -42,10 +42,10 @@
       ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
       ctx.fill();
     }
-    raf=requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
   }
   if(canvas&&ctx&&!window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    resize();draw(0);
+    resize();draw();
     window.addEventListener('resize',function(){resize()},{passive:true});
   } else if(canvas){resize();}
 
@@ -55,10 +55,9 @@
     if(!layer)return;
     layer.innerHTML='';
     var cx=window.innerWidth/2,cy=window.innerHeight*0.35;
-    var n=48;
-    for(var i=0;i<n;i++){
+    for(var i=0;i<48;i++){
       var p=document.createElement('i');
-      var ang=(i/n)*Math.PI*2+Math.random()*0.4;
+      var ang=(i/48)*Math.PI*2+Math.random()*0.4;
       var dist=80+Math.random()*180;
       p.style.cssText='position:absolute;left:'+cx+'px;top:'+cy+'px;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow);pointer-events:none;transition:transform .45s cubic-bezier(.15,.85,.25,1),opacity .45s;opacity:1;transform:translate(-50%,-50%)';
       layer.appendChild(p);
@@ -130,38 +129,11 @@
     });
   });
 
-  var lines=[
-    {t:'$ whoami',c:'cmd'},
-    {t:'Affan Ahmed Shariff · 1st year BMSCE · Primora',c:'ok'},
-    {t:'$ ls projects/',c:'cmd'},
-    {t:'Hatch/  Aether/  GestureOS/',c:''},
-    {t:'$ echo "live demos > slides"',c:'cmd'},
-    {t:'live demos > slides',c:'ok'}
-  ];
-  var body=document.getElementById('termBody');
-  function runTerm(){
-    if(!body)return;body.innerHTML='';
-    var i=0;
-    function next(){
-      if(i>=lines.length){body.innerHTML+='<span class="caret"></span>';addXp('intro',10);return}
-      var L=lines[i++],d=document.createElement('div');d.className=L.c||'';body.appendChild(d);
-      var j=0;
-      function type(){
-        if(j<=L.t.length){d.textContent=L.t.slice(0,j++);setTimeout(type,16+Math.random()*20)}
-        else setTimeout(next,220);
-      }
-      type();
-    }
-    next();
-  }
-  runTerm();
-  var rt=document.getElementById('replayTerm');if(rt)rt.addEventListener('click',runTerm);
-
   var cmds=[
     {l:'Go to Work',fn:function(){location.hash='#work'}},
-    {l:'Go to Lab',fn:function(){location.hash='#lab'}},
-    {l:'Go to Stack',fn:function(){location.hash='#stack'}},
+    {l:'Go to Impact',fn:function(){location.hash='#impact'}},
     {l:'Go to About',fn:function(){location.hash='#about'}},
+    {l:'Go to Education',fn:function(){location.hash='#education'}},
     {l:'Go to Contact',fn:function(){location.hash='#contact'}},
     {l:'Open Hatch live',fn:function(){window.open('https://hatch-primeora.vercel.app','_blank')}},
     {l:'Open Aether simulator',fn:function(){location.href='/aether/'}},
