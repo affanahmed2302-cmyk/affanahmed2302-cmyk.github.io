@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://affanahmed2302-cmyk.github.io/sitemap.xml
