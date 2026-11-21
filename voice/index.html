@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Voice · Affan Ahmed Shariff</title>
+<meta name="description" content="Voice identity for Affan Ahmed Shariff — official recordings (when published)."/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/platform.css?v=p1"/>
+</head>
+<body>
+<div class="noise"></div><div class="atmos"></div><div class="grid"></div>
+<div class="shell">
+<header class="nav">
+  <a class="brand" href="/">affan<span>.</span></a>
+  <nav class="nav-links">
+    <a href="/about/">About</a>
+    <a href="/journey/">Journey</a>
+    <a href="/ventures/">Ventures</a>
+    <a href="/projects/">Projects</a>
+    <a href="/voice/" class="active">Voice</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <button type="button" class="chip" id="cmdBtn">⌘K</button>
+    <a class="nav-cta" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu"><i></i></button>
+  </div>
+</header>
+<main class="page">
+  <p class="eyebrow fade">Voice identity</p>
+  <h1 class="h1 fade">Hear Affan</h1>
+  <p class="lead fade">Official introduction and journey recordings will appear here. Casual or accidental clips are not used as the public introduction.</p>
+  <div class="voice-box fade">
+    <h3>Personal introduction</h3>
+    <p class="muted">Status: awaiting official recording upload</p>
+    <div class="player-placeholder">Audio player ready — no public intro file published yet</div>
+    <div class="note">
+      <strong>Why empty?</strong> A previous clip was a private/CIE context note, not an official intro. It has been removed.
+      To publish: upload clean MP3 files to <code>/media/</code> named <code>intro.mp3</code>, <code>bio.mp3</code>, <code>primora.mp3</code>, <code>hatch.mp3</code>.
+    </div>
+  </div>
+  <div class="voice-box fade">
+    <h3>Planned library</h3>
+    <div class="list" style="margin-top:0.75rem">
+      <div class="list-item"><h3>Biography</h3><p>Full background in your voice</p></div>
+      <div class="list-item"><h3>Primora introduction</h3><p>Company story</p></div>
+      <div class="list-item"><h3>Hatch explanation</h3><p>Product walkthrough</p></div>
+      <div class="list-item"><h3>Philosophy &amp; vision</h3><p>What you build toward</p></div>
+    </div>
+  </div>
+  <div class="voice-box fade">
+    <h3>Voice AI &amp; cloning</h3>
+    <p class="muted">Not enabled on this static site.</p>
+    <div class="note">
+      Real-time speech, cloning, and private API keys require a secure backend (e.g. Vercel functions + secrets).
+      They will not be faked in frontend JavaScript. When you provide an API key privately and official sample audio, that layer can be added.
+    </div>
+  </div>
+</main>
+<footer class="footer"><p>© 2026 Affan Ahmed Shariff · Primora Solutions</p><div><a href="/resume/">Resume</a> · <a href="/media/">Media</a> · <a href="https://github.com/affanahmed2302-cmyk">GitHub</a></div></footer>
+<div class="overlay" id="overlay" hidden><div class="cmd" role="dialog"><input type="text" id="cmdInput" placeholder="Jump to…" autocomplete="off"/><ul id="cmdList"></ul><p class="cmd-h">↑↓ Enter · Esc</p></div></div>
+<script src="/platform.js?v=p1"></script>
+</div>
+</body>
+</html>
