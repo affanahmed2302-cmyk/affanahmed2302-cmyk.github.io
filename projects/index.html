@@ -4,39 +4,33 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Projects · Affan Ahmed Shariff</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/platform.css?v=p1"/>
+<link rel="stylesheet" href="/platform.css?v=p2"/>
+<link rel="stylesheet" href="/platform-v2.css?v=p2"/>
 </head>
 <body>
 <div class="noise"></div><div class="atmos"></div><div class="grid"></div>
 <div class="shell">
 <header class="nav">
   <a class="brand" href="/">affan<span>.</span></a>
-  <nav class="nav-links">
-    <a href="/about/">About</a>
-    <a href="/journey/">Journey</a>
-    <a href="/ventures/">Ventures</a>
-    <a href="/projects/" class="active">Projects</a>
-    <a href="/voice/">Voice</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-  <div class="nav-right">
-    <button type="button" class="chip" id="cmdBtn">⌘K</button>
-    <a class="nav-cta" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
-    <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu"><i></i></button>
-  </div>
+  <nav class="nav-links"><a href="/">Home</a><a href="/about/">About</a><a href="/journey/">Journey</a><a href="/academic/">Academic</a><a href="/ventures/">Ventures</a><a href="/projects/" class="active">Projects</a><a href="/expertise/">Expertise</a><a href="/leadership/">Leadership</a><a href="/contact/">Contact</a></nav>
+  <div class="nav-right"><button type="button" class="chip" id="cmdBtn">⌘K</button>
+  <a class="nav-cta" href="https://wa.me/919480751817?text=Hi%20Affan" target="_blank" rel="noopener">WhatsApp</a>
+  <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu"><i></i></button></div>
 </header>
 <main class="page">
   <p class="eyebrow fade">Projects</p>
-  <h1 class="h1 fade">Selected work</h1>
-  <div class="card-grid cols-2" style="margin-top:1.5rem">
-    <div class="card fade"><span class="tag">Live</span><h3>Hatch</h3><p>Campus network for BMSCE.</p><p style="margin-top:0.75rem"><a class="link" href="https://hatch-primeora.vercel.app" target="_blank" rel="noopener">Live →</a> · <a class="link" href="/ventures/hatch/">Case</a></p></div>
-    <div class="card fade"><span class="tag">Live</span><h3>Aether</h3><p>Raft consensus KV store with chaos tests and simulator.</p><p style="margin-top:0.75rem"><a class="link" href="/aether/">Simulator →</a></p></div>
-    <div class="card fade"><span class="tag">Live</span><h3>GestureOS</h3><p>Real-time hand gestures via webcam (MediaPipe).</p><p style="margin-top:0.75rem"><a class="link" href="/gestureos/">Camera demo →</a></p></div>
+  <h1 class="h1 fade">Technical work</h1>
+  <p class="lead fade">Case-study summaries. Exploration is labelled as exploration.</p>
+  <div class="card-grid cols-2" style="margin-top:1.25rem">
+    <div class="card fade"><span class="tag">Live</span><h3>Aether</h3><p>Raft consensus key-value store with interactive simulator.</p><p class="muted" style="margin-top:.5rem">Go · Raft · Docker-oriented demos</p><p style="margin-top:.75rem"><a class="link" href="/aether/">Simulator →</a></p></div>
+    <div class="card fade"><span class="tag">Live</span><h3>GestureOS</h3><p>Real-time hand gesture recognition via webcam using MediaPipe.</p><p class="muted" style="margin-top:.5rem">Python · MediaPipe · OpenCV</p><p style="margin-top:.75rem"><a class="link" href="/gestureos/">Camera demo →</a></p></div>
+    <div class="card fade"><span class="tag">Built</span><h3>Academic RAG assistant</h3><p>Local Python RAG assistant for syllabus summaries, question banks and academic deadlines.</p></div>
+    <div class="card fade"><span class="tag">Exploration</span><h3>Physical AI &amp; ROS2</h3><p>Research and simulation exploration — not a completed deployed defence project.</p></div>
+    <div class="card fade"><span class="tag">Live</span><h3>Hatch</h3><p>Campus product for BMSCE.</p><p style="margin-top:.75rem"><a class="link" href="/ventures/hatch/">Case →</a></p></div>
+    <div class="card fade"><span class="tag">2026</span><h3>Ideathon concept</h3><p>Food redistribution platform concept · Top 25 of 120 teams.</p><p style="margin-top:.75rem"><a class="link" href="/hackathons/">Hackathons →</a></p></div>
   </div>
 </main>
-<footer class="footer"><p>© 2026 Affan Ahmed Shariff · Primora Solutions</p><div><a href="/resume/">Resume</a> · <a href="/media/">Media</a> · <a href="https://github.com/affanahmed2302-cmyk">GitHub</a></div></footer>
+<footer class="footer"><p>© 2026 Affan Ahmed Shariff</p></footer>
 <div class="overlay" id="overlay" hidden><div class="cmd" role="dialog"><input type="text" id="cmdInput" placeholder="Jump to…" autocomplete="off"/><ul id="cmdList"></ul><p class="cmd-h">↑↓ Enter · Esc</p></div></div>
-<script src="/platform.js?v=p1"></script>
-</div>
-</body>
-</html>
+<script src="/platform.js?v=p2"></script>
+</div></body></html>
